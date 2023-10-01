@@ -29,7 +29,7 @@ public class CommandsSQL extends ConnectDB {
     }
 
     public static void selectStr(String str, String table) {
-        String query = "SELECT %s FROM %s".formatted(str, table);
+        String query = "SELECT "+str+" FROM "+table+"";
         try(Statement statement = connection.createStatement();)  {
             ResultSet result;
             result = statement.executeQuery(query);
@@ -43,6 +43,21 @@ public class CommandsSQL extends ConnectDB {
             System.out.println("Ошибка в selectStr");
             throw new RuntimeException(e);
         }
+    }
+    public static boolean searchNickname(String nickname){
+        String query = "SELECT nickname from allconfig where nickname = '"+ nickname +"';";
+        try(Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                    return true;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Ошибка в searchNickname");
+            throw new RuntimeException(e);
+        }
+        return false;
     }
 
 
