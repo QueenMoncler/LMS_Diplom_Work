@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lms_diplom_work.Moderator">
+<AnchorPane prefHeight="400.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Moderator.ModeratorController">
    <children>
       <Button fx:id="buttonHello" layoutX="169.0" layoutY="200.0" mnemonicParsing="false" text="Привет" />
    </children>
