@@ -1,5 +1,6 @@
 package com.example.lms_diplom_work;
 
+import Database.ConnectDB;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,6 +19,14 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        //String query = "CREATE table test(id BIGSERIAL, first_name VARCHAR(50))";
+//
+        //String query = "DROP table test";
+
+        //String query = "INSERT INTO test(first_name) VALUES('test')";
+        String query = "Select * FROM employee";
+
+        ConnectDB.testQuery(query);
+        //launch();
     }
 }
