@@ -1,6 +1,7 @@
 package Moderator;
 
 
+import com.example.lms_diplom_work.HelloApplication;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,34 +10,31 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ModeratorApplication{
+public class ModeratorApplication {
 //    @Override
 //    public void start(Stage stage) throws Exception {
-//        FXMLLoader fxmlLoader = new FXMLLoader(ModeratorApplication.class.getResource("moderator-view.fxml"));
-//        try {
-//            fxmlLoader.load();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+//        Parent root = FXMLLoader.load(ModeratorApplication.class.getResource("moderatorWindow-view.fxml"));
 //        Stage stg = new Stage();
-//        Parent root = fxmlLoader.getRoot();
-//        stg.setScene(new Scene(root));
+//        Scene scene = new Scene(root);
+//
+//        stg.setScene(scene);
+//
+//        stg.setResizable(false);
+//       // stg.setMaximized(true);
 //        stg.showAndWait();
 //    }
-    public void startModerWindow(){
-        FXMLLoader fxmlLoader = new FXMLLoader(ModeratorApplication.class.getResource("moderatorWindow-view.fxml"));
-        try {
-            fxmlLoader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public void startModerWindow() throws IOException {
+
+        Parent root = FXMLLoader.load(ModeratorApplication.class.getResource("moderatorWindow-view.fxml"));
         Stage stg = new Stage();
-        Parent root = fxmlLoader.getRoot();
-        stg.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+
+        stg.setScene(scene);
 
         stg.setResizable(false);
        // stg.setMaximized(true);
         stg.showAndWait();
+
 
     }
 
