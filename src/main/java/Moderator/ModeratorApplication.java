@@ -24,7 +24,7 @@ public class ModeratorApplication{
 //        stg.showAndWait();
 //    }
     public void startModerWindow(){
-        FXMLLoader fxmlLoader = new FXMLLoader(ModeratorApplication.class.getResource("moderator-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ModeratorApplication.class.getResource("moderatorWindow-view.fxml"));
         try {
             fxmlLoader.load();
         } catch (IOException e) {
@@ -33,7 +33,11 @@ public class ModeratorApplication{
         Stage stg = new Stage();
         Parent root = fxmlLoader.getRoot();
         stg.setScene(new Scene(root));
+
+        stg.setResizable(false);
+       // stg.setMaximized(true);
         stg.showAndWait();
+
     }
 
 //    public static void startup() {

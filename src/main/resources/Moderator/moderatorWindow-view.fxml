@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Moderator.ModeratorController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="427.0" layoutY="227.0" prefHeight="800.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <AnchorPane prefHeight="800.0" prefWidth="221.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="8.0" layoutY="13.0" prefHeight="774.0" prefWidth="230.0" stylesheets="@Moderator.css" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="13.0">
+                           <children>
+                              <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="134.0" prefWidth="190.0" stylesheets="@Moderator.css" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="14.0">
+                                 <children>
+                                    <Label layoutX="15.0" layoutY="49.0" prefHeight="35.0" prefWidth="164.0" text="Moderator режим">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="iconTextHover" />
+                                 </styleClass>
+                              </AnchorPane>
+                              <Label layoutX="28.0" layoutY="714.0" text="Михаил Сергеевич">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane layoutX="11.0" layoutY="178.0" prefHeight="502.0" prefWidth="190.0" stylesheets="@Moderator.css" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Button fx:id="homeBtn" layoutY="61.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Домой" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutY="264.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Задания" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Button layoutY="193.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Темы" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Button layoutY="127.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="188.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Преподаватели" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Button layoutX="2.0" layoutY="334.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Студенты" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Button layoutX="3.0" layoutY="408.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="О приложении" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <styleClass>
+                              <String fx:value="radius" />
+                              <String fx:value="shadow" />
+                              <String fx:value="white-bg" />
+                           </styleClass>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="304.0" layoutY="254.0" prefHeight="800.0" prefWidth="873.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="157.0" prefWidth="845.0" stylesheets="@Moderator.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="20.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="230.0" layoutY="11.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@Moderator.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="radius" />
+                                          <String fx:value="iconTextHover" />
+                                       </styleClass>
+                                       <children>
+                                          <Label contentDisplay="BOTTOM" layoutX="10.0" layoutY="12.0" prefHeight="111.0" prefWidth="153.0" text="Количество тем:" wrapText="true">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label contentDisplay="BOTTOM" layoutX="79.0" layoutY="86.0" prefHeight="27.0" prefWidth="28.0" styleClass="textAlignCenter" stylesheets="@Moderator.css" text="2" textAlignment="CENTER" wrapText="true">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@Moderator.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="radius" />
+                                          <String fx:value="iconTextHover" />
+                                       </styleClass>
+                                       <children>
+                                          <Label contentDisplay="BOTTOM" layoutX="10.0" layoutY="12.0" prefHeight="111.0" prefWidth="153.0" text="Преподавателей в системе:" wrapText="true">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label contentDisplay="BOTTOM" layoutX="119.0" layoutY="70.0" prefHeight="27.0" prefWidth="27.0" styleClass="textAlignCenter" stylesheets="@Moderator.css" text="2" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="27.0">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="441.0" layoutY="11.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@Moderator.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="radius" />
+                                          <String fx:value="iconTextHover" />
+                                       </styleClass>
+                                       <children>
+                                          <Label contentDisplay="BOTTOM" layoutX="5.0" layoutY="5.0" prefHeight="111.0" prefWidth="153.0" text="Суммарное количество заданий:" wrapText="true">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <Label contentDisplay="BOTTOM" layoutX="93.0" layoutY="78.0" prefHeight="25.0" prefWidth="26.0" styleClass="textAlignCenter" stylesheets="@Moderator.css" text="2" textAlignment="CENTER" wrapText="true">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="658.0" layoutY="11.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@Moderator.css">
+                                       <styleClass>
+                                          <String fx:value="white-bg" />
+                                          <String fx:value="shadow" />
+                                          <String fx:value="radius" />
+                                          <String fx:value="iconTextHover" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="14.0" layoutY="191.0" mouseTransparent="true" prefHeight="595.0" prefWidth="848.0" stylesheets="@Moderator.css" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="17.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -3,18 +3,15 @@ package com.example.lms_diplom_work;
 import Database.CommandsSQL;
 import Database.GetPasswordSQL;
 import Moderator.ModeratorApplication;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,12 +22,14 @@ public class HelloController implements Initializable {
 
     @FXML
     private URL location;
+
+    @FXML
+    private Label errorTextVisible;
     @FXML
     private Button sceneButton1;
 
     @FXML
     private Button buttonJoin;
-
     @FXML
     private PasswordField passwordField_password;
 
@@ -41,21 +40,98 @@ public class HelloController implements Initializable {
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-            buttonJoin.setOnAction(ActionEvent ->{
-                if (CommandsSQL.searchNickname(textField_nickname.getText())){
+        pressMouse();
+        pressEnter();
+    }
+
+
+    @FXML
+    public void pressMouse(){
+        errorTextVisible.setVisible(false);
+        buttonJoin.setOnAction(ActionEvent -> {
+            if (CommandsSQL.searchNickname(textField_nickname.getText())) {
                 System.out.println("GOOD");
-                if (GetPasswordSQL.getPass(textField_nickname.getText()).equals(passwordField_password.getText())){
-                System.out.println("Пароли совпадают");
+                if (GetPasswordSQL.getPass(textField_nickname.getText()).equals(passwordField_password.getText())) {
+                    System.out.println("Пароли совпадают");
                     Stage stg = (Stage) buttonJoin.getScene().getWindow();
                     stg.close();
                     ModeratorApplication moderatorApplication = new ModeratorApplication();
                     moderatorApplication.startModerWindow();
+                } else {
+                    System.out.println("Пароли не совпадают");
+                    errorTextVisible.setVisible(true);
                 }
-                else System.out.println("Пароли не совпадают");
+            } else {
+                System.out.println("Логин не совпадает");
+                errorTextVisible.setVisible(true);
             }
-            else System.out.println("NE GOOD");
+        });
+    }
+
+    @FXML
+    public void pressEnter() {
+        buttonJoin.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+                if (CommandsSQL.searchNickname(textField_nickname.getText())) {
+                    System.out.println("GOOD");
+                    if (GetPasswordSQL.getPass(textField_nickname.getText()).equals(passwordField_password.getText())) {
+                        System.out.println("Пароли совпадают");
+                        Stage stg = (Stage) buttonJoin.getScene().getWindow();
+                        stg.close();
+                        ModeratorApplication moderatorApplication = new ModeratorApplication();
+                        moderatorApplication.startModerWindow();
+                    } else {
+                        System.out.println("Пароли не совпадают");
+                        errorTextVisible.setVisible(true);
+                    }
+                } else {
+                    System.out.println("Логин не совпадает");
+                    errorTextVisible.setVisible(true);
+                }
+            }
         });
 
-}
+        passwordField_password.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+                if (CommandsSQL.searchNickname(textField_nickname.getText())) {
+                    System.out.println("GOOD");
+                    if (GetPasswordSQL.getPass(textField_nickname.getText()).equals(passwordField_password.getText())) {
+                        System.out.println("Пароли совпадают");
+                        Stage stg = (Stage) buttonJoin.getScene().getWindow();
+                        stg.close();
+                        ModeratorApplication moderatorApplication = new ModeratorApplication();
+                        moderatorApplication.startModerWindow();
+                    } else {
+                        System.out.println("Пароли не совпадают");
+                        errorTextVisible.setVisible(true);
+                    }
+                } else {
+                    System.out.println("Логин не совпадает");
+                    errorTextVisible.setVisible(true);
+                }
+            }
+        });
+
+        textField_nickname.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+                if (CommandsSQL.searchNickname(textField_nickname.getText())) {
+                    System.out.println("GOOD");
+                    if (GetPasswordSQL.getPass(textField_nickname.getText()).equals(passwordField_password.getText())) {
+                        System.out.println("Пароли совпадают");
+                        Stage stg = (Stage) buttonJoin.getScene().getWindow();
+                        stg.close();
+                        ModeratorApplication moderatorApplication = new ModeratorApplication();
+                        moderatorApplication.startModerWindow();
+                    } else {
+                        System.out.println("Пароли не совпадают");
+                        errorTextVisible.setVisible(true);
+                    }
+                } else {
+                    System.out.println("Логин не совпадает");
+                    errorTextVisible.setVisible(true);
+                }
+            }
+        });
+    }
 
 }
