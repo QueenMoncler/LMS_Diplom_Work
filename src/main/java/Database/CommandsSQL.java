@@ -50,7 +50,7 @@ public class CommandsSQL extends ConnectDB {
             ResultSet result;
             result = statement.executeQuery(query);
             while (result.next()) {
-                    return true;
+                return true;
             }
 
         } catch (SQLException e) {
@@ -60,7 +60,69 @@ public class CommandsSQL extends ConnectDB {
         return false;
     }
 
+    public static String getCountId() {
+        String query = "SELECT count(id) from ticher";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                System.out.println(result.getString("count"));
+                return result.getString("count");
+            }
 
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getCountId");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public static String nameUser(String nickname) {
+
+        String query = "SELECT first_name, last_name from moderator where nickname = '" + nickname + "';";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+
+                return result.getString("first_name") + " " + result.getString("last_name");
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в nameUser");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public static String getAmountTheme(){
+        String query = "SELECT count(id) from theme";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                return result.getString("count");
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getAmountTheme");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public static String getAmountStudent(){
+        String query = "SELECT count(id) from student";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                return result.getString("count");
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getAmountStudent");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
 
 
 }
