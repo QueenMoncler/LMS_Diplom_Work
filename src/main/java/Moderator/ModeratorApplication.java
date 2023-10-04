@@ -23,6 +23,18 @@ public class ModeratorApplication {
 //       // stg.setMaximized(true);
 //        stg.showAndWait();
 //    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    private static String nickname;
+
     public void startModerWindow() throws IOException {
 
         Parent root = FXMLLoader.load(ModeratorApplication.class.getResource("moderatorWindow-view.fxml"));
@@ -33,7 +45,10 @@ public class ModeratorApplication {
 
         stg.setResizable(false);
        // stg.setMaximized(true);
+
+
         stg.showAndWait();
+
 
 
     }
