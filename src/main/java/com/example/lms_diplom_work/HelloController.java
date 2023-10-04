@@ -55,10 +55,12 @@ public class HelloController implements Initializable {
                 if (GetPasswordSQL.getPass(textField_nickname.getText()).equals(passwordField_password.getText())) {
                     System.out.println("Пароли совпадают");
                     Stage stg = (Stage) buttonJoin.getScene().getWindow();
-                    stg.close();
+
                     ModeratorApplication moderatorApplication = new ModeratorApplication();
                     try {
+                        moderatorApplication.setNickname(textField_nickname.getText());
                         moderatorApplication.startModerWindow();
+                        stg.close();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -70,6 +72,7 @@ public class HelloController implements Initializable {
                 System.out.println("Логин не совпадает");
                 errorTextVisible.setVisible(true);
             }
+
         });
     }
 
@@ -82,10 +85,12 @@ public class HelloController implements Initializable {
                     if (GetPasswordSQL.getPass(textField_nickname.getText()).equals(passwordField_password.getText())) {
                         System.out.println("Пароли совпадают");
                         Stage stg = (Stage) buttonJoin.getScene().getWindow();
-                        stg.close();
+
                         ModeratorApplication moderatorApplication = new ModeratorApplication();
                         try {
+                            moderatorApplication.setNickname(textField_nickname.getText());
                             moderatorApplication.startModerWindow();
+                            stg.close();
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
@@ -107,10 +112,12 @@ public class HelloController implements Initializable {
                     if (GetPasswordSQL.getPass(textField_nickname.getText()).equals(passwordField_password.getText())) {
                         System.out.println("Пароли совпадают");
                         Stage stg = (Stage) buttonJoin.getScene().getWindow();
-                        stg.close();
+
                         ModeratorApplication moderatorApplication = new ModeratorApplication();
                         try {
+                            moderatorApplication.setNickname(textField_nickname.getText());
                             moderatorApplication.startModerWindow();
+                            stg.close();
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
@@ -132,10 +139,12 @@ public class HelloController implements Initializable {
                     if (GetPasswordSQL.getPass(textField_nickname.getText()).equals(passwordField_password.getText())) {
                         System.out.println("Пароли совпадают");
                         Stage stg = (Stage) buttonJoin.getScene().getWindow();
-                        stg.close();
+
                         ModeratorApplication moderatorApplication = new ModeratorApplication();
                         try {
+                            moderatorApplication.setNickname(textField_nickname.getText());
                             moderatorApplication.startModerWindow();
+                            stg.close();
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
