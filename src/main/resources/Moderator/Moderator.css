@@ -10,26 +10,36 @@
     -fx-background-color: transparent;
     -fx-border-width: 1px;
     -fx-cursor: hand;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-family: "Arial";
+    -fx-font-weight: bold;
 }
 .nav-btn:hover{
-    -fx-background-color: rgb(230, 230, 230);
+    -fx-background-color: #53388c;
 
 }
+
 
 .nav-btn:focused{
    /* -fx-background-color: linear-gradient(to bottom right, rgba(10,3,123,1) 1%, rgba(0,212,255,1) 1%);*/
-    -fx-background-color: "#b5d8ff";
-    -fx-text-fill: black;
+
+    -fx-text-fill: white;
+    -fx-border-color:#735da1;
+    -fx-border-radius:8px;
 }
 
 .shadow{
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 5,0,0,0);
 }
+.menu-bg{
+-fx-background-color:#2f2b40;
+}
 .white-bg{
-    -fx-background-color: #fff;
+    -fx-background-color: #2f2b40;
+    -fx-border-width:1px;
+    -fx-border-color:#4e4d52;
+    -fx-border-radius:8px;
 }
 .sero-bg{
     -fx-background-color: rgb(240, 240, 240);
@@ -55,6 +65,37 @@
 }
 
 .body-bg{
-    -fx-background-color: "#e0efff";
+    -fx-background-color:#0c071f;
 }
+.circleRadius{
+-fx-border-radius: 30px;
+}
+.border-color{
+-fx-border-width: 5px;
+-fx-border-radius: 8px;
+-fx-border-color: "#e0efff";
+}
+
+.newStyleMenu{
+-fx-background-color:#181429;
+}
+
+.textBold{
+    -fx-font-weight:bold;
+}
+/*
+.setImg{
+-fx-background-image: url("../Images/teacherTest.png");
+-fx-background-size: contain;
+-fx-background-radius: 100;
+ -fx-background-repeat: no-repeat;
+
+}
+
+.circle_SetStyle{
+        -fx-background-image: url("../Images/teacherTest.png");
+}
+*/
+
+
 
