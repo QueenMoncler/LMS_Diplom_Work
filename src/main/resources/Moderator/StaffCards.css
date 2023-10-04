@@ -1,0 +1,42 @@
+.StyleCards{
+-fx-background-color: #231f33;
+
+
+}
+.StyleText{
+
+    -fx-text-transform: uppercase;
+    -fx-line-height: 21px;
+    -fx-font-family: Montserrat;
+}
+.StyleTextOpisanie{
+
+    -fx-text-transform: uppercase;
+    -fx-font-size: 14px;
+    -fx-font-family: Montserrat;
+}
+.setTeacherEffect{
+  -fx-text-fill: #231E39;
+  -fx-background-color: #FEBB0B;
+  -fx-border-radius: 3px;
+  -fx-font-size: 14px;
+  -fx-font-weight: bold;
+  -fx-text-align:center;
+}
+.paneArrowButton{
+-fx-background-color:#231E39;
+}
+
+.borderCards{
+    -fx-border-color:#53388c;
+    -fx-border-width:2px;
+    -fx-border-radius:8px;
+}
+
+.eventBorderColor{
+    -fx-background-color:transparent;
+}
+.eventBorderColor:hover{
+    -fx-background-color: rgba(47, 43, 64, 0.3);
+
+}
