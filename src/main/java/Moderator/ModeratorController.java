@@ -26,11 +26,18 @@ public class ModeratorController implements Initializable {
     @FXML
     private URL location;
 
+
     @FXML
     private Label amountStudent;
 
     @FXML
     private Label amountTask;
+
+    @FXML
+    private Label amountTaskKnyazevCards;
+
+    @FXML
+    private Label amountTaskPivtoratskayaCards;
 
     @FXML
     private Label amountTeacher;
@@ -39,10 +46,25 @@ public class ModeratorController implements Initializable {
     private Label amountTheme;
 
     @FXML
+    private Label amountThemeKnyazevCards;
+
+    @FXML
+    private Label amountThemePivtoratskayaCards;
+
+    @FXML
+    private Label amountThemeVornikovaCards;
+
+    @FXML
+    private Label amountThemeZhilinaCards;
+
+    @FXML
     private AnchorPane anchorPaneHomeWindow;
 
     @FXML
     private AnchorPane anchorPaneOProgWindow;
+
+    @FXML
+    private AnchorPane anchorPaneRightFull;
 
     @FXML
     private AnchorPane anchorPaneStudentWindow;
@@ -70,10 +92,6 @@ public class ModeratorController implements Initializable {
 
     @FXML
     private AnchorPane knyazevCards;
-    @FXML
-    private AnchorPane anchorPaneRightFull;
-    @FXML
-    private AnchorPane anchorPaneSwitch1;
 
     @FXML
     private Circle knyazevCircleImageview;
@@ -83,6 +101,12 @@ public class ModeratorController implements Initializable {
 
     @FXML
     private Button oProgrammBtn;
+
+    @FXML
+    private AnchorPane pivtoratskayaCards;
+
+    @FXML
+    private Circle pivtoratskayaCircleImageview;
 
     @FXML
     private Button studentsBtn;
@@ -95,6 +119,12 @@ public class ModeratorController implements Initializable {
 
     @FXML
     private Button themeBtn;
+
+    @FXML
+    private AnchorPane vornikovaCards;
+
+    @FXML
+    private Circle vornikovaCircleImageview;
 
     @FXML
     private AnchorPane zhilinaCards;
@@ -147,6 +177,8 @@ public class ModeratorController implements Initializable {
         amountStudent.setText(setAmountStudent());
         zhilinaCircleImageview.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(0)));
         knyazevCircleImageview.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(1)));
+        pivtoratskayaCircleImageview.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(2)));
+        vornikovaCircleImageview.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(3)));
 
         arrowSwitchBtn.setOnAction(ActionEvent->{
             if(zhilinaCards.isVisible()){
@@ -155,8 +187,15 @@ public class ModeratorController implements Initializable {
 
             } else if (knyazevCards.isVisible()) {
                 knyazevCards.setVisible(false);
-                zhilinaCards.setVisible(true);
+                pivtoratskayaCards.setVisible(true);
 
+            } else if (pivtoratskayaCards.isVisible()) {
+                pivtoratskayaCards.setVisible(false);
+                vornikovaCards.setVisible(true);
+            }
+            else if (vornikovaCards.isVisible()) {
+                zhilinaCards.setVisible(true);
+                vornikovaCards.setVisible(false);
             }
         });
 
@@ -176,8 +215,10 @@ public class ModeratorController implements Initializable {
             anchorPaneTeacherWindow.setVisible(false);
             anchorPaneHomeWindow.setVisible(true);
 
+
         });
         teacherBtn.setOnAction(ActionEvent -> {
+
             //anchorPaneSwitch1.setVisible(true);
             anchorPaneSwitch.setVisible(true);
             anchorPaneTeacherWindow.setVisible(true);
