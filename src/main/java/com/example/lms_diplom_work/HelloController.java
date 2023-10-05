@@ -57,13 +57,15 @@ public class HelloController implements Initializable {
                     Stage stg = (Stage) buttonJoin.getScene().getWindow();
 
                     ModeratorApplication moderatorApplication = new ModeratorApplication();
+
                     try {
                         moderatorApplication.setNickname(textField_nickname.getText());
                         moderatorApplication.startModerWindow();
-                        stg.close();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
+                    stg.hide();
+
                 } else {
                     System.out.println("Пароли не совпадают");
                     errorTextVisible.setVisible(true);
@@ -90,10 +92,10 @@ public class HelloController implements Initializable {
                         try {
                             moderatorApplication.setNickname(textField_nickname.getText());
                             moderatorApplication.startModerWindow();
-                            stg.close();
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
+                        stg.hide();
                     } else {
                         System.out.println("Пароли не совпадают");
                         errorTextVisible.setVisible(true);
@@ -117,10 +119,10 @@ public class HelloController implements Initializable {
                         try {
                             moderatorApplication.setNickname(textField_nickname.getText());
                             moderatorApplication.startModerWindow();
-                            stg.close();
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
+                        stg.hide();
                     } else {
                         System.out.println("Пароли не совпадают");
                         errorTextVisible.setVisible(true);
@@ -144,10 +146,10 @@ public class HelloController implements Initializable {
                         try {
                             moderatorApplication.setNickname(textField_nickname.getText());
                             moderatorApplication.startModerWindow();
-                            stg.close();
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
+                        stg.hide();
                     } else {
                         System.out.println("Пароли не совпадают");
                         errorTextVisible.setVisible(true);

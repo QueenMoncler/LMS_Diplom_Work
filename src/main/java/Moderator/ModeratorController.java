@@ -66,13 +66,17 @@ public class ModeratorController implements Initializable {
     private Button arrowSwitchBtn;
 
     @FXML
-    private Label cardsAmountTask;
-
-    @FXML
-    private Label cardsAmountTheme;
-
-    @FXML
     private Button homeBtn;
+
+    @FXML
+    private AnchorPane knyazevCards;
+    @FXML
+    private AnchorPane anchorPaneRightFull;
+    @FXML
+    private AnchorPane anchorPaneSwitch1;
+
+    @FXML
+    private Circle knyazevCircleImageview;
 
     @FXML
     private Label nameUserModerator;
@@ -90,10 +94,15 @@ public class ModeratorController implements Initializable {
     private Button teacherBtn;
 
     @FXML
-    private Circle testCircleImageview;
+    private Button themeBtn;
 
     @FXML
-    private Button themeBtn;
+    private AnchorPane zhilinaCards;
+
+    @FXML
+    private Circle zhilinaCircleImageview;
+
+    private static String nicknameUser = new ModeratorApplication().getNickname();
 
 
     public String setNameUserModerator(String nickname){
@@ -110,24 +119,24 @@ public class ModeratorController implements Initializable {
         return CommandsSQL.getAmountStudent();
     }
 
-    private URL urlTest = getClass().getResource("/Images/teacherTest.png");
-    private URL urlZhilina = getClass().getResource("/Images/zhilina.png");
-    TeacherCards teacherCards = new TeacherCards();
-    private Image img = new Image(teacherCards.urlTeacherZhilina.toExternalForm());
-    public void setImageCircle()  {
 
-        if(img.getUrl().equals(urlTest.getFile())){
-            img = new Image(urlZhilina.toExternalForm());
+    static TeacherCards teacherCards = new TeacherCards(nicknameUser);
+    public static Image img = teacherCards.getTeacherStaff().get(0);
+    public static void setImageCircle(Circle circle)  {
+
+        if(img.getUrl().equals(teacherCards.getTeacherStaff().get(0))){
+            img = teacherCards.getTeacherStaff().get(1);
+            circle.setFill(new ImagePattern(img));
+        } else if (img.getUrl().equals(teacherCards.getTeacherStaff().get(1))) {
+            img = teacherCards.getTeacherStaff().get(2);
+            circle.setFill(new ImagePattern(img));
+        }else {
+            img = teacherCards.getTeacherStaff().get(0);
+            circle.setFill(new ImagePattern(img));
         }
-        else {
-            img = new Image(urlTest.toExternalForm());
-        }
-        testCircleImageview.setFill(new ImagePattern(img));
+
+
     }
-
-
-    private String nicknameUser = new ModeratorApplication().getNickname();
-
 
 
     @FXML
@@ -136,62 +145,89 @@ public class ModeratorController implements Initializable {
         nameUserModerator.setText(setNameUserModerator(nicknameUser));
         amountTheme.setText(setAmountTheme());
         amountStudent.setText(setAmountStudent());
-
+        zhilinaCircleImageview.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(0)));
+        knyazevCircleImageview.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(1)));
 
         arrowSwitchBtn.setOnAction(ActionEvent->{
-            testCircleImageview.setFill(new ImagePattern(img));
+            if(zhilinaCards.isVisible()){
+                zhilinaCards.setVisible(false);
+                knyazevCards.setVisible(true);
+
+            } else if (knyazevCards.isVisible()) {
+                knyazevCards.setVisible(false);
+                zhilinaCards.setVisible(true);
+
+            }
         });
+
 
 
         homeBtn.setOnAction(ActionEvent -> {
-            anchorPaneHomeWindow.setVisible(true);
-            anchorPaneHomeWindow.setMouseTransparent(true);
+//            anchorPaneHomeWindow.setVisible(true);
+//            anchorPaneHomeWindow.setMouseTransparent(true);
+//            anchorPaneTeacherWindow.setVisible(false);
+//            anchorPaneThemeWindow.setVisible(false);
+//            anchorPaneTaskWindow.setVisible(false);
+//            anchorPaneStudentWindow.setVisible(false);
+//            anchorPaneOProgWindow.setVisible(false);
+//            anchorPaneRightFull.setVisible(true);
+            //anchorPaneSwitch1.setVisible(false);
+            anchorPaneSwitch.setVisible(true);
             anchorPaneTeacherWindow.setVisible(false);
-            anchorPaneThemeWindow.setVisible(false);
-            anchorPaneTaskWindow.setVisible(false);
-            anchorPaneStudentWindow.setVisible(false);
-            anchorPaneOProgWindow.setVisible(false);
+            anchorPaneHomeWindow.setVisible(true);
 
         });
         teacherBtn.setOnAction(ActionEvent -> {
-            anchorPaneHomeWindow.setVisible(false);
+            //anchorPaneSwitch1.setVisible(true);
+            anchorPaneSwitch.setVisible(true);
             anchorPaneTeacherWindow.setVisible(true);
-            anchorPaneThemeWindow.setVisible(false);
-            anchorPaneTaskWindow.setVisible(false);
-            anchorPaneStudentWindow.setVisible(false);
-            anchorPaneOProgWindow.setVisible(false);
+            anchorPaneHomeWindow.setVisible(false);
+//            anchorPaneHomeWindow.setVisible(false);
+//            anchorPaneTeacherWindow.setVisible(true);
+//            anchorPaneThemeWindow.setVisible(false);
+//            anchorPaneTaskWindow.setVisible(false);
+//            anchorPaneStudentWindow.setVisible(false);
+//            anchorPaneOProgWindow.setVisible(false);
+//            anchorPaneRightFull.setVisible(false);
         });
         themeBtn.setOnAction(ActionEvent -> {
-            anchorPaneHomeWindow.setVisible(false);
-            anchorPaneTeacherWindow.setVisible(false);
-            anchorPaneThemeWindow.setVisible(true);
-            anchorPaneTaskWindow.setVisible(false);
-            anchorPaneStudentWindow.setVisible(false);
-            anchorPaneOProgWindow.setVisible(false);
+//            anchorPaneHomeWindow.setVisible(false);
+//            anchorPaneTeacherWindow.setVisible(false);
+//            anchorPaneThemeWindow.setVisible(true);
+//            anchorPaneTaskWindow.setVisible(false);
+//            anchorPaneStudentWindow.setVisible(false);
+//            anchorPaneOProgWindow.setVisible(false);
         });
         taskBtn.setOnAction(ActionEvent -> {
-            anchorPaneHomeWindow.setVisible(false);
-            anchorPaneTeacherWindow.setVisible(false);
-            anchorPaneThemeWindow.setVisible(false);
-            anchorPaneTaskWindow.setVisible(true);
-            anchorPaneStudentWindow.setVisible(false);
-            anchorPaneOProgWindow.setVisible(false);
+//            anchorPaneHomeWindow.setVisible(false);
+//            anchorPaneTeacherWindow.setVisible(false);
+//            anchorPaneThemeWindow.setVisible(false);
+//            anchorPaneTaskWindow.setVisible(true);
+//            anchorPaneStudentWindow.setVisible(false);
+//            anchorPaneOProgWindow.setVisible(false);
         });
         studentsBtn.setOnAction(ActionEvent -> {
-            anchorPaneHomeWindow.setVisible(false);
-            anchorPaneTeacherWindow.setVisible(false);
-            anchorPaneThemeWindow.setVisible(false);
-            anchorPaneTaskWindow.setVisible(false);
-            anchorPaneStudentWindow.setVisible(true);
-            anchorPaneOProgWindow.setVisible(false);
+//            anchorPaneHomeWindow.setVisible(false);
+//            anchorPaneTeacherWindow.setVisible(false);
+//            anchorPaneThemeWindow.setVisible(false);
+//            anchorPaneTaskWindow.setVisible(false);
+//            anchorPaneStudentWindow.setVisible(true);
+//            anchorPaneOProgWindow.setVisible(false);
         });
         oProgrammBtn.setOnAction(ActionEvent -> {
-            anchorPaneHomeWindow.setVisible(false);
-            anchorPaneTeacherWindow.setVisible(false);
-            anchorPaneThemeWindow.setVisible(false);
-            anchorPaneTaskWindow.setVisible(false);
-            anchorPaneStudentWindow.setVisible(false);
-            anchorPaneOProgWindow.setVisible(true);
+//            anchorPaneHomeWindow.setVisible(false);
+//            anchorPaneTeacherWindow.setVisible(false);
+//            anchorPaneThemeWindow.setVisible(false);
+//            anchorPaneTaskWindow.setVisible(false);
+//            anchorPaneStudentWindow.setVisible(false);
+//            anchorPaneOProgWindow.setVisible(true);
+            Runtime rt = Runtime.getRuntime();
+            String url = "https://github.com/QueenMoncler/LMS_Diplom_Work";
+            try {
+                rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
     }
 

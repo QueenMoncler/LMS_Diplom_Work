@@ -1,5 +1,7 @@
 package Database;
 
+import Moderator.Home.TeacherCards;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -109,6 +111,7 @@ public class CommandsSQL extends ConnectDB {
         return null;
     }
 
+
     public static String getAmountStudent(){
         String query = "SELECT count(id) from student";
         try (Statement statement = connection.createStatement();) {
@@ -123,6 +126,9 @@ public class CommandsSQL extends ConnectDB {
         }
         return null;
     }
+
+
+
 
 
 }
