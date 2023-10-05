@@ -19,13 +19,15 @@ public class TeacherCards {
 
     private URL urlTeacherZhilina = getClass().getResource("/Images/zhilina.png");
     private URL urlTeacherKnyazev = getClass().getResource("/Images/knyazev.png");
+    private URL urlPivtoratskaya = getClass().getResource("/Images/vornikova.png");
     private URL urlVornikova = getClass().getResource("/Images/vornikova.png");
     Map<Integer, Image> teacherStaff = new HashMap<>();
 
     public void setStaff() {
         teacherStaff.put(0, new Image(urlTeacherZhilina.toExternalForm()));
         teacherStaff.put(1, new Image(urlTeacherKnyazev.toExternalForm()));
-        teacherStaff.put(2, new Image(urlVornikova.toExternalForm()));
+        teacherStaff.put(2, new Image(urlPivtoratskaya.toExternalForm()));
+        teacherStaff.put(3, new Image(urlVornikova.toExternalForm()));
     }
 
 
