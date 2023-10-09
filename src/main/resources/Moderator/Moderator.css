@@ -23,7 +23,7 @@
 }
 /*
 .nav-btn:focused{
-   /* -fx-background-color: linear-gradient(to bottom right, rgba(10,3,123,1) 1%, rgba(0,212,255,1) 1%);*/
+   /* -fx-background-color: linear-gradient(to bottom right, rgba(10,3,123,1) 1%, rgba(0,212,255,1) 1%);
 
     -fx-text-fill: white;
     -fx-border-color:#735da1;
@@ -83,9 +83,21 @@
 .newStyleMenu{
 -fx-background-color:#181429;
 }
+.newStyleMenuTextColorWhite{
+    -fx-text-size: 14px;
+    -fx-text-family: "Arial";
+    -fx-text-weight: bold;
+    -fx-text-fill:white;
+}
 
 .textBold{
     -fx-font-weight:bold;
+}
+
+.borderColorHover:hover{
+    -fx-border-color:#53388c;
+    -fx-border-radius:8px;
+    -fx-border-width:2px;
 }
 /*
 .setImg{

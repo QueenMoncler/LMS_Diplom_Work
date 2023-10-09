@@ -40,3 +40,8 @@
     -fx-background-color: rgba(47, 43, 64, 0.3);
 
 }
+
+.eventBorderColor:pressed {
+    -fx-background-color: rgba(47, 43, 64, 0.6);
+
+}
