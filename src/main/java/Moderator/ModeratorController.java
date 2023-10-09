@@ -58,7 +58,7 @@ public class ModeratorController implements Initializable {
     private Label amountThemeZhilinaCards;
 
     @FXML
-    private AnchorPane anchorPaneHomeWindow;
+    private AnchorPane anchorPaneCardsWindow;
 
     @FXML
     private AnchorPane anchorPaneOProgWindow;
@@ -211,9 +211,9 @@ public class ModeratorController implements Initializable {
 //            anchorPaneOProgWindow.setVisible(false);
 //            anchorPaneRightFull.setVisible(true);
             //anchorPaneSwitch1.setVisible(false);
-            anchorPaneSwitch.setVisible(true);
-            anchorPaneTeacherWindow.setVisible(false);
-            anchorPaneHomeWindow.setVisible(true);
+//            anchorPaneSwitch.setVisible(true);
+//            anchorPaneTeacherWindow.setVisible(false);
+//            anchorPaneHomeWindow.setVisible(true);
 
 
         });
@@ -222,10 +222,11 @@ public class ModeratorController implements Initializable {
             //anchorPaneSwitch1.setVisible(true);
             anchorPaneSwitch.setVisible(true);
             anchorPaneTeacherWindow.setVisible(true);
-            anchorPaneHomeWindow.setVisible(false);
+            anchorPaneCardsWindow.setVisible(true);
+            //anchorPaneHomeWindow.setVisible(false);
 //            anchorPaneHomeWindow.setVisible(false);
 //            anchorPaneTeacherWindow.setVisible(true);
-//            anchorPaneThemeWindow.setVisible(false);
+            anchorPaneThemeWindow.setVisible(false);
 //            anchorPaneTaskWindow.setVisible(false);
 //            anchorPaneStudentWindow.setVisible(false);
 //            anchorPaneOProgWindow.setVisible(false);
@@ -233,8 +234,8 @@ public class ModeratorController implements Initializable {
         });
         themeBtn.setOnAction(ActionEvent -> {
 //            anchorPaneHomeWindow.setVisible(false);
-//            anchorPaneTeacherWindow.setVisible(false);
-//            anchorPaneThemeWindow.setVisible(true);
+            anchorPaneTeacherWindow.setVisible(false);
+            anchorPaneThemeWindow.setVisible(true);
 //            anchorPaneTaskWindow.setVisible(false);
 //            anchorPaneStudentWindow.setVisible(false);
 //            anchorPaneOProgWindow.setVisible(false);
