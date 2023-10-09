@@ -2,6 +2,11 @@ package Database;
 
 import Moderator.Home.TeacherCards;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -122,6 +127,39 @@ public class CommandsSQL extends ConnectDB {
             }
         } catch (SQLException e) {
             System.out.println("Ошибка в getAmountStudent");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+
+    public static String addTask() throws SQLException {
+        String query = "INSERT INTO task(theme, task_name, task_text, task_file) " +
+                        "VALUES('тест', 'тест', 'тест', ?)";
+        File file = new File("TaskFile/IKT/testFileIKT.txt");
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            try(FileInputStream fileInputStream = new FileInputStream(file)){
+            statement.setBinaryStream(1, fileInputStream);
+            statement.executeUpdate();
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return null;
+    }
+
+    public static String getTask(){
+        String query = "select convert_from(task_file, 'UTF8') from task where task_name = 'тест'";
+        try (Statement statement = connection.createStatement()) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                return result.getString("convert_from");
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getTask");
             throw new RuntimeException(e);
         }
         return null;
