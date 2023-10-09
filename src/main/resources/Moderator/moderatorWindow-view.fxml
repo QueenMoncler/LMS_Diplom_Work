@@ -5,6 +5,8 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -111,7 +113,7 @@
                                     <String fx:value="newStyleMenu" />
                                  </styleClass>
                                  <children>
-                                    <AnchorPane layoutX="216.0" layoutY="12.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css">
+                                    <AnchorPane layoutX="216.0" layoutY="12.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
                                        <children>
                                           <AnchorPane layoutX="8.0" layoutY="73.0" prefHeight="53.0" prefWidth="158.0" stylesheets="@Moderator.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0">
                                              <styleClass>
@@ -137,7 +139,7 @@
                                           <String fx:value="StyleCards" />
                                        </styleClass>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="17.0" layoutY="12.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css" AnchorPane.leftAnchor="16.0">
+                                    <AnchorPane layoutX="17.0" layoutY="12.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
                                        <children>
                                           <AnchorPane layoutX="9.0" layoutY="74.0" prefHeight="53.0" prefWidth="158.0" stylesheets="@Moderator.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.0">
                                              <styleClass>
@@ -147,7 +149,7 @@
                                                 <String fx:value="newStyleMenu" />
                                              </styleClass>
                                              <children>
-                                                <Label fx:id="amountTeacher" contentDisplay="BOTTOM" layoutX="65.0" layoutY="2.0" prefHeight="49.0" prefWidth="26.0" styleClass="textAlignCenter" stylesheets="@Moderator.css" text="12" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="65.0">
+                                                <Label fx:id="amountTeacher" contentDisplay="BOTTOM" layoutX="66.0" layoutY="2.0" prefHeight="49.0" prefWidth="26.0" styleClass="textAlignCenter" stylesheets="@Moderator.css" text="12" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="66.0">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -155,7 +157,7 @@
                                                 <FontAwesomeIconView fill="#ff6969" glyphName="ARCHIVE" layoutX="14.0" layoutY="35.0" size="25" wrappingWidth="23.428571701049805" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0" />
                                              </children>
                                           </AnchorPane>
-                                          <FontAwesomeIconView fill="#ff6969" glyphName="FEMALE" layoutX="69.0" layoutY="57.0" size="50" wrappingWidth="35.428571701049805" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="10.0" />
+                                          <FontAwesomeIconView fill="#ff6969" glyphName="FEMALE" layoutX="74.0" layoutY="57.0" size="50" wrappingWidth="35.428571701049805" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="73.5714282989502" AnchorPane.topAnchor="10.0" />
                                        </children>
                                        <styleClass>
                                           <String fx:value="menu-bg" />
@@ -163,7 +165,7 @@
                                           <String fx:value="StyleCards" />
                                        </styleClass>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="424.0" layoutY="11.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css">
+                                    <AnchorPane layoutX="424.0" layoutY="11.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
                                        <children>
                                           <AnchorPane layoutX="8.0" layoutY="77.0" prefHeight="53.0" prefWidth="159.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0">
                                              <children>
@@ -193,7 +195,7 @@
                                           <String fx:value="StyleCards" />
                                        </styleClass>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="640.0" layoutY="11.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css" AnchorPane.rightAnchor="15.0">
+                                    <AnchorPane layoutX="640.0" layoutY="11.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
                                        <children>
                                           <AnchorPane layoutX="5.0" layoutY="67.0" prefHeight="53.0" prefWidth="173.0" stylesheets="@Moderator.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0">
                                              <styleClass>
@@ -223,370 +225,450 @@
                               </AnchorPane>
                               <AnchorPane fx:id="anchorPaneSwitch" layoutX="14.0" layoutY="191.0" prefHeight="550.0" prefWidth="850.0" stylesheets="@Moderator.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0">
                                  <children>
-                                    <AnchorPane fx:id="anchorPaneHomeWindow" layoutX="14.0" layoutY="14.0" prefHeight="382.0" prefWidth="320.0">
-                                       <styleClass>
-                                          <String fx:value="radius" />
-                                          <String fx:value="shadow" />
-                                          <String fx:value="white-bg" />
-                                          <String fx:value="newStyleMenu" />
-                                       </styleClass>
+                                    <AnchorPane fx:id="anchorPaneTeacherWindow" layoutX="306.0" layoutY="94.0" prefHeight="550.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <AnchorPane fx:id="zhilinaCards" prefHeight="326.0" prefWidth="320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
-                                             <styleClass>
-                                                <String fx:value="radius" />
-                                                <String fx:value="shadow" />
-                                                <String fx:value="StyleCards" />
-                                                <String fx:value="borderCards" />
-                                             </styleClass>
-                                             <children>
-                                                <Circle fill="#ffffff00" layoutX="135.0" layoutY="94.0" radius="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="setFill" visible="false" />
-                                                <Label layoutX="36.0" layoutY="218.0" prefHeight="35.0" prefWidth="206.0" text="Татьяна Жилина" textFill="WHITE" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="36.0">
-                                                   <font>
-                                                      <Font size="24.0" />
-                                                   </font>
-                                                   <stylesheets>
-                                                      <URL value="@StaffCards.css" />
-                                                      <URL value="@Moderator.css" />
-                                                   </stylesheets>
-                                                   <styleClass>
-                                                      <String fx:value="StyleText" />
-                                                      <String fx:value="textBold" />
-                                                   </styleClass>
-                                                </Label>
-                                                <Circle fx:id="zhilinaCircleImageview" fill="#fcfeff" layoutX="135.0" layoutY="113.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
-                                                <Label layoutX="45.0" layoutY="253.0" prefHeight="27.0" prefWidth="181.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Информационные системы" textFill="WHITE" wrapText="true">
-                                                   <font>
-                                                      <Font size="24.0" />
-                                                   </font>
-                                                </Label>
-                                                <AnchorPane layoutX="7.0" layoutY="174.0" prefHeight="78.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                                   <styleClass>
-                                                      <String fx:value="radius" />
-                                                      <String fx:value="shadow" />
-                                                      <String fx:value="paneArrowButton" />
-                                                   </styleClass>
-                                                   <stylesheets>
-                                                      <URL value="@Moderator.css" />
-                                                      <URL value="@StaffCards.css" />
-                                                   </stylesheets>
-                                                   <children>
-                                                      <Label layoutX="47.0" layoutY="12.0" text="Темы" textFill="WHITE" AnchorPane.leftAnchor="46.0">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                         <stylesheets>
-                                                            <URL value="@StaffCards.css" />
-                                                            <URL value="@Moderator.css" />
-                                                         </stylesheets>
-                                                         <styleClass>
-                                                            <String fx:value="StyleText" />
-                                                            <String fx:value="textBold" />
-                                                         </styleClass>
-                                                      </Label>
-                                                      <Label layoutX="156.0" layoutY="12.0" text="Задания" textFill="WHITE" AnchorPane.rightAnchor="45.0">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                         <stylesheets>
-                                                            <URL value="@StaffCards.css" />
-                                                            <URL value="@Moderator.css" />
-                                                         </stylesheets>
-                                                         <styleClass>
-                                                            <String fx:value="StyleText" />
-                                                            <String fx:value="textBold" />
-                                                         </styleClass>
-                                                      </Label>
-                                                      <Label fx:id="amountThemeZhilinaCards" layoutX="65.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="amountThemeZhilinaCards" layoutX="186.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </AnchorPane>
-                                             </children>
-                                             <stylesheets>
-                                                <URL value="@Moderator.css" />
-                                                <URL value="@StaffCards.css" />
-                                             </stylesheets>
-                                          </AnchorPane>
-                                          <FontAwesomeIconView fx:id="arrowSwitch" fill="WHITE" glyphName="ARROW_RIGHT" layoutX="279.0" layoutY="206.0" mouseTransparent="true" opacity="0.8" pickOnBounds="true" size="45" wrappingWidth="40.17146682739258" />
-                                          <Button fx:id="arrowSwitchBtn" layoutX="273.0" layoutY="2.0" mnemonicParsing="false" prefHeight="378.0" prefWidth="54.0" textFill="TRANSPARENT" AnchorPane.leftAnchor="272.0" AnchorPane.rightAnchor="0.0">
-                                             <stylesheets>
-                                                <URL value="@Moderator.css" />
-                                                <URL value="@StaffCards.css" />
-                                             </stylesheets>
-                                             <styleClass>
-                                                <String fx:value="sero-bg" />
-                                                <String fx:value="eventBorderColor" />
-                                             </styleClass>
-                                          </Button>
-                                          <AnchorPane fx:id="knyazevCards" layoutX="2.0" layoutY="2.0" prefHeight="380.0" prefWidth="261.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <styleClass>
-                                                <String fx:value="radius" />
-                                                <String fx:value="shadow" />
-                                                <String fx:value="StyleCards" />
-                                                <String fx:value="borderCards" />
-                                             </styleClass>
-                                             <children>
-                                                <Circle fill="#ffffff00" layoutX="135.0" layoutY="94.0" radius="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="setFill" visible="false" />
-                                                <Label layoutX="51.0" layoutY="218.0" prefHeight="35.0" prefWidth="183.0" text="Леонид Князев" textFill="WHITE" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0">
-                                                   <font>
-                                                      <Font size="24.0" />
-                                                   </font>
-                                                   <stylesheets>
-                                                      <URL value="@StaffCards.css" />
-                                                      <URL value="@Moderator.css" />
-                                                   </stylesheets>
-                                                   <styleClass>
-                                                      <String fx:value="StyleText" />
-                                                      <String fx:value="textBold" />
-                                                   </styleClass>
-                                                </Label>
-                                                <Circle fx:id="knyazevCircleImageview" fill="#fcfeff" layoutX="135.0" layoutY="113.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
-                                                <Label layoutX="67.0" layoutY="253.0" prefHeight="27.0" prefWidth="136.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Системы баз данных" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="68.0">
-                                                   <font>
-                                                      <Font size="24.0" />
-                                                   </font>
-                                                </Label>
-                                                <AnchorPane layoutX="7.0" layoutY="174.0" prefHeight="78.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                                   <styleClass>
-                                                      <String fx:value="radius" />
-                                                      <String fx:value="shadow" />
-                                                      <String fx:value="paneArrowButton" />
-                                                   </styleClass>
-                                                   <stylesheets>
-                                                      <URL value="@Moderator.css" />
-                                                      <URL value="@StaffCards.css" />
-                                                   </stylesheets>
-                                                   <children>
-                                                      <Label layoutX="47.0" layoutY="12.0" text="Темы" textFill="WHITE" AnchorPane.leftAnchor="46.0">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                         <stylesheets>
-                                                            <URL value="@StaffCards.css" />
-                                                            <URL value="@Moderator.css" />
-                                                         </stylesheets>
-                                                         <styleClass>
-                                                            <String fx:value="StyleText" />
-                                                            <String fx:value="textBold" />
-                                                         </styleClass>
-                                                      </Label>
-                                                      <Label layoutX="156.0" layoutY="12.0" text="Задания" textFill="WHITE" AnchorPane.rightAnchor="45.0">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                         <stylesheets>
-                                                            <URL value="@StaffCards.css" />
-                                                            <URL value="@Moderator.css" />
-                                                         </stylesheets>
-                                                         <styleClass>
-                                                            <String fx:value="StyleText" />
-                                                            <String fx:value="textBold" />
-                                                         </styleClass>
-                                                      </Label>
-                                                      <Label fx:id="amountThemeKnyazevCards" layoutX="65.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="amountTaskKnyazevCards" layoutX="186.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </AnchorPane>
-                                             </children>
-                                             <stylesheets>
-                                                <URL value="@Moderator.css" />
-                                                <URL value="@StaffCards.css" />
-                                             </stylesheets>
-                                          </AnchorPane>
-                                          <AnchorPane fx:id="pivtoratskayaCards" layoutX="1.0" layoutY="7.0" prefHeight="380.0" prefWidth="261.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <styleClass>
-                                                <String fx:value="radius" />
-                                                <String fx:value="shadow" />
-                                                <String fx:value="StyleCards" />
-                                                <String fx:value="borderCards" />
-                                             </styleClass>
-                                             <children>
-                                                <Circle fill="#ffffff00" layoutX="135.0" layoutY="94.0" radius="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="setFill" visible="false" />
-                                                <Label layoutX="9.0" layoutY="218.0" prefHeight="35.0" prefWidth="264.0" text="Наталья Пивторацкая" textFill="WHITE" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="3.0">
-                                                   <font>
-                                                      <Font size="24.0" />
-                                                   </font>
-                                                   <stylesheets>
-                                                      <URL value="@StaffCards.css" />
-                                                      <URL value="@Moderator.css" />
-                                                   </stylesheets>
-                                                   <styleClass>
-                                                      <String fx:value="StyleText" />
-                                                      <String fx:value="textBold" />
-                                                   </styleClass>
-                                                </Label>
-                                                <Circle fx:id="pivtoratskayaCircleImageview" fill="#fcfeff" layoutX="135.0" layoutY="113.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
-                                                <Label layoutX="13.0" layoutY="253.0" prefHeight="56.0" prefWidth="253.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Разработка десктопных приложений и модерирование сайтов" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0">
-                                                   <font>
-                                                      <Font size="24.0" />
-                                                   </font>
-                                                </Label>
-                                                <AnchorPane layoutX="7.0" layoutY="174.0" prefHeight="78.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                                   <styleClass>
-                                                      <String fx:value="radius" />
-                                                      <String fx:value="shadow" />
-                                                      <String fx:value="paneArrowButton" />
-                                                   </styleClass>
-                                                   <stylesheets>
-                                                      <URL value="@Moderator.css" />
-                                                      <URL value="@StaffCards.css" />
-                                                   </stylesheets>
-                                                   <children>
-                                                      <Label layoutX="47.0" layoutY="12.0" text="Темы" textFill="WHITE" AnchorPane.leftAnchor="46.0">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                         <stylesheets>
-                                                            <URL value="@StaffCards.css" />
-                                                            <URL value="@Moderator.css" />
-                                                         </stylesheets>
-                                                         <styleClass>
-                                                            <String fx:value="StyleText" />
-                                                            <String fx:value="textBold" />
-                                                         </styleClass>
-                                                      </Label>
-                                                      <Label layoutX="156.0" layoutY="12.0" text="Задания" textFill="WHITE" AnchorPane.rightAnchor="45.0">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                         <stylesheets>
-                                                            <URL value="@StaffCards.css" />
-                                                            <URL value="@Moderator.css" />
-                                                         </stylesheets>
-                                                         <styleClass>
-                                                            <String fx:value="StyleText" />
-                                                            <String fx:value="textBold" />
-                                                         </styleClass>
-                                                      </Label>
-                                                      <Label fx:id="amountThemePivtoratskayaCards" layoutX="65.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="amountTaskPivtoratskayaCards" layoutX="186.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </AnchorPane>
-                                             </children>
-                                             <stylesheets>
-                                                <URL value="@Moderator.css" />
-                                                <URL value="@StaffCards.css" />
-                                             </stylesheets>
-                                          </AnchorPane>
-                                          <AnchorPane fx:id="vornikovaCards" layoutX="2.0" layoutY="2.0" prefHeight="380.0" prefWidth="255.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <styleClass>
-                                                <String fx:value="radius" />
-                                                <String fx:value="shadow" />
-                                                <String fx:value="StyleCards" />
-                                                <String fx:value="borderCards" />
-                                             </styleClass>
-                                             <children>
-                                                <Circle fill="#ffffff00" layoutX="135.0" layoutY="94.0" radius="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="setFill" visible="false" />
-                                                <Label layoutX="29.0" layoutY="218.0" prefHeight="35.0" prefWidth="213.0" text="Ирина Ворникова" textFill="WHITE" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="28.0">
-                                                   <font>
-                                                      <Font size="24.0" />
-                                                   </font>
-                                                   <stylesheets>
-                                                      <URL value="@StaffCards.css" />
-                                                      <URL value="@Moderator.css" />
-                                                   </stylesheets>
-                                                   <styleClass>
-                                                      <String fx:value="StyleText" />
-                                                      <String fx:value="textBold" />
-                                                   </styleClass>
-                                                </Label>
-                                                <Circle fx:id="vornikovaCircleImageview" fill="#fcfeff" layoutX="135.0" layoutY="113.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
-                                                <Label layoutX="69.0" layoutY="253.0" prefHeight="27.0" prefWidth="132.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Информатика и ИКТ" textFill="WHITE" wrapText="true">
-                                                   <font>
-                                                      <Font size="24.0" />
-                                                   </font>
-                                                </Label>
-                                                <AnchorPane layoutX="7.0" layoutY="174.0" prefHeight="78.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                                   <styleClass>
-                                                      <String fx:value="radius" />
-                                                      <String fx:value="shadow" />
-                                                      <String fx:value="paneArrowButton" />
-                                                   </styleClass>
-                                                   <stylesheets>
-                                                      <URL value="@Moderator.css" />
-                                                      <URL value="@StaffCards.css" />
-                                                   </stylesheets>
-                                                   <children>
-                                                      <Label layoutX="47.0" layoutY="12.0" text="Темы" textFill="WHITE" AnchorPane.leftAnchor="46.0">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                         <stylesheets>
-                                                            <URL value="@StaffCards.css" />
-                                                            <URL value="@Moderator.css" />
-                                                         </stylesheets>
-                                                         <styleClass>
-                                                            <String fx:value="StyleText" />
-                                                            <String fx:value="textBold" />
-                                                         </styleClass>
-                                                      </Label>
-                                                      <Label layoutX="156.0" layoutY="12.0" text="Задания" textFill="WHITE" AnchorPane.rightAnchor="45.0">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                         <stylesheets>
-                                                            <URL value="@StaffCards.css" />
-                                                            <URL value="@Moderator.css" />
-                                                         </stylesheets>
-                                                         <styleClass>
-                                                            <String fx:value="StyleText" />
-                                                            <String fx:value="textBold" />
-                                                         </styleClass>
-                                                      </Label>
-                                                      <Label fx:id="amountThemeVornikovaCards" layoutX="65.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="amountThemeVornikovaCards" layoutX="186.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
-                                                         <font>
-                                                            <Font size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </AnchorPane>
-                                             </children>
-                                             <stylesheets>
-                                                <URL value="@Moderator.css" />
-                                                <URL value="@StaffCards.css" />
-                                             </stylesheets>
-                                          </AnchorPane>
-                                       </children>
-                                       <stylesheets>
-                                          <URL value="@Moderator.css" />
-                                          <URL value="@StaffCards.css" />
-                                       </stylesheets>
-                                    </AnchorPane>
-                                    <AnchorPane fx:id="anchorPaneTeacherWindow" layoutX="306.0" layoutY="94.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <children>
-                                          <Label layoutX="337.0" layoutY="240.0" text="ОКНО 2">
+                                          <Label layoutX="259.0" layoutY="468.0" text="ОКНО 2">
                                              <font>
                                                 <Font size="48.0" />
                                              </font>
                                           </Label>
+                                          <AnchorPane layoutX="427.0" layoutY="20.0" prefHeight="382.0" prefWidth="385.0" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="427.0" AnchorPane.topAnchor="20.0">
+                                             <children>
+                                                <TextField layoutX="19.0" layoutY="28.0" prefHeight="40.0" prefWidth="170.0" promptText="Имя" stylesheets="@Moderator.css">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="newStyleMenu" />
+                                                      <String fx:value="newStyleMenuTextColorWhite" />
+                                                      <String fx:value="borderColorHover" />
+                                                   </styleClass>
+                                                </TextField>
+                                                <TextField layoutX="198.0" layoutY="28.0" prefHeight="40.0" prefWidth="170.0" promptText="Фамилия" stylesheets="@Moderator.css">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="newStyleMenu" />
+                                                      <String fx:value="newStyleMenuTextColorWhite" />
+                                                      <String fx:value="borderColorHover" />
+                                                   </styleClass>
+                                                </TextField>
+                                                <RadioButton fx:id="radioBtnMen" layoutX="114.0" layoutY="85.0" mnemonicParsing="false" stylesheets="@Moderator.css" text="Мужчина" textFill="WHITE">
+                                                   <styleClass>
+                                                      <String fx:value="newStyleMenuTextColorWhite" />
+                                                      <String fx:value="textBold" />
+                                                   </styleClass>
+                                                </RadioButton>
+                                                <RadioButton fx:id="radioBtnWomen" layoutX="216.0" layoutY="85.0" mnemonicParsing="false" stylesheets="@Moderator.css" text="Женщина" textFill="WHITE">
+                                                   <styleClass>
+                                                      <String fx:value="newStyleMenuTextColorWhite" />
+                                                      <String fx:value="textBold" />
+                                                   </styleClass>
+                                                </RadioButton>
+                                                <TextField layoutX="14.0" layoutY="125.0" prefHeight="41.0" prefWidth="357.0" promptText="Почта" stylesheets="@Moderator.css">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="newStyleMenu" />
+                                                      <String fx:value="newStyleMenuTextColorWhite" />
+                                                      <String fx:value="borderColorHover" />
+                                                   </styleClass>
+                                                </TextField>
+                                                <TextField layoutX="91.0" layoutY="185.0" prefHeight="41.0" prefWidth="215.0" promptText="Пароль от почты" stylesheets="@Moderator.css">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="newStyleMenu" />
+                                                      <String fx:value="newStyleMenuTextColorWhite" />
+                                                      <String fx:value="borderColorHover" />
+                                                   </styleClass>
+                                                </TextField>
+                                                <TextField layoutX="19.0" layoutY="252.0" prefHeight="40.0" prefWidth="160.0" promptText="nickname" stylesheets="@Moderator.css">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="newStyleMenu" />
+                                                      <String fx:value="newStyleMenuTextColorWhite" />
+                                                      <String fx:value="borderColorHover" />
+                                                   </styleClass>
+                                                </TextField>
+                                                <TextField layoutX="208.0" layoutY="252.0" prefHeight="41.0" prefWidth="160.0" promptText="пароль" stylesheets="@Moderator.css">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                   <styleClass>
+                                                      <String fx:value="newStyleMenu" />
+                                                      <String fx:value="newStyleMenuTextColorWhite" />
+                                                      <String fx:value="borderColorHover" />
+                                                   </styleClass>
+                                                </TextField>
+                                                <Button layoutX="61.0" layoutY="316.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="262.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Добавить" />
+                                             </children>
+                                             <stylesheets>
+                                                <URL value="@Moderator.css" />
+                                                <URL value="@StaffCards.css" />
+                                             </stylesheets>
+                                             <styleClass>
+                                                <String fx:value="newStyleMenu" />
+                                                <String fx:value="borderColorHover" />
+                                             </styleClass>
+                                          </AnchorPane>
+                                          <AnchorPane fx:id="anchorPaneCardsWindow" layoutX="14.0" layoutY="14.0" prefHeight="382.0" prefWidth="320.0">
+                                             <styleClass>
+                                                <String fx:value="radius" />
+                                                <String fx:value="shadow" />
+                                                <String fx:value="newStyleMenu" />
+                                             </styleClass>
+                                             <children>
+                                                <AnchorPane fx:id="zhilinaCards" prefHeight="326.0" prefWidth="320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
+                                                   <styleClass>
+                                                      <String fx:value="radius" />
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="newStyleMenu" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <Circle fill="#ffffff00" layoutX="135.0" layoutY="94.0" radius="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="setFill" visible="false" />
+                                                      <Label layoutX="36.0" layoutY="218.0" prefHeight="35.0" prefWidth="206.0" text="Татьяна Жилина" textFill="WHITE" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="36.0">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <stylesheets>
+                                                            <URL value="@StaffCards.css" />
+                                                            <URL value="@Moderator.css" />
+                                                         </stylesheets>
+                                                         <styleClass>
+                                                            <String fx:value="StyleText" />
+                                                            <String fx:value="textBold" />
+                                                         </styleClass>
+                                                      </Label>
+                                                      <Circle fx:id="zhilinaCircleImageview" fill="#fcfeff" layoutX="135.0" layoutY="113.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
+                                                      <Label layoutX="45.0" layoutY="253.0" prefHeight="27.0" prefWidth="181.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Информационные системы" textFill="WHITE" wrapText="true">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <AnchorPane layoutX="7.0" layoutY="174.0" prefHeight="78.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                         <styleClass>
+                                                            <String fx:value="radius" />
+                                                            <String fx:value="shadow" />
+                                                            <String fx:value="paneArrowButton" />
+                                                         </styleClass>
+                                                         <stylesheets>
+                                                            <URL value="@Moderator.css" />
+                                                            <URL value="@StaffCards.css" />
+                                                         </stylesheets>
+                                                         <children>
+                                                            <Label layoutX="47.0" layoutY="12.0" text="Темы" textFill="WHITE" AnchorPane.leftAnchor="46.0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                               <stylesheets>
+                                                                  <URL value="@StaffCards.css" />
+                                                                  <URL value="@Moderator.css" />
+                                                               </stylesheets>
+                                                               <styleClass>
+                                                                  <String fx:value="StyleText" />
+                                                                  <String fx:value="textBold" />
+                                                               </styleClass>
+                                                            </Label>
+                                                            <Label layoutX="156.0" layoutY="12.0" text="Задания" textFill="WHITE" AnchorPane.rightAnchor="45.0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                               <stylesheets>
+                                                                  <URL value="@StaffCards.css" />
+                                                                  <URL value="@Moderator.css" />
+                                                               </stylesheets>
+                                                               <styleClass>
+                                                                  <String fx:value="StyleText" />
+                                                                  <String fx:value="textBold" />
+                                                               </styleClass>
+                                                            </Label>
+                                                            <Label fx:id="amountThemeZhilinaCards" layoutX="65.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="amountThemeZhilinaCards" layoutX="186.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                   <stylesheets>
+                                                      <URL value="@Moderator.css" />
+                                                      <URL value="@StaffCards.css" />
+                                                   </stylesheets>
+                                                </AnchorPane>
+                                                <FontAwesomeIconView fx:id="arrowSwitch" fill="WHITE" glyphName="ARROW_RIGHT" layoutX="279.0" layoutY="206.0" mouseTransparent="true" opacity="0.8" pickOnBounds="true" size="45" wrappingWidth="40.17146682739258" />
+                                                <Button fx:id="arrowSwitchBtn" layoutX="273.0" layoutY="2.0" mnemonicParsing="false" prefHeight="378.0" prefWidth="54.0" textFill="TRANSPARENT" AnchorPane.leftAnchor="272.0" AnchorPane.rightAnchor="0.0">
+                                                   <stylesheets>
+                                                      <URL value="@Moderator.css" />
+                                                      <URL value="@StaffCards.css" />
+                                                   </stylesheets>
+                                                   <styleClass>
+                                                      <String fx:value="sero-bg" />
+                                                      <String fx:value="eventBorderColor" />
+                                                   </styleClass>
+                                                </Button>
+                                                <AnchorPane fx:id="knyazevCards" layoutX="2.0" layoutY="2.0" prefHeight="380.0" prefWidth="261.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <styleClass>
+                                                      <String fx:value="radius" />
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="newStyleMenu" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <Circle fill="#ffffff00" layoutX="135.0" layoutY="94.0" radius="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="setFill" visible="false" />
+                                                      <Label layoutX="51.0" layoutY="218.0" prefHeight="35.0" prefWidth="183.0" text="Леонид Князев" textFill="WHITE" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="45.0">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <stylesheets>
+                                                            <URL value="@StaffCards.css" />
+                                                            <URL value="@Moderator.css" />
+                                                         </stylesheets>
+                                                         <styleClass>
+                                                            <String fx:value="StyleText" />
+                                                            <String fx:value="textBold" />
+                                                         </styleClass>
+                                                      </Label>
+                                                      <Circle fx:id="knyazevCircleImageview" fill="#fcfeff" layoutX="135.0" layoutY="113.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
+                                                      <Label layoutX="67.0" layoutY="253.0" prefHeight="27.0" prefWidth="136.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Системы баз данных" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="68.0">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <AnchorPane layoutX="7.0" layoutY="174.0" prefHeight="78.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                         <styleClass>
+                                                            <String fx:value="radius" />
+                                                            <String fx:value="shadow" />
+                                                            <String fx:value="paneArrowButton" />
+                                                         </styleClass>
+                                                         <stylesheets>
+                                                            <URL value="@Moderator.css" />
+                                                            <URL value="@StaffCards.css" />
+                                                         </stylesheets>
+                                                         <children>
+                                                            <Label layoutX="47.0" layoutY="12.0" text="Темы" textFill="WHITE" AnchorPane.leftAnchor="46.0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                               <stylesheets>
+                                                                  <URL value="@StaffCards.css" />
+                                                                  <URL value="@Moderator.css" />
+                                                               </stylesheets>
+                                                               <styleClass>
+                                                                  <String fx:value="StyleText" />
+                                                                  <String fx:value="textBold" />
+                                                               </styleClass>
+                                                            </Label>
+                                                            <Label layoutX="156.0" layoutY="12.0" text="Задания" textFill="WHITE" AnchorPane.rightAnchor="45.0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                               <stylesheets>
+                                                                  <URL value="@StaffCards.css" />
+                                                                  <URL value="@Moderator.css" />
+                                                               </stylesheets>
+                                                               <styleClass>
+                                                                  <String fx:value="StyleText" />
+                                                                  <String fx:value="textBold" />
+                                                               </styleClass>
+                                                            </Label>
+                                                            <Label fx:id="amountThemeKnyazevCards" layoutX="65.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="amountTaskKnyazevCards" layoutX="186.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                   <stylesheets>
+                                                      <URL value="@Moderator.css" />
+                                                      <URL value="@StaffCards.css" />
+                                                   </stylesheets>
+                                                </AnchorPane>
+                                                <AnchorPane fx:id="pivtoratskayaCards" layoutX="1.0" layoutY="7.0" prefHeight="380.0" prefWidth="261.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <styleClass>
+                                                      <String fx:value="radius" />
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="newStyleMenu" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <Circle fill="#ffffff00" layoutX="135.0" layoutY="94.0" radius="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="setFill" visible="false" />
+                                                      <Label layoutX="9.0" layoutY="218.0" prefHeight="35.0" prefWidth="264.0" text="Наталья Пивторацкая" textFill="WHITE" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="3.0">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <stylesheets>
+                                                            <URL value="@StaffCards.css" />
+                                                            <URL value="@Moderator.css" />
+                                                         </stylesheets>
+                                                         <styleClass>
+                                                            <String fx:value="StyleText" />
+                                                            <String fx:value="textBold" />
+                                                         </styleClass>
+                                                      </Label>
+                                                      <Circle fx:id="pivtoratskayaCircleImageview" fill="#fcfeff" layoutX="135.0" layoutY="113.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
+                                                      <Label layoutX="13.0" layoutY="253.0" prefHeight="56.0" prefWidth="253.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Разработка десктопных приложений и модерирование сайтов" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <AnchorPane layoutX="7.0" layoutY="174.0" prefHeight="78.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                         <styleClass>
+                                                            <String fx:value="radius" />
+                                                            <String fx:value="shadow" />
+                                                            <String fx:value="paneArrowButton" />
+                                                         </styleClass>
+                                                         <stylesheets>
+                                                            <URL value="@Moderator.css" />
+                                                            <URL value="@StaffCards.css" />
+                                                         </stylesheets>
+                                                         <children>
+                                                            <Label layoutX="47.0" layoutY="12.0" text="Темы" textFill="WHITE" AnchorPane.leftAnchor="46.0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                               <stylesheets>
+                                                                  <URL value="@StaffCards.css" />
+                                                                  <URL value="@Moderator.css" />
+                                                               </stylesheets>
+                                                               <styleClass>
+                                                                  <String fx:value="StyleText" />
+                                                                  <String fx:value="textBold" />
+                                                               </styleClass>
+                                                            </Label>
+                                                            <Label layoutX="156.0" layoutY="12.0" text="Задания" textFill="WHITE" AnchorPane.rightAnchor="45.0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                               <stylesheets>
+                                                                  <URL value="@StaffCards.css" />
+                                                                  <URL value="@Moderator.css" />
+                                                               </stylesheets>
+                                                               <styleClass>
+                                                                  <String fx:value="StyleText" />
+                                                                  <String fx:value="textBold" />
+                                                               </styleClass>
+                                                            </Label>
+                                                            <Label fx:id="amountThemePivtoratskayaCards" layoutX="65.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="amountTaskPivtoratskayaCards" layoutX="186.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                   <stylesheets>
+                                                      <URL value="@Moderator.css" />
+                                                      <URL value="@StaffCards.css" />
+                                                   </stylesheets>
+                                                </AnchorPane>
+                                                <AnchorPane fx:id="vornikovaCards" layoutX="2.0" layoutY="2.0" prefHeight="380.0" prefWidth="255.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <styleClass>
+                                                      <String fx:value="radius" />
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="newStyleMenu" />
+                                                   </styleClass>
+                                                   <children>
+                                                      <Circle fill="#ffffff00" layoutX="135.0" layoutY="94.0" radius="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="setFill" visible="false" />
+                                                      <Label layoutX="29.0" layoutY="218.0" prefHeight="35.0" prefWidth="213.0" text="Ирина Ворникова" textFill="WHITE" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="28.0">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                         <stylesheets>
+                                                            <URL value="@StaffCards.css" />
+                                                            <URL value="@Moderator.css" />
+                                                         </stylesheets>
+                                                         <styleClass>
+                                                            <String fx:value="StyleText" />
+                                                            <String fx:value="textBold" />
+                                                         </styleClass>
+                                                      </Label>
+                                                      <Circle fx:id="vornikovaCircleImageview" fill="#fcfeff" layoutX="135.0" layoutY="113.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
+                                                      <Label layoutX="69.0" layoutY="253.0" prefHeight="27.0" prefWidth="132.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Информатика и ИКТ" textFill="WHITE" wrapText="true">
+                                                         <font>
+                                                            <Font size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <AnchorPane layoutX="7.0" layoutY="174.0" prefHeight="78.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                                         <styleClass>
+                                                            <String fx:value="radius" />
+                                                            <String fx:value="shadow" />
+                                                            <String fx:value="paneArrowButton" />
+                                                         </styleClass>
+                                                         <stylesheets>
+                                                            <URL value="@Moderator.css" />
+                                                            <URL value="@StaffCards.css" />
+                                                         </stylesheets>
+                                                         <children>
+                                                            <Label layoutX="47.0" layoutY="12.0" text="Темы" textFill="WHITE" AnchorPane.leftAnchor="46.0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                               <stylesheets>
+                                                                  <URL value="@StaffCards.css" />
+                                                                  <URL value="@Moderator.css" />
+                                                               </stylesheets>
+                                                               <styleClass>
+                                                                  <String fx:value="StyleText" />
+                                                                  <String fx:value="textBold" />
+                                                               </styleClass>
+                                                            </Label>
+                                                            <Label layoutX="156.0" layoutY="12.0" text="Задания" textFill="WHITE" AnchorPane.rightAnchor="45.0">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                               <stylesheets>
+                                                                  <URL value="@StaffCards.css" />
+                                                                  <URL value="@Moderator.css" />
+                                                               </stylesheets>
+                                                               <styleClass>
+                                                                  <String fx:value="StyleText" />
+                                                                  <String fx:value="textBold" />
+                                                               </styleClass>
+                                                            </Label>
+                                                            <Label fx:id="amountThemeVornikovaCards" layoutX="65.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="amountThemeVornikovaCards" layoutX="186.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="18.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                   <stylesheets>
+                                                      <URL value="@Moderator.css" />
+                                                      <URL value="@StaffCards.css" />
+                                                   </stylesheets>
+                                                </AnchorPane>
+                                             </children>
+                                             <stylesheets>
+                                                <URL value="@Moderator.css" />
+                                                <URL value="@StaffCards.css" />
+                                             </stylesheets>
+                                          </AnchorPane>
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane fx:id="anchorPaneThemeWindow" layoutX="248.0" layoutY="82.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
