@@ -27,8 +27,8 @@ public class CommandsSQL_Teachers extends ConnectDB {
         return nameStaff;
     }
 
-    public static String getAmountThemeTeacher(String nickname)throws SQLException{
-        String query = "SELECT count(id) from themeTeacher where nickname = '"+nickname+"';";
+    public  String getAmountAllTeachers()throws SQLException {
+        String query = "SELECT count(id) from ticher;";
         try (Statement statement = connection.createStatement();) {
             ResultSet result;
             result = statement.executeQuery(query);
@@ -36,24 +36,11 @@ public class CommandsSQL_Teachers extends ConnectDB {
                 return result.getString("count");
             }
         } catch (SQLException e) {
-            System.out.println("Ошибка в getAmountTheme");
+            System.out.println("Ошибка в getAmountAllTeachers");
             throw new RuntimeException(e);
         }
         return null;
     }
 
-    public static String getAmountTaskTeacher(String nickname)throws SQLException{
-        String query = "SELECT count(id) from taskTeacher where nickname = '"+nickname+"';";
-        try (Statement statement = connection.createStatement();) {
-            ResultSet result;
-            result = statement.executeQuery(query);
-            while (result.next()) {
-                return result.getString("count");
-            }
-        } catch (SQLException e) {
-            System.out.println("Ошибка в getAmountTaskTeacher");
-            throw new RuntimeException(e);
-        }
-        return null;
-    }
+
 }

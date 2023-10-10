@@ -1,5 +1,6 @@
 package Moderator.Home;
 
+import Database.CommandSQL_Theme;
 import Database.CommandsSQL_Teachers;
 import javafx.scene.image.Image;
 
@@ -36,20 +37,20 @@ public class TeacherCards {
     public static String themeAmount;
     public static String taskAmount;
 
-    public static void setNameStaff() throws SQLException {
-        CommandsSQL_Teachers commandsSQL_teachers = new CommandsSQL_Teachers();
-        nameStaff = commandsSQL_teachers.getAllNameTeachers(nickname);
-    }
-
-    public static void setThemeAmount() throws SQLException {
-        CommandsSQL_Teachers commandsSQL_teachers = new CommandsSQL_Teachers();
-        themeAmount = commandsSQL_teachers.getAmountThemeTeacher(nickname);
-    }
-
-    public static void setTaskAmount() throws SQLException {
-        CommandsSQL_Teachers commandsSQL_teachers = new CommandsSQL_Teachers();
-        taskAmount = commandsSQL_teachers.getAmountTaskTeacher(nickname);
-    }
+//    public static void setNameStaff() throws SQLException {
+//        CommandsSQL_Teachers commandsSQL_teachers = new CommandsSQL_Teachers();
+//        nameStaff = commandsSQL_teachers.getAllNameTeachers(nickname);
+//    }
+//
+//    public static void setThemeAmount() throws SQLException {
+//        CommandSQL_Theme commandSQLTheme = new CommandSQL_Theme();
+//        themeAmount = commandSQLTheme.getAmountThemeTeacher(nickname);
+//    }
+//
+//    public static void setTaskAmount() throws SQLException {
+//        CommandSQL_Theme commandSQLTheme = new CommandSQL_Theme();
+//        taskAmount = commandSQLTheme.getAmountTaskTeacher(nickname);
+//    }
 
 
     public Map<Integer, Image> getTeacherStaff() {
@@ -57,22 +58,19 @@ public class TeacherCards {
         return teacherStaff;
     }
 
-    public static String[] getNameStaff() throws SQLException {
-        setNameStaff();
-        return nameStaff;
+//    public static String[] getNameStaff() throws SQLException {
+//        setNameStaff();
+//        return nameStaff;
+//    }
+
+    public static String getThemeAmount(String nickname) throws SQLException {
+        CommandSQL_Theme commandSQL_theme = new CommandSQL_Theme();
+        return commandSQL_theme.getAmountThemeTeacher(nickname);
     }
 
-    public static String getThemeAmount() throws SQLException {
-        setThemeAmount();
-        return themeAmount;
+    public static String getTaskAmount(String nickname) throws SQLException{
+        CommandSQL_Theme commandSQL_theme = new CommandSQL_Theme();
+        return commandSQL_theme.getAmountTaskTeacher(nickname);
     }
-
-    public static String getTaskAmount() throws SQLException{
-        setTaskAmount();
-        return taskAmount;
-    }
-
-
-
 
 }

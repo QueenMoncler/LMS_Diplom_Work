@@ -4,8 +4,10 @@
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -306,7 +308,7 @@
                                                       <String fx:value="borderColorHover" />
                                                    </styleClass>
                                                 </TextField>
-                                                <Button layoutX="61.0" layoutY="316.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="262.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Добавить" />
+                                                <Button fx:id="teacherAddBtn" layoutX="61.0" layoutY="316.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="262.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Добавить" />
                                              </children>
                                              <stylesheets>
                                                 <URL value="@Moderator.css" />
@@ -324,7 +326,7 @@
                                                 <String fx:value="newStyleMenu" />
                                              </styleClass>
                                              <children>
-                                                <AnchorPane fx:id="zhilinaCards" prefHeight="326.0" prefWidth="320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
+                                                <AnchorPane fx:id="zhilinaCards" prefHeight="326.0" prefWidth="320.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
                                                    <styleClass>
                                                       <String fx:value="radius" />
                                                       <String fx:value="shadow" />
@@ -393,7 +395,7 @@
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Label>
-                                                            <Label fx:id="amountThemeZhilinaCards" layoutX="186.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
+                                                            <Label fx:id="amountTaskZhilinaCards" layoutX="186.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
@@ -499,7 +501,7 @@
                                                       <URL value="@StaffCards.css" />
                                                    </stylesheets>
                                                 </AnchorPane>
-                                                <AnchorPane fx:id="pivtoratskayaCards" layoutX="1.0" layoutY="7.0" prefHeight="380.0" prefWidth="261.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <AnchorPane fx:id="pivtoratskayaCards" layoutX="1.0" layoutY="7.0" prefHeight="380.0" prefWidth="261.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                    <styleClass>
                                                       <String fx:value="radius" />
                                                       <String fx:value="shadow" />
@@ -650,7 +652,7 @@
                                                                   <Font size="18.0" />
                                                                </font>
                                                             </Label>
-                                                            <Label fx:id="amountThemeVornikovaCards" layoutX="186.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
+                                                            <Label fx:id="amountTaskVornikovaCards" layoutX="186.0" layoutY="39.0" styleClass="StyleText" stylesheets="@StaffCards.css" text="0" textFill="WHITE">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
@@ -673,11 +675,120 @@
                                     </AnchorPane>
                                     <AnchorPane fx:id="anchorPaneThemeWindow" layoutX="248.0" layoutY="82.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <Label layoutX="359.0" layoutY="257.0" text="ОКНО 3">
+                                          <Label layoutX="339.0" layoutY="424.0" text="ОКНО 3">
                                              <font>
                                                 <Font size="36.0" />
                                              </font>
                                           </Label>
+                                          <AnchorPane layoutX="28.0" layoutY="27.0" prefHeight="144.0" prefWidth="803.0" stylesheets="@Moderator.css">
+                                             <styleClass>
+                                                <String fx:value="white-bg" />
+                                                <String fx:value="newStyleMenu" />
+                                                <String fx:value="circleRadius" />
+                                             </styleClass>
+                                             <children>
+                                                <ScrollPane layoutX="297.0" layoutY="20.0" prefHeight="100.0" prefWidth="478.0" stylesheets="@Moderator.css">
+                                                  <content>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="457.0" styleClass="newStyleMenu" stylesheets="@Moderator.css">
+                                                         <children>
+                                                            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="441.0" AnchorPane.topAnchor="15.0">
+                                                               <children>
+                                                                  <Label layoutX="144.0" layoutY="21.0" text="Татьяна Жилина" textFill="WHITE">
+                                                                     <stylesheets>
+                                                                        <URL value="@StaffCards.css" />
+                                                                        <URL value="@Moderator.css" />
+                                                                     </stylesheets>
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <CheckBox fx:id="themeCheckZhilina" layoutX="336.0" layoutY="21.0" mnemonicParsing="false" stylesheets="@Moderator.css" text="Выбрать" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                                  <Circle fx:id="themeCircleZhilina" fill="DODGERBLUE" layoutX="41.0" layoutY="32.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                            <AnchorPane layoutX="14.0" layoutY="98.0" prefHeight="60.0" prefWidth="441.0" AnchorPane.topAnchor="100.0">
+                                                               <children>
+                                                                  <Label layoutX="144.0" layoutY="21.0" text="Леонид Князев" textFill="WHITE">
+                                                                     <stylesheets>
+                                                                        <URL value="@StaffCards.css" />
+                                                                        <URL value="@Moderator.css" />
+                                                                     </stylesheets>
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <CheckBox fx:id="themeCheckKnyazev" layoutX="336.0" layoutY="21.0" mnemonicParsing="false" stylesheets="@Moderator.css" text="Выбрать" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                                  <Circle fx:id="themeCircleKnyazev" fill="DODGERBLUE" layoutX="41.0" layoutY="32.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                            <AnchorPane layoutX="14.0" layoutY="207.0" prefHeight="60.0" prefWidth="441.0" AnchorPane.topAnchor="180.0">
+                                                               <children>
+                                                                  <Label layoutX="144.0" layoutY="21.0" text="Наталья Пивторацкая" textFill="WHITE">
+                                                                     <stylesheets>
+                                                                        <URL value="@StaffCards.css" />
+                                                                        <URL value="@Moderator.css" />
+                                                                     </stylesheets>
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <CheckBox fx:id="themeCheckPivtoratskaya" layoutX="336.0" layoutY="21.0" mnemonicParsing="false" stylesheets="@Moderator.css" text="Выбрать" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                                  <Circle fx:id="themeCirclePivtoratskaya" fill="DODGERBLUE" layoutX="41.0" layoutY="32.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                            <AnchorPane layoutX="14.0" layoutY="310.0" prefHeight="60.0" prefWidth="441.0" AnchorPane.topAnchor="260.0">
+                                                               <children>
+                                                                  <Label layoutX="144.0" layoutY="21.0" text="Ирина Ворникова" textFill="WHITE">
+                                                                     <stylesheets>
+                                                                        <URL value="@StaffCards.css" />
+                                                                        <URL value="@Moderator.css" />
+                                                                     </stylesheets>
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <CheckBox fx:id="themeCheckVornikova" layoutX="336.0" layoutY="21.0" mnemonicParsing="false" stylesheets="@Moderator.css" text="Выбрать" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </CheckBox>
+                                                                  <Circle fx:id="themeCircleVornikova" fill="DODGERBLUE" layoutX="41.0" layoutY="32.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </content>
+                                                   <styleClass>
+                                                      <String fx:value="radius" />
+                                                      <String fx:value="shadow" />
+                                                      <String fx:value="white-bg" />
+                                                   </styleClass>
+                                                </ScrollPane>
+                                                <TextField fx:id="themeTextFieldNameTheme" layoutX="27.0" layoutY="20.0" prefHeight="50.0" prefWidth="260.0" promptText="Название темы" stylesheets="@Moderator.css">
+                                                   <styleClass>
+                                                      <String fx:value="newStyleMenu" />
+                                                      <String fx:value="newStyleMenuTextColorWhite" />
+                                                      <String fx:value="white-bg" />
+                                                   </styleClass>
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Button fx:id="themeBtnAddTheme" layoutX="29.0" layoutY="77.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="256.0" styleClass="nav-btn" text="Добавить тему" />
+                                             </children>
+                                          </AnchorPane>
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane fx:id="anchorPaneTaskWindow" layoutX="250.0" layoutY="162.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
