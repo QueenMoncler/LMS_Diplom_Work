@@ -7,10 +7,15 @@ import Database.CommandsSQL_Teachers;
 import DialogWindow.DialogWindow;
 import Moderator.Home.TeacherCards;
 import Moderator.Theme.AddNewTheme;
+import Moderator.Theme.GetObservableList;
+import Moderator.Theme.GetThemeTable;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
@@ -180,6 +185,18 @@ public class ModeratorController implements Initializable {
     @FXML
     private Circle zhilinaCircleImageview;
 
+    @FXML
+    private TableView<GetThemeTable> themeTable;
+
+    @FXML
+    private TableColumn<GetThemeTable, String> themeTableLastName;
+
+    @FXML
+    private TableColumn<GetThemeTable, String> themeTableName;
+
+    @FXML
+    private TableColumn<GetThemeTable, String> themeTableTheme;
+
 
     private static String nicknameUser = new ModeratorApplication().getNickname();
     DialogWindow dialogWindow = new DialogWindow();
@@ -252,6 +269,7 @@ public class ModeratorController implements Initializable {
                     initializeAmountMenu();
                     dialogWindow.tryAddTheme();
                     initializeCardsThemeTeacher();
+                    initializeTable();
                 };
 
             } catch (SQLException e) {
@@ -308,12 +326,27 @@ public class ModeratorController implements Initializable {
     }
 
 
+    public void initializeTable() throws SQLException {
+        GetObservableList getObservableList = new GetObservableList();
+
+        themeTableName.setCellValueFactory(new PropertyValueFactory<GetThemeTable, String>("firstName"));
+        themeTableLastName.setCellValueFactory(new PropertyValueFactory<GetThemeTable, String>("lastName"));
+        themeTableTheme.setCellValueFactory(new PropertyValueFactory<GetThemeTable, String>("themeName"));
+
+        themeTable.setItems(getObservableList.getList());
+    }
+
+
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
+
+
+
         setImageCircleTeacher();
 
         teacherCardSwitch();
         try {
+            initializeTable();
             initializeAmountMenu();
             initializeCardsThemeTeacher();
             initializeCardsTaskTeacher();

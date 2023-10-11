@@ -101,6 +101,37 @@ public class CommandsSQL extends ConnectDB {
         return null;
     }
 
+    public static String getLastNameUser(String nickname) {
+        String query = "SELECT last_name from ticher where nickname = '" + nickname + "';";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+
+                return result.getString("last_name");
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getLastNameUser");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public static String getFirstNameUser(String nickname) {
+        String query = "SELECT first_name from ticher where nickname = '" + nickname + "';";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                return result.getString("first_name");
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getFirstNameUser");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
     public static String getAmountTheme(){
         String query = "SELECT count(id) from theme";
         try (Statement statement = connection.createStatement();) {

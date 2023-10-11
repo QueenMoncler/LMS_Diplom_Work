@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommandSQL_Theme extends ConnectDB {
 
@@ -59,6 +61,37 @@ public class CommandSQL_Theme extends ConnectDB {
         return null;
     }
 
+    public List<String> getAllTheme()throws SQLException{
+        String query = "SELECT theme from theme_ticher;";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            List<String> list = new ArrayList<>();
+            while (result.next()) {
+               list.add(result.getString("theme"));
+            }
+            return list;
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getAmountTaskTeacher");
+            throw new RuntimeException(e);
+        }
+    }
+    public List<String> getAllNickname()throws SQLException{
+        String query = "SELECT nickname from theme_ticher;";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            List<String> list = new ArrayList<>();
+            while (result.next()) {
+                list.add(result.getString("nickname"));
+            }
+            return list;
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getAllNickname");
+            throw new RuntimeException(e);
+        }
+    }
+
 
     public String addNewThemeTeacher(String nickname, String themeName)throws SQLException{
         String query = "INSERT INTO theme_ticher(nickname, theme) VALUES('"+nickname+"', '"+themeName+"')";
@@ -76,6 +109,8 @@ public class CommandSQL_Theme extends ConnectDB {
             return "Тема добавлена успешно";
         }
     }
+
+
 
 
 }
