@@ -8,7 +8,7 @@ public class GetPasswordSQL extends ConnectDB {
     public GetPasswordSQL() throws SQLException {
     }
     public static String getPass(String nickname) {
-        String query = "select password from allconfig where nickname = '"+nickname+"';";
+        String query = "select password from moderator_config where nickname = '"+nickname+"';";
         try(Statement statement = connection.createStatement())  {
             ResultSet result;
             result = statement.executeQuery(query);

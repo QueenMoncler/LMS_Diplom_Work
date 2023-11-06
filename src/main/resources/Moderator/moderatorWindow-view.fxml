@@ -5,7 +5,9 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -17,9 +19,9 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Moderator.ModeratorController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Moderator.ModeratorController">
    <children>
-      <AnchorPane prefHeight="800.0" prefWidth="1125.0" styleClass="body-bg" stylesheets="@Moderator.css">
+      <AnchorPane prefHeight="758.0" prefWidth="1118.0" styleClass="body-bg" stylesheets="@Moderator.css">
          <children>
             <BorderPane layoutX="427.0" layoutY="227.0" prefHeight="800.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <left>
@@ -51,8 +53,8 @@
                                  </children>
                                  <styleClass>
                                     <String fx:value="menu-bg" />
-                                    <String fx:value="white-bg" />
                                     <String fx:value="StyleCards" />
+                                    <String fx:value="radius" />
                                  </styleClass>
                                  <stylesheets>
                                     <URL value="@Moderator.css" />
@@ -69,7 +71,6 @@
                                     <String fx:value="shadow" />
                                     <String fx:value="radius" />
                                     <String fx:value="menu-bg" />
-                                    <String fx:value="white-bg" />
                                     <String fx:value="StyleCards" />
                                  </styleClass>
                                  <children>
@@ -98,7 +99,7 @@
                            </children>
                            <styleClass>
                               <String fx:value="newStyleMenu" />
-                              <String fx:value="white-bg" />
+                              <String fx:value="radius" />
                            </styleClass>
                         </AnchorPane>
                      </children>
@@ -109,25 +110,23 @@
                      <children>
                         <AnchorPane fx:id="anchorPaneRightFull" layoutX="304.0" layoutY="254.0" prefHeight="800.0" prefWidth="873.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutX="16.0" layoutY="14.0" prefHeight="160.0" prefWidth="845.0" stylesheets="@Moderator.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="20.0">
+                              <AnchorPane layoutX="16.0" layoutY="14.0" prefHeight="140.0" prefWidth="845.0" stylesheets="@Moderator.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="20.0">
                                  <styleClass>
-                                    <String fx:value="white-bg" />
                                     <String fx:value="radius" />
                                     <String fx:value="shadow" />
                                     <String fx:value="newStyleMenu" />
                                  </styleClass>
                                  <children>
-                                    <AnchorPane layoutX="216.0" layoutY="12.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
+                                    <AnchorPane layoutX="257.0" layoutY="15.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
                                        <children>
                                           <AnchorPane layoutX="8.0" layoutY="73.0" prefHeight="53.0" prefWidth="158.0" stylesheets="@Moderator.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0">
                                              <styleClass>
                                                 <String fx:value="shadow" />
                                                 <String fx:value="radius" />
-                                                <String fx:value="white-bg" />
                                                 <String fx:value="newStyleMenu" />
                                              </styleClass>
                                              <children>
-                                                <Label fx:id="amountTheme" contentDisplay="BOTTOM" layoutX="69.0" layoutY="3.0" prefHeight="49.0" prefWidth="26.0" styleClass="textAlignCenter" stylesheets="@Moderator.css" text="12" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="74.0">
+                                                <Label fx:id="amountTheme" contentDisplay="BOTTOM" layoutX="69.0" layoutY="3.0" prefHeight="49.0" prefWidth="23.0" styleClass="textAlignCenter" stylesheets="@Moderator.css" text="12" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="67.0">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -135,25 +134,24 @@
                                                 <FontAwesomeIconView fill="#ff6969" glyphName="ARCHIVE" layoutX="14.0" layoutY="38.0" size="25" text="" wrappingWidth="23.428571701049805" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0" />
                                              </children>
                                           </AnchorPane>
-                                          <FontAwesomeIconView fill="#ff6969" glyphName="BOOK" layoutX="71.0" layoutY="57.0" size="50" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="10.0" />
+                                          <FontAwesomeIconView fill="#ff6969" glyphName="BOOK" layoutX="71.0" layoutY="57.0" size="35" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="10.0" />
                                        </children>
                                        <styleClass>
                                           <String fx:value="menu-bg" />
-                                          <String fx:value="white-bg" />
                                           <String fx:value="StyleCards" />
+                                          <String fx:value="radius" />
                                        </styleClass>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="17.0" layoutY="12.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
+                                    <AnchorPane layoutX="17.0" layoutY="12.0" prefHeight="110.0" prefWidth="170.0" stylesheets="@StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
                                        <children>
                                           <AnchorPane layoutX="9.0" layoutY="74.0" prefHeight="53.0" prefWidth="158.0" stylesheets="@Moderator.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.0">
                                              <styleClass>
                                                 <String fx:value="shadow" />
                                                 <String fx:value="radius" />
-                                                <String fx:value="white-bg" />
                                                 <String fx:value="newStyleMenu" />
                                              </styleClass>
                                              <children>
-                                                <Label fx:id="amountTeacher" contentDisplay="BOTTOM" layoutX="66.0" layoutY="2.0" prefHeight="49.0" prefWidth="26.0" styleClass="textAlignCenter" stylesheets="@Moderator.css" text="12" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="66.0">
+                                                <Label fx:id="amountTeacher" contentDisplay="BOTTOM" layoutX="66.0" layoutY="2.0" prefHeight="49.0" prefWidth="23.0" styleClass="textAlignCenter" stylesheets="@Moderator.css" text="12" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="60.0">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -161,19 +159,19 @@
                                                 <FontAwesomeIconView fill="#ff6969" glyphName="ARCHIVE" layoutX="14.0" layoutY="35.0" size="25" wrappingWidth="23.428571701049805" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0" />
                                              </children>
                                           </AnchorPane>
-                                          <FontAwesomeIconView fill="#ff6969" glyphName="FEMALE" layoutX="74.0" layoutY="57.0" size="50" wrappingWidth="35.428571701049805" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="73.5714282989502" AnchorPane.topAnchor="10.0" />
+                                          <FontAwesomeIconView fill="#ff6969" glyphName="FEMALE" layoutX="80.0" layoutY="44.0" size="35" wrappingWidth="25.428571701049805" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="10.0" />
                                        </children>
                                        <styleClass>
                                           <String fx:value="menu-bg" />
-                                          <String fx:value="white-bg" />
                                           <String fx:value="StyleCards" />
+                                          <String fx:value="radius" />
                                        </styleClass>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="424.0" layoutY="11.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
+                                    <AnchorPane layoutX="514.0" layoutY="15.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
                                        <children>
                                           <AnchorPane layoutX="8.0" layoutY="77.0" prefHeight="53.0" prefWidth="159.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0">
                                              <children>
-                                                <Label fx:id="amountTask" contentDisplay="BOTTOM" layoutX="71.0" layoutY="13.0" prefHeight="27.0" prefWidth="22.0" styleClass="textAlignCenter" stylesheets="@Moderator.css" text="0" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="79.0" AnchorPane.rightAnchor="79.0">
+                                                <Label fx:id="amountTask" contentDisplay="BOTTOM" layoutX="71.0" layoutY="13.0" prefHeight="27.0" prefWidth="20.0" styleClass="textAlignCenter" stylesheets="@Moderator.css" text="0" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="79.0" AnchorPane.rightAnchor="59.0">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -187,29 +185,27 @@
                                              <styleClass>
                                                 <String fx:value="shadow" />
                                                 <String fx:value="radius" />
-                                                <String fx:value="white-bg" />
                                                 <String fx:value="newStyleMenu" />
                                              </styleClass>
                                           </AnchorPane>
-                                          <FontAwesomeIconView fill="#ff6969" glyphName="TASKS" layoutX="64.0" layoutY="42.0" size="50" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="10.0" />
+                                          <FontAwesomeIconView fill="#ff6969" glyphName="TASKS" layoutX="64.0" layoutY="42.0" size="35" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="10.0" />
                                        </children>
                                        <styleClass>
                                           <String fx:value="menu-bg" />
-                                          <String fx:value="white-bg" />
                                           <String fx:value="StyleCards" />
+                                          <String fx:value="radius" />
                                        </styleClass>
                                     </AnchorPane>
-                                    <AnchorPane layoutX="640.0" layoutY="11.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
+                                    <AnchorPane layoutX="766.0" layoutY="15.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.topAnchor="15.0">
                                        <children>
-                                          <AnchorPane layoutX="5.0" layoutY="67.0" prefHeight="53.0" prefWidth="173.0" stylesheets="@Moderator.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0">
+                                          <AnchorPane layoutX="9.0" layoutY="49.0" prefHeight="53.0" prefWidth="173.0" stylesheets="@Moderator.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="6.0">
                                              <styleClass>
                                                 <String fx:value="shadow" />
                                                 <String fx:value="radius" />
-                                                <String fx:value="white-bg" />
                                                 <String fx:value="newStyleMenu" />
                                              </styleClass>
                                              <children>
-                                                <Label fx:id="amountStudent" contentDisplay="BOTTOM" layoutX="77.0" layoutY="13.0" prefHeight="27.0" prefWidth="25.0" styleClass="textAlignCenter" stylesheets="@Moderator.css" text="12" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="77.0">
+                                                <Label fx:id="amountStudent" contentDisplay="BOTTOM" layoutX="77.0" layoutY="13.0" prefHeight="27.0" prefWidth="23.0" styleClass="textAlignCenter" stylesheets="@Moderator.css" text="12" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="61.0">
                                                    <font>
                                                       <Font name="System Bold" size="18.0" />
                                                    </font>
@@ -217,12 +213,12 @@
                                                 <FontAwesomeIconView fill="#ff6969" glyphName="ARCHIVE" layoutX="14.0" layoutY="37.0" size="25" wrappingWidth="23.428571701049805" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0" />
                                              </children>
                                           </AnchorPane>
-                                          <FontAwesomeIconView fill="#ff6969" glyphName="USERS" layoutX="65.0" layoutY="41.0" size="50" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="10.0" />
+                                          <FontAwesomeIconView fill="#ff6969" glyphName="USERS" layoutX="65.0" layoutY="41.0" size="35" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="10.0" />
                                        </children>
                                        <styleClass>
                                           <String fx:value="menu-bg" />
-                                          <String fx:value="white-bg" />
                                           <String fx:value="StyleCards" />
+                                          <String fx:value="radius" />
                                        </styleClass>
                                     </AnchorPane>
                                  </children>
@@ -675,18 +671,19 @@
                                           </AnchorPane>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane fx:id="anchorPaneThemeWindow" layoutX="248.0" layoutY="82.0" prefHeight="550.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <AnchorPane fx:id="anchorPaneThemeWindow" prefHeight="550.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <AnchorPane layoutX="28.0" layoutY="27.0" prefHeight="144.0" prefWidth="803.0" stylesheets="@Moderator.css">
+                                          <AnchorPane layoutX="96.0" layoutY="25.0" prefHeight="144.0" prefWidth="803.0" AnchorPane.bottomAnchor="381.0" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="96.0" AnchorPane.topAnchor="25.0">
                                              <styleClass>
-                                                <String fx:value="white-bg" />
-                                                <String fx:value="newStyleMenu" />
                                                 <String fx:value="circleRadius" />
+                                                <String fx:value="StyleCards" />
+                                                <String fx:value="shadow" />
+                                                <String fx:value="radius" />
                                              </styleClass>
                                              <children>
-                                                <ScrollPane layoutX="297.0" layoutY="20.0" prefHeight="100.0" prefWidth="478.0" stylesheets="@Moderator.css">
+                                                <ScrollPane layoutX="297.0" layoutY="20.0" prefHeight="100.0" prefWidth="478.0" styleClass="radius">
                                                   <content>
-                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="457.0" styleClass="newStyleMenu" stylesheets="@Moderator.css">
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="338.0" prefWidth="464.0" styleClass="newStyleMenu" stylesheets="@Moderator.css">
                                                          <children>
                                                             <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="60.0" prefWidth="441.0" AnchorPane.topAnchor="15.0">
                                                                <children>
@@ -767,17 +764,17 @@
                                                          </children>
                                                       </AnchorPane>
                                                   </content>
-                                                   <styleClass>
-                                                      <String fx:value="radius" />
-                                                      <String fx:value="shadow" />
-                                                      <String fx:value="white-bg" />
-                                                   </styleClass>
+                                                   <stylesheets>
+                                                      <URL value="@scrollPane.css" />
+                                                      <URL value="@Moderator.css" />
+                                                   </stylesheets>
                                                 </ScrollPane>
                                                 <TextField fx:id="themeTextFieldNameTheme" layoutX="27.0" layoutY="20.0" prefHeight="50.0" prefWidth="260.0" promptText="Название темы" stylesheets="@Moderator.css">
                                                    <styleClass>
                                                       <String fx:value="newStyleMenu" />
                                                       <String fx:value="newStyleMenuTextColorWhite" />
-                                                      <String fx:value="white-bg" />
+                                                      <String fx:value="radius" />
+                                                      <String fx:value="textBold" />
                                                    </styleClass>
                                                    <font>
                                                       <Font size="14.0" />
@@ -785,45 +782,50 @@
                                                 </TextField>
                                                 <Button fx:id="themeBtnAddTheme" layoutX="29.0" layoutY="77.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="256.0" styleClass="nav-btn" text="Добавить тему" />
                                              </children>
+                                             <stylesheets>
+                                                <URL value="@Moderator.css" />
+                                                <URL value="@StaffCards.css" />
+                                             </stylesheets>
                                           </AnchorPane>
-                                          <TableView fx:id="themeTable" layoutX="37.0" layoutY="202.0" prefHeight="322.0" prefWidth="774.0" stylesheets="@Moderator.css">
+                                          <TableView fx:id="themeTable" layoutX="96.0" layoutY="200.0" prefHeight="322.0" prefWidth="740.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="96.0" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="200.0">
                                             <columns>
-                                              <TableColumn fx:id="themeTableName" prefWidth="172.0" text="имя">
-                                                   <styleClass>
-                                                      <String fx:value="newStyleMenu" />
-                                                      <String fx:value="newStyleMenuTextColorWhite" />
-                                                      <String fx:value="white-bg" />
-                                                   </styleClass>
-                                                </TableColumn>
-                                                <TableColumn fx:id="themeTableLastName" prefWidth="191.0" text="фамилия">
-                                                   <styleClass>
-                                                      <String fx:value="white-bg" />
-                                                      <String fx:value="newStyleMenuTextColorWhite" />
-                                                      <String fx:value="newStyleMenu" />
-                                                   </styleClass>
-                                                </TableColumn>
-                                                <TableColumn fx:id="themeTableTheme" prefWidth="407.199951171875" text="тема">
-                                                   <styleClass>
-                                                      <String fx:value="newStyleMenu" />
-                                                      <String fx:value="newStyleMenuTextColorWhite" />
-                                                      <String fx:value="white-bg" />
-                                                   </styleClass>
-                                                </TableColumn>
+                                              <TableColumn fx:id="themeTableName" prefWidth="170.0" styleClass="table-row-cell" text="имя" />
+                                                <TableColumn fx:id="themeTableLastName" prefWidth="170.0" styleClass="table-row-cell" text="фамилия" />
+                                                <TableColumn fx:id="themeTableTheme" prefWidth="400.0" styleClass="table-row-cell" text="тема" />
                                             </columns>
-                                             <styleClass>
-                                                <String fx:value="newStyleMenu" />
-                                                <String fx:value="white-bg" />
-                                             </styleClass>
+                                             <stylesheets>
+                                                <URL value="@Moderator.css" />
+                                                <URL value="@StaffCards.css" />
+                                                <URL value="@themeTable.css" />
+                                             </stylesheets>
                                           </TableView>
+                                          <ComboBox fx:id="themeComboBoxTeacher" layoutX="840.0" layoutY="200.0" prefHeight="33.0" prefWidth="151.0" promptText="Преподаватель" styleClass="comb" stylesheets="@comboBox.css" AnchorPane.bottomAnchor="317.0" AnchorPane.leftAnchor="840.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="200.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane fx:id="anchorPaneTaskWindow" layoutX="250.0" layoutY="162.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <Label layoutX="369.0" layoutY="262.0" text="okno 4">
+                                          <Label layoutX="547.0" layoutY="361.0" text="okno 4">
                                              <font>
                                                 <Font size="36.0" />
                                              </font>
                                           </Label>
+                                          <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="357.0" prefWidth="439.0">
+                                             <children>
+                                                <ListView fx:id="taskListView" layoutX="68.0" layoutY="43.0" prefHeight="243.0" prefWidth="365.0">
+                                                   <styleClass>
+                                                      <String fx:value="newStyleMenu" />
+                                                      <String fx:value="white-bg" />
+                                                      <String fx:value="list-cell" />
+                                                   </styleClass>
+                                                   <stylesheets>
+                                                      <URL value="@Moderator.css" />
+                                                      <URL value="@task.css" />
+                                                   </stylesheets>
+                                                </ListView>
+                                                <ComboBox fx:id="taskComboBoxTeacher" layoutX="68.0" layoutY="298.0" prefHeight="33.0" prefWidth="150.0" promptText="Преподаватель" styleClass="combo-box-base" stylesheets="@comboBox.css" />
+                                                <ComboBox fx:id="taskComboBoxTheme" layoutX="230.0" layoutY="298.0" prefHeight="33.0" prefWidth="203.0" promptText="Тема" stylesheets="@comboBox.css" />
+                                             </children>
+                                          </AnchorPane>
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane fx:id="anchorPaneStudentWindow" layoutX="157.0" layoutY="75.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -848,7 +850,6 @@
                                  <styleClass>
                                     <String fx:value="shadow" />
                                     <String fx:value="radius" />
-                                    <String fx:value="white-bg" />
                                     <String fx:value="newStyleMenu" />
                                  </styleClass>
                               </AnchorPane>

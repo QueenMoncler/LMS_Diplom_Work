@@ -6,12 +6,12 @@ import Database.CommandsSQL;
 import Database.CommandsSQL_Teachers;
 import DialogWindow.DialogWindow;
 import Moderator.Home.TeacherCards;
+import Moderator.Task.TaskList;
 import Moderator.Theme.AddNewTheme;
 import Moderator.Theme.GetObservableList;
 import Moderator.Theme.GetThemeTable;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -24,6 +24,7 @@ import javafx.scene.shape.Circle;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ModeratorController implements Initializable {
@@ -135,6 +136,12 @@ public class ModeratorController implements Initializable {
     private Button taskBtn;
 
     @FXML
+    private ComboBox<String> taskComboBoxTeacher;
+
+    @FXML
+    private ListView<String> taskListView;
+
+    @FXML
     private Button teacherAddBtn;
 
     @FXML
@@ -171,6 +178,9 @@ public class ModeratorController implements Initializable {
     private Circle themeCircleZhilina;
 
     @FXML
+    private ComboBox<String> themeComboBoxTeacher;
+
+    @FXML
     private TextField themeTextFieldNameTheme;
 
     @FXML
@@ -202,26 +212,29 @@ public class ModeratorController implements Initializable {
     DialogWindow dialogWindow = new DialogWindow();
 
 
-    public String setNameUserModerator(String nickname){
+    public String setNameUserModerator(String nickname) {
         return CommandsSQL.nameUser(nickname);
     }
 
-    public String setTeacherAmount(){
+    public String setTeacherAmount() {
         return CommandsSQL.getCountId();
     }
-    public String setAmountTheme(){
+
+    public String setAmountTheme() {
         return (CommandsSQL.getAmountTheme());
     }
-    public String setAmountStudent(){
+
+    public String setAmountStudent() {
         return CommandsSQL.getAmountStudent();
     }
 
 
     static TeacherCards teacherCards = new TeacherCards(nicknameUser);
     public static Image img = teacherCards.getTeacherStaff().get(0);
-    public static void setImageCircle(Circle circle)  {
 
-        if(img.getUrl().equals(teacherCards.getTeacherStaff().get(0))){
+    public static void setImageCircle(Circle circle) {
+
+        if (img.getUrl().equals(teacherCards.getTeacherStaff().get(0))) {
             img = teacherCards.getTeacherStaff().get(1);
             circle.setFill(new ImagePattern(img));
         } else if (img.getUrl().equals(teacherCards.getTeacherStaff().get(1))) {
@@ -264,13 +277,13 @@ public class ModeratorController implements Initializable {
                         !themeCheckPivtoratskaya.isSelected() &
                         !themeCheckVornikova.isSelected()) {
                     dialogWindow.falseAddTheme();
-                }
-                else{
+                } else {
                     initializeAmountMenu();
                     dialogWindow.tryAddTheme();
                     initializeCardsThemeTeacher();
-                    initializeTable();
-                };
+                    initializeTable("");
+                }
+                ;
 
             } catch (SQLException e) {
                 dialogWindow.falseAddTheme();
@@ -280,7 +293,7 @@ public class ModeratorController implements Initializable {
 
     }
 
-    public void teacherCardSwitch(){
+    public void teacherCardSwitch() {
         arrowSwitchBtn.setOnAction(ActionEvent -> {
             if (zhilinaCards.isVisible()) {
                 zhilinaCards.setVisible(false);
@@ -293,21 +306,22 @@ public class ModeratorController implements Initializable {
             } else if (pivtoratskayaCards.isVisible()) {
                 pivtoratskayaCards.setVisible(false);
                 vornikovaCards.setVisible(true);
-            }
-            else if (vornikovaCards.isVisible()) {
+            } else if (vornikovaCards.isVisible()) {
                 zhilinaCards.setVisible(true);
                 vornikovaCards.setVisible(false);
             }
         });
 
     }
+
     public void initializeCardsThemeTeacher() throws SQLException {
         amountThemeZhilinaCards.setText(TeacherCards.getThemeAmount("lecturer"));
         amountThemeKnyazevCards.setText(TeacherCards.getThemeAmount("knyazev"));
         amountThemePivtoratskayaCards.setText(TeacherCards.getThemeAmount("pivtoratskaya"));
         amountThemeVornikovaCards.setText(TeacherCards.getThemeAmount("vornikova"));
     }
-    public void initializeCardsTaskTeacher()throws SQLException{
+
+    public void initializeCardsTaskTeacher() throws SQLException {
         amountTaskZhilinaCards.setText(TeacherCards.getTaskAmount("lecturer"));
         amountTaskKnyazevCards.setText(TeacherCards.getTaskAmount("knyazev"));
         amountTaskPivtoratskayaCards.setText(TeacherCards.getTaskAmount("pivtoratskaya"));
@@ -326,27 +340,53 @@ public class ModeratorController implements Initializable {
     }
 
 
-    public void initializeTable() throws SQLException {
+    public void initializeTable(String nickname) throws SQLException {
         GetObservableList getObservableList = new GetObservableList();
+        if(nickname.isEmpty()){
+            themeTableName.setCellValueFactory(new PropertyValueFactory<GetThemeTable, String>("firstName"));
+            themeTableLastName.setCellValueFactory(new PropertyValueFactory<GetThemeTable, String>("lastName"));
+            themeTableTheme.setCellValueFactory(new PropertyValueFactory<GetThemeTable, String>("themeName"));
+            themeTable.setItems(getObservableList.getList());
+        }
+        else{
+            themeTableName.setCellValueFactory(new PropertyValueFactory<GetThemeTable, String>("firstName"));
+            themeTableLastName.setCellValueFactory(new PropertyValueFactory<GetThemeTable, String>("lastName"));
+            themeTableTheme.setCellValueFactory(new PropertyValueFactory<GetThemeTable, String>("themeName"));
+            themeTable.setItems(getObservableList.getListTableThemeTeacher(nickname));
+        }
+    }
 
-        themeTableName.setCellValueFactory(new PropertyValueFactory<GetThemeTable, String>("firstName"));
-        themeTableLastName.setCellValueFactory(new PropertyValueFactory<GetThemeTable, String>("lastName"));
-        themeTableTheme.setCellValueFactory(new PropertyValueFactory<GetThemeTable, String>("themeName"));
-
-        themeTable.setItems(getObservableList.getList());
+    public void setTaskList() throws SQLException {
+        TaskList taskList = new TaskList();
+        taskComboBoxTeacher.setItems(taskList.getListComboBox());
+    }
+    public void actionTaskList(ComboBox<String> comboBox) throws SQLException {
+        CommandsSQL_Teachers commandsSQLTeachers = new CommandsSQL_Teachers();
+        String nickname = commandsSQLTeachers.getNicknameKeyLastName(comboBox.getValue());
+        TaskList taskList = new TaskList();
+        taskListView.setItems(taskList.getListListView(commandsSQLTeachers.getNicknameKeyLastName(comboBox.getValue())));
+    }
+    public void setThemeComboBoxTeacher() throws SQLException {
+        GetObservableList getObservableList = new GetObservableList();
+        themeComboBoxTeacher.setItems(getObservableList.getListAllTeacher());
+    }
+    public void actionThemeComboBoxTeacher(ComboBox<String> comboBox) throws SQLException {
+        CommandsSQL_Teachers commandsSQLTeachers = new CommandsSQL_Teachers();
+        String nickname = commandsSQLTeachers.getNicknameKeyLastName(comboBox.getValue());
+        if(!nickname.isEmpty()) initializeTable(nickname);
     }
 
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
 
-
-
         setImageCircleTeacher();
 
         teacherCardSwitch();
         try {
-            initializeTable();
+            setThemeComboBoxTeacher();
+            setTaskList();
+            initializeTable("");
             initializeAmountMenu();
             initializeCardsThemeTeacher();
             initializeCardsTaskTeacher();
@@ -354,6 +394,21 @@ public class ModeratorController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        themeComboBoxTeacher.setOnAction(ActionEvent->{
+            try {
+                actionThemeComboBoxTeacher(themeComboBoxTeacher);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        taskComboBoxTeacher.setOnAction(ActionEvent ->{
+            try {
+                actionTaskList(taskComboBoxTeacher);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
         homeBtn.setOnAction(ActionEvent -> {
 //            anchorPaneHomeWindow.setVisible(true);
@@ -381,7 +436,7 @@ public class ModeratorController implements Initializable {
 //            anchorPaneHomeWindow.setVisible(false);
 //            anchorPaneTeacherWindow.setVisible(true);
             anchorPaneThemeWindow.setVisible(false);
-//            anchorPaneTaskWindow.setVisible(false);
+            anchorPaneTaskWindow.setVisible(false);
 //            anchorPaneStudentWindow.setVisible(false);
 //            anchorPaneOProgWindow.setVisible(false);
 //            anchorPaneRightFull.setVisible(false);
@@ -390,15 +445,15 @@ public class ModeratorController implements Initializable {
 //            anchorPaneHomeWindow.setVisible(false);
             anchorPaneTeacherWindow.setVisible(false);
             anchorPaneThemeWindow.setVisible(true);
-//            anchorPaneTaskWindow.setVisible(false);
+            anchorPaneTaskWindow.setVisible(false);
 //            anchorPaneStudentWindow.setVisible(false);
 //            anchorPaneOProgWindow.setVisible(false);
         });
         taskBtn.setOnAction(ActionEvent -> {
-//            anchorPaneHomeWindow.setVisible(false);
-//            anchorPaneTeacherWindow.setVisible(false);
-//            anchorPaneThemeWindow.setVisible(false);
-//            anchorPaneTaskWindow.setVisible(true);
+            //anchorPaneHomeWindow.setVisible(false);
+            anchorPaneTeacherWindow.setVisible(false);
+            anchorPaneThemeWindow.setVisible(false);
+            anchorPaneTaskWindow.setVisible(true);
 //            anchorPaneStudentWindow.setVisible(false);
 //            anchorPaneOProgWindow.setVisible(false);
         });

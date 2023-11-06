@@ -1,0 +1,16 @@
+
+.combo-box {
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-font-family: "Verdana";
+    -fx-font-weight: bold;
+    }
+
+.comb {
+    -fx-font-size: 12px;
+    -fx-text-fill: white;
+    -fx-font-family: "Verdana";
+    -fx-font-weight: bold;
+}
+
+

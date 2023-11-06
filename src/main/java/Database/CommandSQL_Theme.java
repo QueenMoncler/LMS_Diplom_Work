@@ -76,6 +76,21 @@ public class CommandSQL_Theme extends ConnectDB {
             throw new RuntimeException(e);
         }
     }
+    public List<String> getTeacherTheme(String nickname)throws SQLException{
+        String query = "SELECT theme from theme_ticher where nickname = '"+nickname+"';";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            List<String> list = new ArrayList<>();
+            while (result.next()) {
+                list.add(result.getString("theme"));
+            }
+            return list;
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getAmountTaskTeacher");
+            throw new RuntimeException(e);
+        }
+    }
     public List<String> getAllNickname()throws SQLException{
         String query = "SELECT nickname from theme_ticher;";
         try (Statement statement = connection.createStatement();) {

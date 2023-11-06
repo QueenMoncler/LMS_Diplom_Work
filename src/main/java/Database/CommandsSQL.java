@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommandsSQL extends ConnectDB {
 
@@ -194,6 +196,22 @@ public class CommandsSQL extends ConnectDB {
             throw new RuntimeException(e);
         }
         return null;
+    }
+
+    public  List<String> lastNameAllTeacher() {
+        String query = "select last_name from ticher;";
+        List<String> list = new ArrayList<>();
+        try (Statement statement = connection.createStatement()) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                list.add(result.getString("last_name"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в lastNameAllTeacher");
+            throw new RuntimeException(e);
+        }
+       return list;
     }
 
 

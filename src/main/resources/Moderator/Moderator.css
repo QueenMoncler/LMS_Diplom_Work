@@ -83,6 +83,8 @@
 .newStyleMenu{
 -fx-background-color:#181429;
 }
+
+
 .newStyleMenuTextColorWhite{
     -fx-text-size: 14px;
     -fx-text-family: "Arial";
@@ -99,6 +101,8 @@
     -fx-border-radius:8px;
     -fx-border-width:2px;
 }
+
+
 /*
 .setImg{
 -fx-background-image: url("../Images/teacherTest.png");
@@ -113,5 +117,14 @@
 }
 */
 
+.scroll-pane .scroll-arrow * {
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
 
 

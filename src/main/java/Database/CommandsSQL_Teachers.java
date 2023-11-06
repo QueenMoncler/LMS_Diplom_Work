@@ -3,22 +3,25 @@ package Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommandsSQL_Teachers extends ConnectDB {
 
     public CommandsSQL_Teachers() throws SQLException {
 
     }
-    public static String[] getAllNameTeachers(String nickname)throws SQLException {
-        String[] nameStaff = null;
-        String query = "SELECT first_name, last_name from teachers where nickname = '" + nickname + "';";
+
+    public static List<String> getAllNameTeachers(String nickname) throws SQLException {
+        List<String> nameStaff = new ArrayList<>();
+        String query = "SELECT first_name, last_name from ticher where nickname = '" + nickname + "';";
         try (Statement statement = connection.createStatement();) {
             ResultSet result;
             result = statement.executeQuery(query);
             int i = 0;
             while (result.next()) {
-                nameStaff[i] = result.getString("first_name") + " " + result.getString("last_name");
-                i+=1;
+                nameStaff.add(result.getString("first_name") + " " + result.getString("last_name"));
+                i += 1;
             }
         } catch (SQLException e) {
             System.out.println("Ошибка в getAllNameTeachers");
@@ -27,7 +30,7 @@ public class CommandsSQL_Teachers extends ConnectDB {
         return nameStaff;
     }
 
-    public  String getAmountAllTeachers()throws SQLException {
+    public String getAmountAllTeachers() throws SQLException {
         String query = "SELECT count(id) from ticher;";
         try (Statement statement = connection.createStatement();) {
             ResultSet result;
@@ -37,6 +40,37 @@ public class CommandsSQL_Teachers extends ConnectDB {
             }
         } catch (SQLException e) {
             System.out.println("Ошибка в getAmountAllTeachers");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public String getNicknameKeyFirstName(String firstName) throws SQLException {
+        String query = "select nickname from ticher where first_name = '"+firstName+"';";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                return result.getString("nickname");
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getNicknameKeyFirstName");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+
+    public String getNicknameKeyLastName(String lastName) throws SQLException {
+        String query = "select nickname from ticher where last_name = '"+lastName+"';";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                return result.getString("nickname");
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getNicknameKeyLastName");
             throw new RuntimeException(e);
         }
         return null;
