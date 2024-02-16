@@ -22,6 +22,7 @@ public class HelloApplication extends Application {
         Parent root = fxmlLoader.getRoot();
         Stage stg = new Stage();
         stg.setScene(new Scene(root));
+
         stg.showAndWait();
     }
 

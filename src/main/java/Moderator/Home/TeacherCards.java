@@ -22,6 +22,7 @@ public class TeacherCards {
     private URL urlTeacherKnyazev = getClass().getResource("/Images/knyazev.png");
     private URL urlPivtoratskaya = getClass().getResource("/Images/vornikova.png");
     private URL urlVornikova = getClass().getResource("/Images/vornikova.png");
+    private URL urlKhaustova = getClass().getResource("/Images/khaustova.png");
     Map<Integer, Image> teacherStaff = new HashMap<>();
 
     public void setStaff() {
@@ -29,6 +30,7 @@ public class TeacherCards {
         teacherStaff.put(1, new Image(urlTeacherKnyazev.toExternalForm()));
         teacherStaff.put(2, new Image(urlPivtoratskaya.toExternalForm()));
         teacherStaff.put(3, new Image(urlVornikova.toExternalForm()));
+        teacherStaff.put(4, new Image(urlKhaustova.toExternalForm()));
     }
 
 
@@ -71,6 +73,11 @@ public class TeacherCards {
     public static String getTaskAmount(String nickname) throws SQLException{
         CommandSQL_Theme commandSQL_theme = new CommandSQL_Theme();
         return commandSQL_theme.getAmountTaskTeacher(nickname);
+    }
+    public static String getDiscipline(String nickname)throws SQLException{
+        CommandsSQL_Teachers commandsSQL_teachers = new CommandsSQL_Teachers();
+//        System.out.println("TeacherCards: "+ nickname);
+        return commandsSQL_teachers.getDisciplineTeacher(nickname);
     }
 
 }

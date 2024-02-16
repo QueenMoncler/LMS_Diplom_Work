@@ -52,7 +52,7 @@ public class HelloController implements Initializable {
         buttonJoin.setOnAction(ActionEvent -> {
             if (CommandsSQL.searchNickname(textField_nickname.getText())) {
                 System.out.println("GOOD");
-                if (GetPasswordSQL.getPass(textField_nickname.getText()).equals(passwordField_password.getText())) {
+                if (GetPasswordSQL.getPass(textField_nickname.getText(), passwordField_password.getText())) {
                     System.out.println("Пароли совпадают");
                     Stage stg = (Stage) buttonJoin.getScene().getWindow();
 
@@ -67,6 +67,7 @@ public class HelloController implements Initializable {
                     stg.hide();
 
                 } else {
+                    System.out.println(passwordField_password.getText().hashCode());
                     System.out.println("Пароли не совпадают");
                     errorTextVisible.setVisible(true);
                 }
@@ -84,7 +85,7 @@ public class HelloController implements Initializable {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
                 if (CommandsSQL.searchNickname(textField_nickname.getText())) {
                     System.out.println("GOOD");
-                    if (GetPasswordSQL.getPass(textField_nickname.getText()).equals(passwordField_password.getText())) {
+                    if (GetPasswordSQL.getPass(textField_nickname.getText(), passwordField_password.getText())) {
                         System.out.println("Пароли совпадают");
                         Stage stg = (Stage) buttonJoin.getScene().getWindow();
 
@@ -111,7 +112,7 @@ public class HelloController implements Initializable {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
                 if (CommandsSQL.searchNickname(textField_nickname.getText())) {
                     System.out.println("GOOD");
-                    if (GetPasswordSQL.getPass(textField_nickname.getText()).equals(passwordField_password.getText())) {
+                    if (GetPasswordSQL.getPass(textField_nickname.getText(), passwordField_password.getText())) {
                         System.out.println("Пароли совпадают");
                         Stage stg = (Stage) buttonJoin.getScene().getWindow();
 
@@ -138,7 +139,7 @@ public class HelloController implements Initializable {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
                 if (CommandsSQL.searchNickname(textField_nickname.getText())) {
                     System.out.println("GOOD");
-                    if (GetPasswordSQL.getPass(textField_nickname.getText()).equals(passwordField_password.getText())) {
+                    if (GetPasswordSQL.getPass(textField_nickname.getText(), passwordField_password.getText())) {
                         System.out.println("Пароли совпадают");
                         Stage stg = (Stage) buttonJoin.getScene().getWindow();
 

@@ -46,7 +46,7 @@ public class ModeratorApplication {
         stg.setResizable(false);
        // stg.setMaximized(true);
 
-
+        stg.setFullScreen(true);
         stg.showAndWait();
 
 

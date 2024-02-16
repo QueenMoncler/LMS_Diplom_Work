@@ -75,6 +75,36 @@ public class CommandsSQL_Teachers extends ConnectDB {
         }
         return null;
     }
+    public String getDisciplineTeacher(String nickname) throws SQLException{
+        String query = "select discipline_name from discipline_ticher where nickname = '"+nickname+"'";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                return result.getString("discipline_name");
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getDisciplineTeacher");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+    public List<String> getAllDiscipline() throws SQLException{
+        List<String> allDiscipline = new ArrayList<>();
+        String query = "select * from discipline.discipline";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                allDiscipline.add(result.getString("discipline_name"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getAllDiscipline");
+            throw new RuntimeException(e);
+        }
+        return allDiscipline;
+    }
+
 
 
 }

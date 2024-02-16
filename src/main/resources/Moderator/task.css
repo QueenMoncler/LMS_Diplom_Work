@@ -8,3 +8,15 @@
 .list-cell{
     -fx-background-color: transpanent;
 }
+
+.list-cell:filled:selected:focused,
+.list-cell:filled:selected,
+.list-cell:filled:hover{
+    -fx-border-radius: 8px;
+    -fx-border-color: white;
+    -fx-text-fill: #f2b51b ;
+}
+
+.labelCenter{
+    -fx-text-alignment: center;
+}

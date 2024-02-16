@@ -1,16 +1,22 @@
 package Moderator;
 
+import Config.TeacherName;
 import Database.CommandSQL_Student;
 import Database.CommandSQL_Theme;
 import Database.CommandsSQL;
 import Database.CommandsSQL_Teachers;
 import DialogWindow.DialogWindow;
 import Moderator.Home.TeacherCards;
+import Moderator.Home.ToggleRadioButton;
+import Moderator.Task.SelectList;
 import Moderator.Task.TaskList;
 import Moderator.Theme.AddNewTheme;
 import Moderator.Theme.GetObservableList;
 import Moderator.Theme.GetThemeTable;
+import Moderator.discipline.AddNewDisciplineTicher;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,6 +26,8 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,6 +51,9 @@ public class ModeratorController implements Initializable {
     private Label amountTask;
 
     @FXML
+    private Label amountTaskKhaustovaCards;
+
+    @FXML
     private Label amountTaskKnyazevCards;
 
     @FXML
@@ -61,6 +72,9 @@ public class ModeratorController implements Initializable {
     private Label amountTheme;
 
     @FXML
+    private Label amountThemeKhaustovaCards;
+
+    @FXML
     private Label amountThemeKnyazevCards;
 
     @FXML
@@ -71,6 +85,41 @@ public class ModeratorController implements Initializable {
 
     @FXML
     private Label amountThemeZhilinaCards;
+
+    @FXML
+    private Label disciplineNameKhaustova;
+
+    @FXML
+    private Label disciplineNamePivtoratskaya;
+
+    @FXML
+    private Label disciplineNameVornikova;
+
+    @FXML
+    private Label disciplineNameZhilina;
+
+    @FXML
+    private Label disciplineNameknyazev;
+
+    @FXML
+    private Label labelKhaustovaDisciplineCards;
+
+    @FXML
+    private Label labelPivtoratskayaDisciplineCards;
+
+    @FXML
+    private Label labelVornikovaDisciplineCards;
+
+    @FXML
+    private Label labelZhilinaDisciplineCards;
+
+    @FXML
+    private Label labelknyazevDisciplineCards;
+
+    @FXML
+    private Label nameUserModerator;
+    @FXML
+    private Label taskLabel;
 
     @FXML
     private AnchorPane anchorPaneCardsWindow;
@@ -95,6 +144,17 @@ public class ModeratorController implements Initializable {
 
     @FXML
     private AnchorPane anchorPaneThemeWindow;
+    @FXML
+    private AnchorPane knyazevCards;
+    @FXML
+    private AnchorPane khaustovaCards;
+    @FXML
+    private AnchorPane pivtoratskayaCards;
+    @FXML
+    private AnchorPane vornikovaCards;
+    @FXML
+    private AnchorPane zhilinaCards;
+
 
     @FXML
     private FontAwesomeIconView arrowSwitch;
@@ -105,23 +165,54 @@ public class ModeratorController implements Initializable {
     @FXML
     private Button homeBtn;
 
-    @FXML
-    private AnchorPane knyazevCards;
 
+
+    @FXML
+    private Circle khaustovaCircleImageview;
     @FXML
     private Circle knyazevCircleImageview;
+    @FXML
+    private Circle pivtoratskayaCircleImageview;
+    @FXML
+    private Circle themeCircleKhaustova;
 
     @FXML
-    private Label nameUserModerator;
+    private Circle themeCircleKnyazev;
+
+    @FXML
+    private Circle themeCirclePivtoratskaya;
+
+    @FXML
+    private Circle themeCircleVornikova;
+
+    @FXML
+    private Circle themeCircleZhilina;
+    @FXML
+    private Circle vornikovaCircleImageview;
+
+    @FXML
+    private Circle zhilinaCircleImageview;
+
+    @FXML
+    private CheckBox themeCheckKhaustova;
+
+    @FXML
+    private CheckBox themeCheckKnyazev;
+
+    @FXML
+    private CheckBox themeCheckPivtoratskaya;
+
+    @FXML
+    private CheckBox themeCheckVornikova;
+
+    @FXML
+    private CheckBox themeCheckZhilina;
+
+
 
     @FXML
     private Button oProgrammBtn;
 
-    @FXML
-    private AnchorPane pivtoratskayaCards;
-
-    @FXML
-    private Circle pivtoratskayaCircleImageview;
 
     @FXML
     private RadioButton radioBtnMen;
@@ -139,6 +230,11 @@ public class ModeratorController implements Initializable {
     private ComboBox<String> taskComboBoxTeacher;
 
     @FXML
+    private ComboBox<String>  discipline_combobox;
+
+
+
+    @FXML
     private ListView<String> taskListView;
 
     @FXML
@@ -151,49 +247,16 @@ public class ModeratorController implements Initializable {
     private Button themeBtn;
 
     @FXML
+    private Button exitBtn;
+
+    @FXML
     private Button themeBtnAddTheme;
-
-    @FXML
-    private CheckBox themeCheckKnyazev;
-
-    @FXML
-    private CheckBox themeCheckPivtoratskaya;
-
-    @FXML
-    private CheckBox themeCheckVornikova;
-
-    @FXML
-    private CheckBox themeCheckZhilina;
-
-    @FXML
-    private Circle themeCircleKnyazev;
-
-    @FXML
-    private Circle themeCirclePivtoratskaya;
-
-    @FXML
-    private Circle themeCircleVornikova;
-
-    @FXML
-    private Circle themeCircleZhilina;
 
     @FXML
     private ComboBox<String> themeComboBoxTeacher;
 
     @FXML
     private TextField themeTextFieldNameTheme;
-
-    @FXML
-    private AnchorPane vornikovaCards;
-
-    @FXML
-    private Circle vornikovaCircleImageview;
-
-    @FXML
-    private AnchorPane zhilinaCards;
-
-    @FXML
-    private Circle zhilinaCircleImageview;
 
     @FXML
     private TableView<GetThemeTable> themeTable;
@@ -253,29 +316,35 @@ public class ModeratorController implements Initializable {
         knyazevCircleImageview.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(1)));
         pivtoratskayaCircleImageview.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(2)));
         vornikovaCircleImageview.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(3)));
+        khaustovaCircleImageview.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(4)));
 
         themeCircleZhilina.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(0)));
         themeCircleKnyazev.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(1)));
         themeCirclePivtoratskaya.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(2)));
         themeCircleVornikova.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(3)));
+        themeCircleKhaustova.setFill(new ImagePattern(teacherCards.getTeacherStaff().get(4)));
     }
 
     public void themeBtnAddNewThemeAction() throws SQLException {
         themeBtnAddTheme.setOnAction(ActionEvent -> {
             try {
                 if (themeCheckZhilina.isSelected())
-                    AddNewTheme.addTheme(themeTextFieldNameTheme, "lecturer");
+                    AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, "lecturer");
                 if (themeCheckKnyazev.isSelected())
-                    AddNewTheme.addTheme(themeTextFieldNameTheme, "knyazev");
+                AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, "knyazev");
                 if (themeCheckPivtoratskaya.isSelected())
-                    AddNewTheme.addTheme(themeTextFieldNameTheme, "pivtoratskaya");
+                AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, "pivtoratskaya");
                 if (themeCheckVornikova.isSelected())
-                    AddNewTheme.addTheme(themeTextFieldNameTheme, "vornikova");
+                AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, "vornikova");
+                if (themeCheckKhaustova.isSelected())
+                   AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, "khaustova");
 
                 if (!themeCheckZhilina.isSelected() &
                         !themeCheckKnyazev.isSelected() &
                         !themeCheckPivtoratskaya.isSelected() &
-                        !themeCheckVornikova.isSelected()) {
+                        !themeCheckVornikova.isSelected() &
+                        !themeCheckKhaustova.isSelected()
+                ) {
                     dialogWindow.falseAddTheme();
                 } else {
                     initializeAmountMenu();
@@ -283,7 +352,7 @@ public class ModeratorController implements Initializable {
                     initializeCardsThemeTeacher();
                     initializeTable("");
                 }
-                ;
+
 
             } catch (SQLException e) {
                 dialogWindow.falseAddTheme();
@@ -307,25 +376,31 @@ public class ModeratorController implements Initializable {
                 pivtoratskayaCards.setVisible(false);
                 vornikovaCards.setVisible(true);
             } else if (vornikovaCards.isVisible()) {
-                zhilinaCards.setVisible(true);
+                khaustovaCards.setVisible(true);
                 vornikovaCards.setVisible(false);
+            }
+            else if (khaustovaCards.isVisible()){
+                khaustovaCards.setVisible(false);
+                zhilinaCards.setVisible(true);
             }
         });
 
     }
 
     public void initializeCardsThemeTeacher() throws SQLException {
-        amountThemeZhilinaCards.setText(TeacherCards.getThemeAmount("lecturer"));
-        amountThemeKnyazevCards.setText(TeacherCards.getThemeAmount("knyazev"));
-        amountThemePivtoratskayaCards.setText(TeacherCards.getThemeAmount("pivtoratskaya"));
-        amountThemeVornikovaCards.setText(TeacherCards.getThemeAmount("vornikova"));
+        amountThemeZhilinaCards.setText(TeacherCards.getThemeAmount(TeacherName.ZHILINA));
+        amountThemeKnyazevCards.setText(TeacherCards.getThemeAmount(TeacherName.KNYAZEV));
+        amountThemePivtoratskayaCards.setText(TeacherCards.getThemeAmount(TeacherName.PIVTORATSKAYA));
+        amountThemeVornikovaCards.setText(TeacherCards.getThemeAmount(TeacherName.VORNIKOVA));
+        amountThemeKhaustovaCards.setText(TeacherCards.getThemeAmount(TeacherName.KHAUSTOVA));
     }
 
     public void initializeCardsTaskTeacher() throws SQLException {
-        amountTaskZhilinaCards.setText(TeacherCards.getTaskAmount("lecturer"));
-        amountTaskKnyazevCards.setText(TeacherCards.getTaskAmount("knyazev"));
-        amountTaskPivtoratskayaCards.setText(TeacherCards.getTaskAmount("pivtoratskaya"));
-        amountTaskVornikovaCards.setText(TeacherCards.getTaskAmount("vornikova"));
+        amountTaskZhilinaCards.setText(TeacherCards.getTaskAmount(TeacherName.ZHILINA));
+        amountTaskKnyazevCards.setText(TeacherCards.getTaskAmount(TeacherName.KNYAZEV));
+        amountTaskPivtoratskayaCards.setText(TeacherCards.getTaskAmount(TeacherName.PIVTORATSKAYA));
+        amountTaskVornikovaCards.setText(TeacherCards.getTaskAmount(TeacherName.VORNIKOVA));
+        amountTaskKhaustovaCards.setText(TeacherCards.getTaskAmount(TeacherName.KHAUSTOVA));
     }
 
     public void initializeAmountMenu() throws SQLException {
@@ -355,16 +430,28 @@ public class ModeratorController implements Initializable {
             themeTable.setItems(getObservableList.getListTableThemeTeacher(nickname));
         }
     }
+    public void initialDisciplineCards() throws SQLException {
+
+        labelknyazevDisciplineCards.setText(TeacherCards.getDiscipline(TeacherName.KNYAZEV));
+        labelKhaustovaDisciplineCards.setText(TeacherCards.getDiscipline(TeacherName.KHAUSTOVA));
+        labelPivtoratskayaDisciplineCards.setText(TeacherCards.getDiscipline(TeacherName.PIVTORATSKAYA));
+        labelVornikovaDisciplineCards.setText(TeacherCards.getDiscipline(TeacherName.VORNIKOVA));
+        labelZhilinaDisciplineCards.setText(TeacherCards.getDiscipline(TeacherName.ZHILINA));
+    }
 
     public void setTaskList() throws SQLException {
         TaskList taskList = new TaskList();
         taskComboBoxTeacher.setItems(taskList.getListComboBox());
     }
-    public void actionTaskList(ComboBox<String> comboBox) throws SQLException {
-        CommandsSQL_Teachers commandsSQLTeachers = new CommandsSQL_Teachers();
-        String nickname = commandsSQLTeachers.getNicknameKeyLastName(comboBox.getValue());
-        TaskList taskList = new TaskList();
-        taskListView.setItems(taskList.getListListView(commandsSQLTeachers.getNicknameKeyLastName(comboBox.getValue())));
+//    public void actionTaskList(ComboBox<String> comboBox) throws SQLException {
+//        CommandsSQL_Teachers commandsSQLTeachers = new CommandsSQL_Teachers();
+//        String nickname = commandsSQLTeachers.getNicknameKeyLastName(comboBox.getValue());
+//        TaskList taskList = new TaskList();
+//        taskListView.setItems(taskList.getListListView(commandsSQLTeachers.getNicknameKeyLastName(comboBox.getValue())));
+//    }
+    public void actionTaskList() throws SQLException {
+        GetObservableList getObservableList = new GetObservableList();
+        taskListView.setItems(getObservableList.getListDiscipline());
     }
     public void setThemeComboBoxTeacher() throws SQLException {
         GetObservableList getObservableList = new GetObservableList();
@@ -375,15 +462,22 @@ public class ModeratorController implements Initializable {
         String nickname = commandsSQLTeachers.getNicknameKeyLastName(comboBox.getValue());
         if(!nickname.isEmpty()) initializeTable(nickname);
     }
+    public void initialDisciplineCombobox() throws SQLException {
+        GetObservableList getObservableList = new GetObservableList();
+        discipline_combobox.setItems(getObservableList.getListDiscipline());
+    }
 
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
 
+        new SelectList(taskListView, taskLabel);
         setImageCircleTeacher();
-
         teacherCardSwitch();
         try {
+            actionTaskList();
+            initialDisciplineCombobox();
+            initialDisciplineCards();
             setThemeComboBoxTeacher();
             setTaskList();
             initializeTable("");
@@ -402,13 +496,13 @@ public class ModeratorController implements Initializable {
             }
         });
 
-        taskComboBoxTeacher.setOnAction(ActionEvent ->{
-            try {
-                actionTaskList(taskComboBoxTeacher);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        });
+//        taskComboBoxTeacher.setOnAction(ActionEvent ->{
+//            try {
+//                actionTaskList(taskComboBoxTeacher);
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            }
+//        });
 
         homeBtn.setOnAction(ActionEvent -> {
 //            anchorPaneHomeWindow.setVisible(true);
@@ -476,11 +570,20 @@ public class ModeratorController implements Initializable {
             String url = "https://github.com/QueenMoncler/LMS_Diplom_Work";
             try {
                 rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
+        exitBtn.setOnAction(actionEvent -> {
+            Stage stage = (Stage) exitBtn.getScene().getWindow();
+            stage.close();
+        });
+
+        new ToggleRadioButton(radioBtnMen, radioBtnWomen);
+
     }
+
 
 
 }
