@@ -9,6 +9,7 @@ import DialogWindow.DialogWindow;
 import Moderator.Home.TeacherCards;
 import Moderator.Home.ToggleRadioButton;
 import Moderator.Task.SelectList;
+import Moderator.Task.SetFiles;
 import Moderator.Task.TaskList;
 import Moderator.Theme.AddNewTheme;
 import Moderator.Theme.GetObservableList;
@@ -24,14 +25,24 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -120,6 +131,8 @@ public class ModeratorController implements Initializable {
     private Label nameUserModerator;
     @FXML
     private Label taskLabel;
+    @FXML
+    private Label taskLabelFile;
 
     @FXML
     private AnchorPane anchorPaneCardsWindow;
@@ -145,6 +158,17 @@ public class ModeratorController implements Initializable {
     @FXML
     private AnchorPane anchorPaneThemeWindow;
     @FXML
+    private AnchorPane anchorPaneHometWindow;
+
+    @FXML
+    private Pane paneClickDiscipline;
+
+    @FXML
+    private Pane paneClickTask;
+
+    @FXML
+    private Pane paneClickTeacher;
+    @FXML
     private AnchorPane knyazevCards;
     @FXML
     private AnchorPane khaustovaCards;
@@ -164,6 +188,9 @@ public class ModeratorController implements Initializable {
 
     @FXML
     private Button homeBtn;
+
+    @FXML
+    private Button buttonSubmitTask;
 
 
 
@@ -221,6 +248,15 @@ public class ModeratorController implements Initializable {
     private RadioButton radioBtnWomen;
 
     @FXML
+    private RadioButton radioDZ;
+
+    @FXML
+    private RadioButton radioMetodichki;
+
+    @FXML
+    private RadioButton radioSamostoyalki;
+
+    @FXML
     private Button studentsBtn;
 
     @FXML
@@ -238,6 +274,9 @@ public class ModeratorController implements Initializable {
     private ListView<String> taskListView;
 
     @FXML
+    private Button buttonOpenFileTask;
+
+    @FXML
     private Button teacherAddBtn;
 
     @FXML
@@ -251,6 +290,15 @@ public class ModeratorController implements Initializable {
 
     @FXML
     private Button themeBtnAddTheme;
+
+    @FXML
+    private Button buttonClickDiscipline;
+
+    @FXML
+    private Button buttonClickTask;
+
+    @FXML
+    private Button buttonClickTeacher;
 
     @FXML
     private ComboBox<String> themeComboBoxTeacher;
@@ -467,7 +515,8 @@ public class ModeratorController implements Initializable {
         discipline_combobox.setItems(getObservableList.getListDiscipline());
     }
 
-
+    private FileChooser fileChooser = new FileChooser();
+    private File fileMain;
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -496,76 +545,95 @@ public class ModeratorController implements Initializable {
             }
         });
 
-//        taskComboBoxTeacher.setOnAction(ActionEvent ->{
-//            try {
-//                actionTaskList(taskComboBoxTeacher);
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            }
-//        });
-
-        homeBtn.setOnAction(ActionEvent -> {
-//            anchorPaneHomeWindow.setVisible(true);
-//            anchorPaneHomeWindow.setMouseTransparent(true);
-//            anchorPaneTeacherWindow.setVisible(false);
-//            anchorPaneThemeWindow.setVisible(false);
-//            anchorPaneTaskWindow.setVisible(false);
-//            anchorPaneStudentWindow.setVisible(false);
-//            anchorPaneOProgWindow.setVisible(false);
-//            anchorPaneRightFull.setVisible(true);
-            //anchorPaneSwitch1.setVisible(false);
-//            anchorPaneSwitch.setVisible(true);
-//            anchorPaneTeacherWindow.setVisible(false);
-//            anchorPaneHomeWindow.setVisible(true);
-
-
+        buttonOpenFileTask.setOnAction(ActionEvent -> {
+            fileChooser.setInitialDirectory(new File("C://Users//Public//Desktop"));
+            fileChooser.setTitle("Select file");
+            //FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("select...", "*.txt","*.pdf","*.docx","*.doc","*.pptx");
+            fileChooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("Все файлы", "*.*"),
+                    new FileChooser.ExtensionFilter("txt", "*.txt"),
+                    new FileChooser.ExtensionFilter("пдф", "*.pdf"),
+                    new FileChooser.ExtensionFilter("ворд", "*.docx"),
+                    new FileChooser.ExtensionFilter("презентация", "*.pptx")
+            );
+            File file = fileChooser.showOpenDialog(new Stage());
+            fileMain = file;
+            taskLabelFile.setText(fileMain.getName());
         });
-        teacherBtn.setOnAction(ActionEvent -> {
 
-            //anchorPaneSwitch1.setVisible(true);
+        buttonSubmitTask.setOnAction(ActionEvent->{
+            if(!(taskLabel.getText().equals(""))
+            && (radioDZ.isSelected() ||
+                    radioSamostoyalki.isSelected() ||
+                    radioMetodichki.isSelected())
+            && !(taskLabelFile.equals(""))){
+                SetFiles setFiles = new SetFiles();
+                ToggleRadioButton toggleRadioButton = new ToggleRadioButton();
+                setFiles.setFilesDirect(taskLabel.getText(), fileMain, toggleRadioButton.t(radioDZ, radioSamostoyalki, radioMetodichki));
+                taskLabel.setText("");
+                taskLabelFile.setText("");
+                radioDZ.setSelected(false);
+                radioMetodichki.setSelected(false);
+                radioSamostoyalki.setSelected(false);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Диалоговое окно");
+                alert.setHeaderText(null);
+                alert.setContentText("Информация успешно добавлена");
+                alert.showAndWait();
+            }
+            else System.out.println("BAD!");
+        });
+
+        buttonClickDiscipline.setOnAction(ActionEvent ->{
+            anchorPaneTeacherWindow.setVisible(false);
+            anchorPaneHometWindow.setVisible(false);
+            anchorPaneThemeWindow.setVisible(true);
+            anchorPaneTaskWindow.setVisible(false);
+        });
+        buttonClickTeacher.setOnAction(ActionEvent ->{
             anchorPaneSwitch.setVisible(true);
             anchorPaneTeacherWindow.setVisible(true);
             anchorPaneCardsWindow.setVisible(true);
-            //anchorPaneHomeWindow.setVisible(false);
-//            anchorPaneHomeWindow.setVisible(false);
-//            anchorPaneTeacherWindow.setVisible(true);
             anchorPaneThemeWindow.setVisible(false);
             anchorPaneTaskWindow.setVisible(false);
-//            anchorPaneStudentWindow.setVisible(false);
-//            anchorPaneOProgWindow.setVisible(false);
-//            anchorPaneRightFull.setVisible(false);
+            anchorPaneHometWindow.setVisible(false);
         });
-        themeBtn.setOnAction(ActionEvent -> {
-//            anchorPaneHomeWindow.setVisible(false);
+        buttonClickTask.setOnAction(ActionEvent ->{
             anchorPaneTeacherWindow.setVisible(false);
-            anchorPaneThemeWindow.setVisible(true);
-            anchorPaneTaskWindow.setVisible(false);
-//            anchorPaneStudentWindow.setVisible(false);
-//            anchorPaneOProgWindow.setVisible(false);
-        });
-        taskBtn.setOnAction(ActionEvent -> {
-            //anchorPaneHomeWindow.setVisible(false);
-            anchorPaneTeacherWindow.setVisible(false);
+            anchorPaneHometWindow.setVisible(false);
             anchorPaneThemeWindow.setVisible(false);
             anchorPaneTaskWindow.setVisible(true);
-//            anchorPaneStudentWindow.setVisible(false);
-//            anchorPaneOProgWindow.setVisible(false);
+        });
+
+        homeBtn.setOnAction(ActionEvent -> {
+            anchorPaneHometWindow.setVisible(true);
+            anchorPaneTeacherWindow.setVisible(false);
+            anchorPaneThemeWindow.setVisible(false);
+            anchorPaneTaskWindow.setVisible(false);
+        });
+        teacherBtn.setOnAction(ActionEvent -> {
+            anchorPaneSwitch.setVisible(true);
+            anchorPaneTeacherWindow.setVisible(true);
+            anchorPaneCardsWindow.setVisible(true);
+            anchorPaneThemeWindow.setVisible(false);
+            anchorPaneTaskWindow.setVisible(false);
+            anchorPaneHometWindow.setVisible(false);
+        });
+        themeBtn.setOnAction(ActionEvent -> {
+            anchorPaneTeacherWindow.setVisible(false);
+            anchorPaneHometWindow.setVisible(false);
+            anchorPaneThemeWindow.setVisible(true);
+            anchorPaneTaskWindow.setVisible(false);
+        });
+        taskBtn.setOnAction(ActionEvent -> {
+            anchorPaneTeacherWindow.setVisible(false);
+            anchorPaneHometWindow.setVisible(false);
+            anchorPaneThemeWindow.setVisible(false);
+            anchorPaneTaskWindow.setVisible(true);
         });
         studentsBtn.setOnAction(ActionEvent -> {
-//            anchorPaneHomeWindow.setVisible(false);
-//            anchorPaneTeacherWindow.setVisible(false);
-//            anchorPaneThemeWindow.setVisible(false);
-//            anchorPaneTaskWindow.setVisible(false);
-//            anchorPaneStudentWindow.setVisible(true);
-//            anchorPaneOProgWindow.setVisible(false);
         });
         oProgrammBtn.setOnAction(ActionEvent -> {
-//            anchorPaneHomeWindow.setVisible(false);
-//            anchorPaneTeacherWindow.setVisible(false);
-//            anchorPaneThemeWindow.setVisible(false);
-//            anchorPaneTaskWindow.setVisible(false);
-//            anchorPaneStudentWindow.setVisible(false);
-//            anchorPaneOProgWindow.setVisible(true);
             Runtime rt = Runtime.getRuntime();
             String url = "https://github.com/QueenMoncler/LMS_Diplom_Work";
             try {
@@ -580,8 +648,10 @@ public class ModeratorController implements Initializable {
             stage.close();
         });
 
-        new ToggleRadioButton(radioBtnMen, radioBtnWomen);
-
+        //new ToggleRadioButton(radioBtnMen, radioBtnWomen);
+        ToggleRadioButton toggleRadioButton = new ToggleRadioButton();
+        toggleRadioButton.toggleRadioGender(radioBtnMen, radioBtnWomen);
+        toggleRadioButton.toggleRadioDiscipline(radioDZ, radioSamostoyalki, radioMetodichki);
     }
 
 

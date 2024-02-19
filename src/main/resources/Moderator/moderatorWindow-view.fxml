@@ -15,6 +15,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
@@ -79,18 +80,18 @@
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="taskBtn" layoutY="259.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Задания" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                                    <Button fx:id="themeBtn" layoutY="193.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Темы" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Button fx:id="taskBtn" layoutY="259.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Материал" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Button fx:id="themeBtn" layoutY="193.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Дисциплины" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                     <Button fx:id="teacherBtn" layoutY="127.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="188.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Преподаватели" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                     <Button fx:id="studentsBtn" layoutY="326.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Студенты" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                     <Button fx:id="oProgrammBtn" layoutX="3.0" layoutY="408.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="О приложении" textFill="WHITE" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                     <FontAwesomeIconView fill="#ff6969" glyphName="HOME" layoutX="11.0" layoutY="96.0" size="30" />
                                     <FontAwesomeIconView fill="#ff6969" glyphName="FEMALE" layoutX="11.0" layoutY="165.0" size="30" />
-                                    <FontAwesomeIconView fill="#ff6969" glyphName="BOOK" layoutX="11.0" layoutY="229.0" size="30" />
-                                    <FontAwesomeIconView fill="#ff6969" glyphName="TASKS" layoutX="11.0" layoutY="295.0" size="30" />
                                     <FontAwesomeIconView fill="#ff6969" glyphName="USERS" layoutX="11.0" layoutY="362.0" size="30" />
                                     <FontAwesomeIconView fill="#ff6969" glyphName="WARNING" layoutX="12.0" layoutY="433.0" size="30" />
                                     <Button fx:id="exitBtn" layoutX="7.0" layoutY="449.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Выйти" textFill="WHITE" />
+                                    <FontAwesomeIconView fill="#ff6969" glyphName="TASKS" layoutX="11.0" layoutY="229.0" size="30" />
+                                    <FontAwesomeIconView fill="#ff6969" glyphName="BOOK" layoutX="11.0" layoutY="295.0" size="30" />
                                  </children>
                                  <stylesheets>
                                     <URL value="@Moderator.css" />
@@ -930,7 +931,7 @@
                                           <ComboBox fx:id="themeComboBoxTeacher" layoutX="836.0" layoutY="200.0" prefHeight="33.0" prefWidth="151.0" promptText="Преподаватель" styleClass="comb" stylesheets="@comboBox.css" visible="false" AnchorPane.rightAnchor="10.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane fx:id="anchorPaneTaskWindow" layoutX="250.0" layoutY="162.0" prefHeight="550.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <AnchorPane fx:id="anchorPaneTaskWindow" layoutX="250.0" layoutY="162.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
                                           <Label layoutX="547.0" layoutY="361.0" text="okno 4">
                                              <font>
@@ -954,7 +955,29 @@
                                                 <ComboBox fx:id="taskComboBoxTheme" layoutX="230.0" layoutY="298.0" prefHeight="33.0" prefWidth="203.0" promptText="Тема" stylesheets="@comboBox.css" visible="false" />
                                              </children>
                                           </AnchorPane>
-                                          <Label fx:id="taskLabel" layoutX="681.0" layoutY="108.0" text="Label" textFill="WHITE" />
+                                          <Pane layoutX="597.0" layoutY="57.0" prefHeight="41.0" prefWidth="313.0" styleClass="border-color" stylesheets="@paneLabelSetMaterial.css">
+                                             <children>
+                                                <Label fx:id="taskLabel" alignment="CENTER" layoutY="2.0" prefHeight="37.0" prefWidth="312.0" styleClass="labelPaneText" stylesheets="@paneLabelSetMaterial.css" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <RadioButton fx:id="radioDZ" layoutX="569.0" layoutY="149.0" mnemonicParsing="false" text="Домашнее задание" textFill="WHITE" />
+                                          <RadioButton fx:id="radioSamostoyalki" layoutX="710.0" layoutY="149.0" mnemonicParsing="false" text="Самостоятельные" textAlignment="CENTER" textFill="WHITE" />
+                                          <RadioButton fx:id="radioMetodichki" layoutX="840.0" layoutY="149.0" mnemonicParsing="false" text="Методички" textFill="WHITE" />
+                                          <Button fx:id="buttonOpenFileTask" layoutX="607.0" layoutY="226.0" mnemonicParsing="false" text="Открыть" />
+                                          <Pane layoutX="597.0" layoutY="258.0" prefHeight="41.0" prefWidth="313.0" styleClass="border-color" stylesheets="@paneLabelSetMaterial.css">
+                                             <children>
+                                                <Label fx:id="taskLabelFile" alignment="CENTER" layoutY="2.0" prefHeight="37.0" prefWidth="312.0" styleClass="labelPaneText" stylesheets="@paneLabelSetMaterial.css" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Button fx:id="buttonSubmitTask" layoutX="716.0" layoutY="335.0" mnemonicParsing="false" text="Отправить" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane fx:id="anchorPaneStudentWindow" layoutX="157.0" layoutY="75.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -973,6 +996,78 @@
                                                 <Font size="36.0" />
                                              </font>
                                           </Label>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="anchorPaneHometWindow" layoutX="2.0" layoutY="1.0" prefHeight="592.0" prefWidth="944.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label layoutX="456.0" layoutY="469.0" text="main">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <Pane fx:id="paneClickTeacher" layoutX="25.0" layoutY="68.0" prefHeight="335.0" prefWidth="285.0" stylesheets="@buttonTransparent.css" AnchorPane.leftAnchor="31.0">
+                                             <styleClass>
+                                                <String fx:value="newStyleMenu" />
+                                                <String fx:value="border-color" />
+                                                <String fx:value="paneover" />
+                                             </styleClass>
+                                             <children>
+                                                <Label layoutX="16.0" layoutY="203.0" prefHeight="43.0" prefWidth="258.0" text="Карточки преподавателей" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="16.0" layoutY="246.0" prefHeight="81.0" prefWidth="256.0" text="Форма добавления нового преподавателя" textFill="WHITE" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <FontAwesomeIconView fill="#ff6969" glyphName="FEMALE" layoutX="101.0" layoutY="149.0" size="120" wrappingWidth="86.0" />
+                                                <Button fx:id="buttonClickTeacher" layoutX="6.0" layoutY="10.0" mnemonicParsing="false" prefHeight="335.0" prefWidth="285.0" styleClass="buttonTransparent" stylesheets="@buttonTransparent.css" textFill="#b21e1e6e" />
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="paneClickDiscipline" layoutX="330.0" layoutY="68.0" prefHeight="335.0" prefWidth="285.0" stylesheets="@buttonTransparent.css">
+                                             <styleClass>
+                                                <String fx:value="newStyleMenu" />
+                                                <String fx:value="border-color" />
+                                                <String fx:value="paneover" />
+                                             </styleClass>
+                                             <children>
+                                                <Label layoutX="15.0" layoutY="240.0" prefHeight="81.0" prefWidth="256.0" text="Дисциплины, привязанные к преподавателям" textFill="WHITE" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="16.0" layoutY="203.0" prefHeight="41.0" prefWidth="258.0" text="Список дициплин" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <FontAwesomeIconView fill="#ff6969" glyphName="TASKS" layoutX="84.0" layoutY="149.0" size="120" />
+                                                <Button fx:id="buttonClickDiscipline" mnemonicParsing="false" prefHeight="335.0" prefWidth="285.0" styleClass="buttonTransparent" stylesheets="@buttonTransparent.css" textFill="#b21e1e6e" />
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="paneClickTask" layoutX="629.0" layoutY="68.0" prefHeight="335.0" prefWidth="285.0" stylesheets="@buttonTransparent.css">
+                                             <styleClass>
+                                                <String fx:value="newStyleMenu" />
+                                                <String fx:value="border-color" />
+                                                <String fx:value="paneover" />
+                                             </styleClass>
+                                             <children>
+                                                <FontAwesomeIconView fill="#ff6969" glyphName="BOOK" layoutX="87.0" layoutY="149.0" size="120" />
+                                                <Label layoutX="22.0" layoutY="199.0" prefHeight="41.0" prefWidth="258.0" text="Добавление материала" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="15.0" layoutY="240.0" prefHeight="81.0" prefWidth="256.0" text="Форма добавление материала по категориям" textFill="WHITE" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button fx:id="buttonClickTask" layoutY="-1.0" mnemonicParsing="false" prefHeight="335.0" prefWidth="285.0" styleClass="buttonTransparent" stylesheets="@buttonTransparent.css" textFill="#b21e1e6e" />
+                                             </children>
+                                          </Pane>
                                        </children>
                                     </AnchorPane>
                                  </children>

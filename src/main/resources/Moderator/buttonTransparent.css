@@ -1,0 +1,7 @@
+.buttonTransparent{
+    -fx-background-color: transparent;
+}
+.paneover:hover {
+    -fx-border-color: #53388c;
+    -fx-font-weight:bold;
+}
