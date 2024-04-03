@@ -1,9 +1,7 @@
 package Moderator.Theme;
 
-import Database.CommandSQL_Theme;
-import Database.CommandsSQL;
-import Database.CommandsSQL_Discipline;
-import Database.CommandsSQL_Teachers;
+import Database.*;
+import Moderator.Student.StudentTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -31,6 +29,11 @@ public class GetObservableList {
         int count = Integer.parseInt(commandsSQLDiscipline.getCountDisciplineTicher());
         return count;
     }
+    public int getCountStudent() throws SQLException {
+        CommandsSQL_Student commandsSQLStudent = new CommandsSQL_Student();
+        int count = Integer.parseInt(commandsSQLStudent.getCountStudent());
+        return count;
+    }
     public int getCountTeacher(String nickname) throws SQLException {
         CommandSQL_Theme commandSQL_theme = new CommandSQL_Theme();
         int count = Integer.parseInt(commandSQL_theme.getAmountThemeTeacher(nickname));
@@ -41,9 +44,13 @@ public class GetObservableList {
 
     public ObservableList<GetThemeTable> list = FXCollections.observableArrayList(
     );
+    public ObservableList<StudentTable> listStudent = FXCollections.observableArrayList(
+    );
     public ObservableList<GetThemeTable> listTableThemeTeacher = FXCollections.observableArrayList(
     );
     public ObservableList<String> listTeacher = FXCollections.observableArrayList(
+    );
+    public ObservableList<String> listGroupStudent = FXCollections.observableArrayList(
     );
     public ObservableList<String> listDiscipline = FXCollections.observableArrayList(
     );
@@ -67,6 +74,23 @@ public class GetObservableList {
         }
         return list;
     }
+    public ObservableList<StudentTable> getListStudent() throws SQLException {
+        CommandsSQL_Student commandsSQLStudent = new CommandsSQL_Student();
+
+        for (int i = 0; i < getCountStudent(); i++) {
+            System.out.println(commandsSQLStudent.getFirstNameStudent().get(i));
+//
+            listStudent.add(new StudentTable(commandsSQLStudent.getIDStudent().get(i),
+                    commandsSQLStudent.getFirstNameStudent().get(i),
+                    commandsSQLStudent.getLastNameStudent().get(i),
+                    commandsSQLStudent.getGroupStudent().get(i),
+                    commandsSQLStudent.getAgeStudent().get(i),
+                    commandsSQLStudent.getGenderStudent().get(i),
+                    commandsSQLStudent.getEmailStudent().get(i),
+                    commandsSQLStudent.getNicknameStudent().get(i)));
+        }
+        return listStudent;
+    }
     public ObservableList<GetThemeTable> getListTableThemeTeacher(String nickname) throws SQLException {
         CommandSQL_Theme commandSQL_theme = new CommandSQL_Theme();
         List<String> listTeacher =  CommandsSQL_Teachers.getAllNameTeachers(nickname);
@@ -87,6 +111,14 @@ public class GetObservableList {
         }
         return listTeacher;
     }
+    public ObservableList<String> getStudentAllGroup() throws SQLException {
+        CommandsSQL_Student commandsSQLStudent = new CommandsSQL_Student();
+        for(String s:commandsSQLStudent.getAllGroup()){
+            listGroupStudent.add(s);
+        }
+        return listGroupStudent;
+    }
+
     public ObservableList<String> getListDiscipline() throws SQLException {
       CommandsSQL_Teachers commandsSQL_teachers = new CommandsSQL_Teachers();
         for(String s:commandsSQL_teachers.getAllDiscipline()){

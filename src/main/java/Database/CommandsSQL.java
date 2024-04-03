@@ -45,7 +45,7 @@ public class CommandsSQL extends ConnectDB {
             System.out.println("EMAIL");
             while (result.next()) {
                 System.out.println(
-                        result.getString("email"));
+                       result.getString("email"));
             }
 
         } catch (SQLException e) {

@@ -8,6 +8,7 @@ import Database.CommandsSQL_Teachers;
 import DialogWindow.DialogWindow;
 import Moderator.Home.TeacherCards;
 import Moderator.Home.ToggleRadioButton;
+import Moderator.Student.StudentTable;
 import Moderator.Task.SelectList;
 import Moderator.Task.SetFiles;
 import Moderator.Task.TaskList;
@@ -179,6 +180,24 @@ public class ModeratorController implements Initializable {
     @FXML
     private AnchorPane zhilinaCards;
 
+    @FXML
+    private TextField teacherPaneAddTextFieldEmail;
+
+    @FXML
+    private TextField teacherPaneAddTextFieldName;
+
+    @FXML
+    private TextField teacherPaneAddTextFieldNickname;
+
+    @FXML
+    private TextField teacherPaneAddTextFieldPassword;
+
+    @FXML
+    private TextField teacherPaneAddTextFieldPasswordEmail;
+
+    @FXML
+    private TextField teacherPaneAddTextFieldSurname;
+
 
     @FXML
     private FontAwesomeIconView arrowSwitch;
@@ -304,7 +323,37 @@ public class ModeratorController implements Initializable {
     private ComboBox<String> themeComboBoxTeacher;
 
     @FXML
+    private ComboBox<String> studentGroup;
+
+    @FXML
     private TextField themeTextFieldNameTheme;
+
+    @FXML
+    private TableView<StudentTable> studentTable;
+
+    @FXML
+    private TableColumn<StudentTable, String> studentTableAge;
+
+    @FXML
+    private TableColumn<StudentTable, String> studentTableEmail;
+
+    @FXML
+    private TableColumn<StudentTable, String> studentTableGender;
+
+    @FXML
+    private TableColumn<StudentTable, String> studentTableGroup;
+
+    @FXML
+    private TableColumn<StudentTable, String> studentTableID;
+
+    @FXML
+    private TableColumn<StudentTable, String> studentTableLastName;
+
+    @FXML
+    private TableColumn<StudentTable, String> studentTableName;
+
+    @FXML
+    private TableColumn<StudentTable, String> studentTableNickname;
 
     @FXML
     private TableView<GetThemeTable> themeTable;
@@ -377,16 +426,15 @@ public class ModeratorController implements Initializable {
         themeBtnAddTheme.setOnAction(ActionEvent -> {
             try {
                 if (themeCheckZhilina.isSelected())
-                    AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, "lecturer");
+                    AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, TeacherName.ZHILINA);
                 if (themeCheckKnyazev.isSelected())
-                AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, "knyazev");
+                AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, TeacherName.KNYAZEV);
                 if (themeCheckPivtoratskaya.isSelected())
-                AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, "pivtoratskaya");
+                AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, TeacherName.PIVTORATSKAYA);
                 if (themeCheckVornikova.isSelected())
-                AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, "vornikova");
+                AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, TeacherName.VORNIKOVA);
                 if (themeCheckKhaustova.isSelected())
-                   AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, "khaustova");
-
+                   AddNewDisciplineTicher.addDisciplineTicher(discipline_combobox, TeacherName.KHAUSTOVA);
                 if (!themeCheckZhilina.isSelected() &
                         !themeCheckKnyazev.isSelected() &
                         !themeCheckPivtoratskaya.isSelected() &
@@ -400,8 +448,6 @@ public class ModeratorController implements Initializable {
                     initializeCardsThemeTeacher();
                     initializeTable("");
                 }
-
-
             } catch (SQLException e) {
                 dialogWindow.falseAddTheme();
                 throw new RuntimeException(e);
@@ -478,6 +524,18 @@ public class ModeratorController implements Initializable {
             themeTable.setItems(getObservableList.getListTableThemeTeacher(nickname));
         }
     }
+    public void initializeTableStudent() throws SQLException {
+        GetObservableList getObservableList = new GetObservableList();
+        studentTableID.setCellValueFactory(new PropertyValueFactory<StudentTable, String>("id"));
+        studentTableName.setCellValueFactory(new PropertyValueFactory<StudentTable, String>("name"));
+        studentTableLastName.setCellValueFactory(new PropertyValueFactory<StudentTable, String>("lastName"));
+        studentTableGroup.setCellValueFactory(new PropertyValueFactory<StudentTable, String>("group"));
+        studentTableAge.setCellValueFactory(new PropertyValueFactory<StudentTable, String>("age"));
+        studentTableGender.setCellValueFactory(new PropertyValueFactory<StudentTable, String>("gender"));
+        studentTableEmail.setCellValueFactory(new PropertyValueFactory<StudentTable, String>("email"));
+        studentTableNickname.setCellValueFactory(new PropertyValueFactory<StudentTable, String>("nickname"));
+        studentTable.setItems(getObservableList.getListStudent());
+    }
     public void initialDisciplineCards() throws SQLException {
 
         labelknyazevDisciplineCards.setText(TeacherCards.getDiscipline(TeacherName.KNYAZEV));
@@ -505,6 +563,10 @@ public class ModeratorController implements Initializable {
         GetObservableList getObservableList = new GetObservableList();
         themeComboBoxTeacher.setItems(getObservableList.getListAllTeacher());
     }
+    public void setStudentComboBox() throws SQLException {
+        GetObservableList getObservableList = new GetObservableList();
+        studentGroup.setItems(getObservableList.getStudentAllGroup());
+    }
     public void actionThemeComboBoxTeacher(ComboBox<String> comboBox) throws SQLException {
         CommandsSQL_Teachers commandsSQLTeachers = new CommandsSQL_Teachers();
         String nickname = commandsSQLTeachers.getNicknameKeyLastName(comboBox.getValue());
@@ -513,6 +575,13 @@ public class ModeratorController implements Initializable {
     public void initialDisciplineCombobox() throws SQLException {
         GetObservableList getObservableList = new GetObservableList();
         discipline_combobox.setItems(getObservableList.getListDiscipline());
+    }
+    public void goodAlert(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Диалоговое окно");
+        alert.setHeaderText(null);
+        alert.setContentText("Информация успешно добавлена");
+        alert.showAndWait();
     }
 
     private FileChooser fileChooser = new FileChooser();
@@ -524,6 +593,7 @@ public class ModeratorController implements Initializable {
         setImageCircleTeacher();
         teacherCardSwitch();
         try {
+            setStudentComboBox();
             actionTaskList();
             initialDisciplineCombobox();
             initialDisciplineCards();
@@ -541,6 +611,14 @@ public class ModeratorController implements Initializable {
             try {
                 actionThemeComboBoxTeacher(themeComboBoxTeacher);
             } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        studentGroup.setOnAction(ActionEvent->{
+            try{
+                initializeTableStudent();
+            }
+            catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         });
@@ -569,17 +647,14 @@ public class ModeratorController implements Initializable {
             && !(taskLabelFile.equals(""))){
                 SetFiles setFiles = new SetFiles();
                 ToggleRadioButton toggleRadioButton = new ToggleRadioButton();
-                setFiles.setFilesDirect(taskLabel.getText(), fileMain, toggleRadioButton.t(radioDZ, radioSamostoyalki, radioMetodichki));
+                setFiles.setFilesDirect(taskLabel.getText(), fileMain,
+                        toggleRadioButton.t(radioDZ, radioSamostoyalki, radioMetodichki));
                 taskLabel.setText("");
                 taskLabelFile.setText("");
                 radioDZ.setSelected(false);
                 radioMetodichki.setSelected(false);
                 radioSamostoyalki.setSelected(false);
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Диалоговое окно");
-                alert.setHeaderText(null);
-                alert.setContentText("Информация успешно добавлена");
-                alert.showAndWait();
+                goodAlert();
             }
             else System.out.println("BAD!");
         });
@@ -589,6 +664,7 @@ public class ModeratorController implements Initializable {
             anchorPaneHometWindow.setVisible(false);
             anchorPaneThemeWindow.setVisible(true);
             anchorPaneTaskWindow.setVisible(false);
+            anchorPaneStudentWindow.setVisible(false);
         });
         buttonClickTeacher.setOnAction(ActionEvent ->{
             anchorPaneSwitch.setVisible(true);
@@ -597,12 +673,14 @@ public class ModeratorController implements Initializable {
             anchorPaneThemeWindow.setVisible(false);
             anchorPaneTaskWindow.setVisible(false);
             anchorPaneHometWindow.setVisible(false);
+            anchorPaneStudentWindow.setVisible(false);
         });
         buttonClickTask.setOnAction(ActionEvent ->{
             anchorPaneTeacherWindow.setVisible(false);
             anchorPaneHometWindow.setVisible(false);
             anchorPaneThemeWindow.setVisible(false);
             anchorPaneTaskWindow.setVisible(true);
+            anchorPaneStudentWindow.setVisible(false);
         });
 
         homeBtn.setOnAction(ActionEvent -> {
@@ -610,6 +688,7 @@ public class ModeratorController implements Initializable {
             anchorPaneTeacherWindow.setVisible(false);
             anchorPaneThemeWindow.setVisible(false);
             anchorPaneTaskWindow.setVisible(false);
+            anchorPaneStudentWindow.setVisible(false);
         });
         teacherBtn.setOnAction(ActionEvent -> {
             anchorPaneSwitch.setVisible(true);
@@ -618,20 +697,28 @@ public class ModeratorController implements Initializable {
             anchorPaneThemeWindow.setVisible(false);
             anchorPaneTaskWindow.setVisible(false);
             anchorPaneHometWindow.setVisible(false);
+            anchorPaneStudentWindow.setVisible(false);
         });
         themeBtn.setOnAction(ActionEvent -> {
             anchorPaneTeacherWindow.setVisible(false);
             anchorPaneHometWindow.setVisible(false);
             anchorPaneThemeWindow.setVisible(true);
             anchorPaneTaskWindow.setVisible(false);
+            anchorPaneStudentWindow.setVisible(false);
         });
         taskBtn.setOnAction(ActionEvent -> {
             anchorPaneTeacherWindow.setVisible(false);
             anchorPaneHometWindow.setVisible(false);
             anchorPaneThemeWindow.setVisible(false);
             anchorPaneTaskWindow.setVisible(true);
+            anchorPaneStudentWindow.setVisible(false);
         });
         studentsBtn.setOnAction(ActionEvent -> {
+            anchorPaneStudentWindow.setVisible(true);
+            anchorPaneTeacherWindow.setVisible(false);
+            anchorPaneHometWindow.setVisible(false);
+            anchorPaneThemeWindow.setVisible(false);
+            anchorPaneTaskWindow.setVisible(false);
         });
         oProgrammBtn.setOnAction(ActionEvent -> {
             Runtime rt = Runtime.getRuntime();

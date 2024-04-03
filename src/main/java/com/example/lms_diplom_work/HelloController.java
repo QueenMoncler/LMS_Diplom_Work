@@ -74,29 +74,23 @@ public class HelloController implements Initializable {
         errorTextVisible.setVisible(false);
         buttonJoin.setOnAction(ActionEvent -> {
             if (CommandsSQL.searchNickname(textField_nickname.getText())) {
-                System.out.println("GOOD");
+                System.out.println("Login Valid");
                 if (GetPasswordSQL.getPass(textField_nickname.getText(), passwordField_password.getText())) {
-                    System.out.println("Пароли совпадают");
-                    Stage stg = (Stage) buttonJoin.getScene().getWindow();
-
+                    System.out.println("Password Valid");
+                    Stage thisStage = (Stage) buttonJoin.getScene().getWindow();
                     ModeratorApplication moderatorApplication = new ModeratorApplication();
-
                     moderatorApplication.setNickname(textField_nickname.getText());
                     openScene();
-                    stg.close();
-                    //stg.hide();
-                    //stg.close();
-
+                    thisStage.close();
                 } else {
                     System.out.println(passwordField_password.getText().hashCode());
-                    System.out.println("Пароли не совпадают");
+                    System.out.println("Password NOT Valid");
                     errorTextVisible.setVisible(true);
                 }
             } else {
-                System.out.println("Логин не совпадает");
+                System.out.println("Login NOT Valid");
                 errorTextVisible.setVisible(true);
             }
-
         });
     }
 
@@ -156,7 +150,8 @@ public class HelloController implements Initializable {
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
                 if (CommandsSQL.searchNickname(textField_nickname.getText())) {
                     System.out.println("GOOD");
-                    if (GetPasswordSQL.getPass(textField_nickname.getText(), passwordField_password.getText())) {
+                    if (GetPasswordSQL.getPass(textField_nickname.getText(),
+                            passwordField_password.getText())) {
                         System.out.println("Пароли совпадают");
                         Stage stg = (Stage) buttonJoin.getScene().getWindow();
 

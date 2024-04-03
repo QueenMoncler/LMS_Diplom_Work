@@ -17,7 +17,6 @@ public class CommandsSQL_Discipline extends ConnectDB {
         try (Statement statement = connection.createStatement();) {
             ResultSet result;
             result = statement.executeQuery(query);
-
             while (result.next()) {
                 return result.getString("count");
             }
