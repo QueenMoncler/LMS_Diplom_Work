@@ -3,6 +3,9 @@ package com.example.lms_diplom_work;
 import Database.CommandsSQL;
 import Database.GetPasswordSQL;
 import Moderator.ModeratorApplication;
+import Student.StudentApplication;
+import Teacher.TeacherApplication;
+import User.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -52,7 +55,13 @@ public class HelloController implements Initializable {
         pressEnter();
     }
 
-    public void openScene(){
+    public void openScene(String nickname){
+        if(CommandsSQL.selectRole(nickname).equals("Модератор")) openSceneModerator();
+        else if (CommandsSQL.selectRole(nickname).equals("Преподаватель")) openSceneTeacher();
+        else if(CommandsSQL.selectRole(nickname).equals("Студент")) openSceneStudent();
+    }
+
+    public void openSceneModerator(){
         Parent root2;
         try {
             root2 = FXMLLoader.load(ModeratorApplication.class.getResource("moderatorWindow-view.fxml"));
@@ -67,6 +76,36 @@ public class HelloController implements Initializable {
         stg2.setResizable(false);
         stg2.setFullScreen(true);
     }
+    public void openSceneTeacher(){
+        Parent root2;
+        try {
+            root2 = FXMLLoader.load(TeacherApplication.class.getResource("Teacher-view.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage stg2 = new Stage();
+        Scene scene = new Scene(root2);
+
+        stg2.setScene(scene);
+        stg2.show();
+        stg2.setResizable(false);
+        stg2.setFullScreen(true);
+    }
+    public void openSceneStudent(){
+        Parent root3;
+        try {
+            root3 = FXMLLoader.load(StudentApplication.class.getResource("Student_View.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage stg3 = new Stage();
+        Scene scene = new Scene(root3);
+
+        stg3.setScene(scene);
+        stg3.show();
+        stg3.setResizable(false);
+        stg3.setFullScreen(true);
+    }
 
 
     @FXML
@@ -77,10 +116,13 @@ public class HelloController implements Initializable {
                 System.out.println("Login Valid");
                 if (GetPasswordSQL.getPass(textField_nickname.getText(), passwordField_password.getText())) {
                     System.out.println("Password Valid");
+                    User.setUserNickname(textField_nickname.getText());
+                    //if(CommandsSQL.selectRole(textField_nickname.getText().equals("Модератор")))
                     Stage thisStage = (Stage) buttonJoin.getScene().getWindow();
-                    ModeratorApplication moderatorApplication = new ModeratorApplication();
-                    moderatorApplication.setNickname(textField_nickname.getText());
-                    openScene();
+                    //ModeratorApplication moderatorApplication = new ModeratorApplication();
+                    //moderatorApplication.setNickname(textField_nickname.getText());
+                    //openScene();
+                    openScene(textField_nickname.getText());
                     thisStage.close();
                 } else {
                     System.out.println(passwordField_password.getText().hashCode());
@@ -102,15 +144,15 @@ public class HelloController implements Initializable {
                     System.out.println("GOOD");
                     if (GetPasswordSQL.getPass(textField_nickname.getText(), passwordField_password.getText())) {
                         System.out.println("Пароли совпадают");
+                        User.setUserNickname(textField_nickname.getText());
                         Stage stg = (Stage) buttonJoin.getScene().getWindow();
+                        //ModeratorApplication moderatorApplication = new ModeratorApplication();
+                        //moderatorApplication.setNickname(textField_nickname.getText());
+                        //openScene();
+                        openScene(textField_nickname.getText());
+                        //stg.close();
 
-                        ModeratorApplication moderatorApplication = new ModeratorApplication();
-                        moderatorApplication.setNickname(textField_nickname.getText());
-
-                        openScene();
                         stg.close();
-
-                        // stg.close();
                     } else {
                         System.out.println("Пароли не совпадают");
                         errorTextVisible.setVisible(true);
@@ -119,6 +161,7 @@ public class HelloController implements Initializable {
                     System.out.println("Логин не совпадает");
                     errorTextVisible.setVisible(true);
                 }
+
             }
         });
 
@@ -129,12 +172,13 @@ public class HelloController implements Initializable {
                     if (GetPasswordSQL.getPass(textField_nickname.getText(), passwordField_password.getText())) {
                         System.out.println("Пароли совпадают");
                         Stage stg = (Stage) buttonJoin.getScene().getWindow();
+                        User.setUserNickname(textField_nickname.getText());
+                        //ModeratorApplication moderatorApplication = new ModeratorApplication();
+                        //moderatorApplication.setNickname(textField_nickname.getText());
+                        //openScene();
+                        openScene(textField_nickname.getText());
+                        stg.close();
 
-                        ModeratorApplication moderatorApplication = new ModeratorApplication();
-                        moderatorApplication.setNickname(textField_nickname.getText());
-                        openScene();
-                        stg.close();
-                        stg.close();
                     } else {
                         System.out.println("Пароли не совпадают");
                         errorTextVisible.setVisible(true);
@@ -154,10 +198,11 @@ public class HelloController implements Initializable {
                             passwordField_password.getText())) {
                         System.out.println("Пароли совпадают");
                         Stage stg = (Stage) buttonJoin.getScene().getWindow();
-
-                        ModeratorApplication moderatorApplication = new ModeratorApplication();
-                        moderatorApplication.setNickname(textField_nickname.getText());
-                        openScene();
+                        User.setUserNickname(textField_nickname.getText());
+                        //ModeratorApplication moderatorApplication = new ModeratorApplication();
+                        //moderatorApplication.setNickname(textField_nickname.getText());
+                        //openScene();
+                        openScene(textField_nickname.getText());
                         stg.close();
 
                     } else {

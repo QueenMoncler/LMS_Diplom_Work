@@ -62,7 +62,7 @@
                                     <URL value="@StaffCards.css" />
                                  </stylesheets>
                               </AnchorPane>
-                              <Label fx:id="nameUserModerator" layoutX="4.0" layoutY="691.0" prefHeight="27.0" prefWidth="206.0" styleClass="textBold" stylesheets="@Moderator.css" text="Никита Анциферов" textFill="WHITE" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="2.0">
+                              <Label fx:id="nameUserModerator" alignment="CENTER" layoutX="3.0" layoutY="680.0" prefHeight="27.0" prefWidth="206.0" styleClass="textBold" stylesheets="@Moderator.css" text="Никита Анциферов" textFill="WHITE" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -112,7 +112,7 @@
                      <children>
                         <AnchorPane fx:id="anchorPaneRightFull" layoutX="304.0" layoutY="254.0" prefHeight="800.0" prefWidth="873.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <AnchorPane layoutX="16.0" layoutY="14.0" prefHeight="140.0" prefWidth="845.0" stylesheets="@Moderator.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="20.0">
+                              <AnchorPane layoutX="16.0" layoutY="14.0" prefHeight="140.0" prefWidth="955.0" stylesheets="@Moderator.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="20.0">
                                  <styleClass>
                                     <String fx:value="radius" />
                                     <String fx:value="shadow" />
@@ -755,7 +755,7 @@
                                           </AnchorPane>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane fx:id="anchorPaneThemeWindow" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <AnchorPane fx:id="anchorPaneThemeWindow" prefHeight="550.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
                                           <AnchorPane layoutX="96.0" layoutY="25.0" prefHeight="144.0" prefWidth="803.0" AnchorPane.leftAnchor="96.0" AnchorPane.topAnchor="25.0">
                                              <styleClass>
@@ -980,7 +980,7 @@
                                           <Button fx:id="buttonSubmitTask" layoutX="716.0" layoutY="335.0" mnemonicParsing="false" text="Отправить" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane fx:id="anchorPaneStudentWindow" layoutX="157.0" layoutY="75.0" prefHeight="550.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <AnchorPane fx:id="anchorPaneStudentWindow" layoutX="157.0" layoutY="75.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
                                           <Label layoutX="418.0" layoutY="456.0" text="okno 5">
                                              <font>

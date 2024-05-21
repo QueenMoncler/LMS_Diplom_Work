@@ -54,7 +54,7 @@ public class CommandsSQL extends ConnectDB {
         }
     }
     public static boolean searchNickname(String nickname){
-        String query = "SELECT nickname from allconfig where nickname = '"+ nickname +"';";
+        String query = "SELECT nickname from public.alluser where nickname = '"+ nickname +"';";
         try(Statement statement = connection.createStatement();) {
             ResultSet result;
             result = statement.executeQuery(query);
@@ -67,6 +67,21 @@ public class CommandsSQL extends ConnectDB {
             throw new RuntimeException(e);
         }
         return false;
+    }
+    public static String selectRole(String nickname) {
+        String query = "select role from public.alluser where nickname = '"+nickname+"'";
+        String role = "";
+        try(Statement statement = connection.createStatement();)  {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+             role = result.getString("role");
+            }
+            return role;
+        } catch (SQLException e) {
+            System.out.println("Ошибка в selectRole");
+            throw new RuntimeException(e);
+        }
     }
 
     public static String getCountId() {

@@ -370,6 +370,11 @@ public class ModeratorController implements Initializable {
 
     private static String nicknameUser = new ModeratorApplication().getNickname();
     DialogWindow dialogWindow = new DialogWindow();
+    private static String urlGitHubRepo = "https://github.com/QueenMoncler/LMS_Diplom_Work";
+
+    public static String getUrlGitHubRepo() {
+        return urlGitHubRepo;
+    }
 
 
     public String setNameUserModerator(String nickname) {
@@ -580,7 +585,7 @@ public class ModeratorController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Диалоговое окно");
         alert.setHeaderText(null);
-        alert.setContentText("Информация успешно добавлена");
+        alert.setContentText("Информация усЫпешно добавлена");
         alert.showAndWait();
     }
 
@@ -722,9 +727,9 @@ public class ModeratorController implements Initializable {
         });
         oProgrammBtn.setOnAction(ActionEvent -> {
             Runtime rt = Runtime.getRuntime();
-            String url = "https://github.com/QueenMoncler/LMS_Diplom_Work";
+
             try {
-                rt.exec("rundll32 url.dll,FileProtocolHandler " + url);
+                rt.exec("rundll32 url.dll,FileProtocolHandler " + urlGitHubRepo);
 
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -740,7 +745,5 @@ public class ModeratorController implements Initializable {
         toggleRadioButton.toggleRadioGender(radioBtnMen, radioBtnWomen);
         toggleRadioButton.toggleRadioDiscipline(radioDZ, radioSamostoyalki, radioMetodichki);
     }
-
-
 
 }

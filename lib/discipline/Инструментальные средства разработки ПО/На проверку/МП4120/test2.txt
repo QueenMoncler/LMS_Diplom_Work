@@ -1,0 +1,8 @@
+Жесткий диск:311CD0512GB
+Объем (в байтах):512105932800
+Процессор:AMD Ryzen 5 5500U with Radeon Graphics
+Видеокарта:AMD Radeon(TM) GraphicsVirtual Display Device
+Видеопроцессор:AMD Radeon Graphics Processor (0x164C)
+Составное USB устройство
+Корневой USB-концентратор (USB 3.0)
+Корневой USB-концентратор (USB 3.0)

@@ -20,11 +20,24 @@ public class SetFiles {
             } else {
                 Files.createDirectories(Paths.get(PATH + discipline));
                 Files.createDirectories(Paths.get(PATH + discipline + "/" + "Домашнее задание"));
-                Files.createDirectories(Paths.get(PATH + discipline + "/" + "Самостоятельные"));
+                Files.createDirectories(Paths.get(PATH + discipline + "/" + "Самостоятельная работа"));
                 Files.createDirectories(Paths.get(PATH + discipline + "/" + "Методички"));
+                Files.createDirectories(Paths.get(PATH + discipline + "/" + "На проверку"));
+                Files.createDirectories(Paths.get(PATH + discipline + "/" + "На проверку" + "/" + "МП4120"));
                 Files.copy(Paths.get(file.getAbsolutePath()), Paths.get(PATH + discipline+"/"+radioButton.getText()+"/"+file.getName()));
                 return true;
             }
+        } catch (IOException e) {
+
+            throw new RuntimeException(e);
+
+        }
+
+    }
+    public boolean setFilesOnProverka(String discipline, File file) {
+        try {
+            Files.copy(Paths.get(file.getAbsolutePath()), Paths.get(PATH + discipline+"/На проверку/МП4120/"+file.getName()));
+            return true;
         } catch (IOException e) {
 
             throw new RuntimeException(e);

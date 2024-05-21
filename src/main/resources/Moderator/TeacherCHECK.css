@@ -1,0 +1,18 @@
+.Textbox{
+    -fx-background-color: Transpanent;
+    -fx-border-color: white;
+    -fx-border-radius:8px;
+    -fx-text-fill: white;
+}
+.TextArea{
+ -fx-border-color: white;
+    -fx-border-radius:8px;
+      -fx-text-fill: white;
+}
+.TextArea .content{
+    -fx-background-color: #181429;
+
+}
+.Pane{
+    -fx-background-color:#ff6969;
+}

@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Teacher.TeacherController">
+   <children>
+      <AnchorPane prefHeight="740.0" prefWidth="1100.0" styleClass="body-bg" stylesheets="@../Moderator/Moderator.css">
+         <children>
+            <BorderPane layoutX="427.0" layoutY="6.0" prefHeight="800.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <AnchorPane prefHeight="800.0" prefWidth="221.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="8.0" layoutY="47.0" prefHeight="750.0" prefWidth="265.0" stylesheets="@../Moderator/Moderator.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="47.0">
+                           <children>
+                              <AnchorPane layoutX="16.0" layoutY="20.0" prefHeight="133.0" prefWidth="189.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0">
+                                 <children>
+                                    <Label layoutX="28.0" layoutY="51.0" prefHeight="41.0" prefWidth="188.0" stylesheets="@../Moderator/Moderator.css" text="Преподаватель" textFill="WHITE" wrapText="true">
+                                       <font>
+                                          <Font name="System Bold" size="24.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="welcome-text" />
+                                          <String fx:value="actiontarget" />
+                                       </styleClass>
+                                    </Label>
+                                    <Label layoutX="28.0" layoutY="39.0" prefHeight="21.0" prefWidth="48.0" stylesheets="@../Moderator/Moderator.css" text="режим" textFill="WHITE" wrapText="true">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="welcome-text" />
+                                          <String fx:value="actiontarget" />
+                                       </styleClass>
+                                    </Label>
+                                    <FontAwesomeIconView fill="#ff6969" glyphName="BOOK" layoutX="183.0" layoutY="44.0" size="35" />
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="menu-bg" />
+                                    <String fx:value="StyleCards" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <stylesheets>
+                                    <URL value="@../Moderator/Moderator.css" />
+                                    <URL value="@../Moderator/StaffCards.css" />
+                                 </stylesheets>
+                              </AnchorPane>
+                              <Label fx:id="nameUserModerator" alignment="CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="691.0" prefHeight="27.0" prefWidth="239.0" styleClass="textBold" stylesheets="@../Moderator/Moderator.css" text="Никита Анциферов" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="13.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane layoutX="15.0" layoutY="171.0" prefHeight="509.0" prefWidth="191.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="menu-bg" />
+                                    <String fx:value="StyleCards" />
+                                 </styleClass>
+                                 <children>
+                                    <Button fx:id="homeBtn" layoutY="60.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@../Moderator/Moderator.css" text="Домой" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="taskBtn" layoutY="130.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@../Moderator/Moderator.css" text="Материал" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Button fx:id="studentsBtn" layoutY="197.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@../Moderator/Moderator.css" text="Студенты" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Button fx:id="oProgrammBtn" layoutX="3.0" layoutY="408.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@../Moderator/Moderator.css" text="О приложении" textFill="WHITE" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <FontAwesomeIconView fill="#ff6969" glyphName="HOME" layoutX="11.0" layoutY="96.0" size="30" />
+                                    <FontAwesomeIconView fill="#ff6969" glyphName="USERS" layoutX="11.0" layoutY="233.0" size="30" />
+                                    <FontAwesomeIconView fill="#ff6969" glyphName="WARNING" layoutX="12.0" layoutY="433.0" size="30" />
+                                    <Button fx:id="exitBtn" layoutX="7.0" layoutY="449.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@../Moderator/Moderator.css" text="Выйти" textFill="WHITE" />
+                                    <FontAwesomeIconView fill="#ff6969" glyphName="BOOK" layoutX="11.0" layoutY="166.0" size="30" />
+                                    <Button fx:id="sendBtn" layoutX="4.0" layoutY="261.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@../Moderator/Moderator.css" text="Отправить ДЗ" textFill="WHITE" />
+                                    <FontAwesomeIconView fill="#ff6969" glyphName="CLOUD" layoutX="15.0" layoutY="297.0" size="30" />
+                                    <Button fx:id="sendBtnGetDZ" layoutX="4.0" layoutY="324.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="230.0" styleClass="nav-btn" stylesheets="@../Moderator/Moderator.css" text="Проверить ДЗ" textFill="WHITE" />
+                                    <FontAwesomeIconView fill="#ff6969" glyphName="ARCHIVE" layoutX="15.0" layoutY="360.0" size="30" />
+                                 </children>
+                                 <stylesheets>
+                                    <URL value="@../Moderator/Moderator.css" />
+                                    <URL value="@../Moderator/StaffCards.css" />
+                                 </stylesheets>
+                              </AnchorPane>
+                           </children>
+                           <styleClass>
+                              <String fx:value="newStyleMenu" />
+                              <String fx:value="radius" />
+                           </styleClass>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="anchorPaneRightFull" layoutX="304.0" layoutY="46.0" prefHeight="803.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="16.0" layoutY="45.0" prefHeight="134.0" prefWidth="945.0" stylesheets="@../Moderator/Moderator.css" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="45.0">
+                                 <styleClass>
+                                    <String fx:value="radius" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="newStyleMenu" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="257.0" layoutY="15.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@../Moderator/StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="270.0" AnchorPane.topAnchor="15.0">
+                                       <children>
+                                          <AnchorPane layoutX="8.0" layoutY="73.0" prefHeight="53.0" prefWidth="158.0" stylesheets="@../Moderator/Moderator.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0">
+                                             <styleClass>
+                                                <String fx:value="shadow" />
+                                                <String fx:value="radius" />
+                                                <String fx:value="newStyleMenu" />
+                                             </styleClass>
+                                             <children>
+                                                <Label fx:id="amountTheme" contentDisplay="BOTTOM" layoutX="69.0" layoutY="3.0" prefHeight="49.0" prefWidth="23.0" styleClass="textAlignCenter" stylesheets="@../Moderator/Moderator.css" text="12" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="67.0">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <FontAwesomeIconView fill="#ff6969" glyphName="ARCHIVE" layoutX="14.0" layoutY="38.0" size="25" text="" wrappingWidth="23.428571701049805" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <FontAwesomeIconView fill="#ff6969" glyphName="BOOK" layoutX="71.0" layoutY="57.0" size="35" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="10.0" />
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="menu-bg" />
+                                          <String fx:value="StyleCards" />
+                                          <String fx:value="radius" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="17.0" layoutY="12.0" prefHeight="110.0" prefWidth="170.0" stylesheets="@../Moderator/StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="15.0">
+                                       <children>
+                                          <AnchorPane layoutX="9.0" layoutY="74.0" prefHeight="53.0" prefWidth="158.0" stylesheets="@../Moderator/Moderator.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="8.0">
+                                             <styleClass>
+                                                <String fx:value="shadow" />
+                                                <String fx:value="radius" />
+                                                <String fx:value="newStyleMenu" />
+                                             </styleClass>
+                                             <children>
+                                                <Label fx:id="amountTeacher" contentDisplay="BOTTOM" layoutX="66.0" layoutY="2.0" prefHeight="49.0" prefWidth="23.0" styleClass="textAlignCenter" stylesheets="@../Moderator/Moderator.css" text="12" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="60.0">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <FontAwesomeIconView fill="#ff6969" glyphName="ARCHIVE" layoutX="14.0" layoutY="35.0" size="25" wrappingWidth="23.428571701049805" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <FontAwesomeIconView fill="#ff6969" glyphName="FEMALE" layoutX="80.0" layoutY="44.0" size="35" wrappingWidth="25.428571701049805" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="10.0" />
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="menu-bg" />
+                                          <String fx:value="StyleCards" />
+                                          <String fx:value="radius" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="514.0" layoutY="15.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@../Moderator/StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="15.0">
+                                       <children>
+                                          <AnchorPane layoutX="8.0" layoutY="77.0" prefHeight="53.0" prefWidth="159.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="7.0">
+                                             <children>
+                                                <Label fx:id="amountTask" contentDisplay="BOTTOM" layoutX="71.0" layoutY="13.0" prefHeight="27.0" prefWidth="20.0" styleClass="textAlignCenter" stylesheets="@../Moderator/Moderator.css" text="0" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="79.0" AnchorPane.rightAnchor="59.0">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <FontAwesomeIconView fill="#ff6969" glyphName="ARCHIVE" layoutX="14.0" layoutY="35.0" size="25" wrappingWidth="23.428571701049805" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0" />
+                                             </children>
+                                             <stylesheets>
+                                                <URL value="@../Moderator/Moderator.css" />
+                                                <URL value="@../Moderator/StaffCards.css" />
+                                             </stylesheets>
+                                             <styleClass>
+                                                <String fx:value="shadow" />
+                                                <String fx:value="radius" />
+                                                <String fx:value="newStyleMenu" />
+                                             </styleClass>
+                                          </AnchorPane>
+                                          <FontAwesomeIconView fill="#ff6969" glyphName="TASKS" layoutX="64.0" layoutY="42.0" size="35" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="10.0" />
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="menu-bg" />
+                                          <String fx:value="StyleCards" />
+                                          <String fx:value="radius" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="766.0" layoutY="15.0" prefHeight="134.0" prefWidth="173.0" stylesheets="@../Moderator/StaffCards.css" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="15.0">
+                                       <children>
+                                          <AnchorPane layoutX="9.0" layoutY="49.0" prefHeight="53.0" prefWidth="173.0" stylesheets="@../Moderator/Moderator.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="6.0">
+                                             <styleClass>
+                                                <String fx:value="shadow" />
+                                                <String fx:value="radius" />
+                                                <String fx:value="newStyleMenu" />
+                                             </styleClass>
+                                             <children>
+                                                <Label fx:id="amountStudent" contentDisplay="BOTTOM" layoutX="77.0" layoutY="13.0" prefHeight="27.0" prefWidth="23.0" styleClass="textAlignCenter" stylesheets="@../Moderator/Moderator.css" text="12" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="61.0">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <FontAwesomeIconView fill="#ff6969" glyphName="ARCHIVE" layoutX="14.0" layoutY="37.0" size="25" wrappingWidth="23.428571701049805" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0" />
+                                             </children>
+                                          </AnchorPane>
+                                          <FontAwesomeIconView fill="#ff6969" glyphName="USERS" layoutX="65.0" layoutY="41.0" size="35" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="10.0" />
+                                       </children>
+                                       <styleClass>
+                                          <String fx:value="menu-bg" />
+                                          <String fx:value="StyleCards" />
+                                          <String fx:value="radius" />
+                                       </styleClass>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="anchorPaneSwitch" layoutX="14.0" layoutY="192.0" prefHeight="605.0" prefWidth="945.0" stylesheets="@../Moderator/Moderator.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="192.0">
+                                 <children>
+                                    <AnchorPane fx:id="anchorPaneTaskWindow" layoutX="1.0" layoutY="22.0" prefHeight="605.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label layoutX="547.0" layoutY="361.0" text="okno 4">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <AnchorPane layoutX="39.0" layoutY="37.0" prefHeight="331.0" prefWidth="471.0">
+                                             <children>
+                                                <ListView fx:id="taskListView" layoutX="34.0" layoutY="32.0" prefHeight="243.0" prefWidth="425.0">
+                                                   <styleClass>
+                                                      <String fx:value="newStyleMenu" />
+                                                      <String fx:value="white-bg" />
+                                                      <String fx:value="list-cell" />
+                                                   </styleClass>
+                                                   <stylesheets>
+                                                      <URL value="@../Moderator/Moderator.css" />
+                                                      <URL value="@../Moderator/task.css" />
+                                                   </stylesheets>
+                                                </ListView>
+                                                <ComboBox fx:id="taskComboBoxTeacher" layoutX="68.0" layoutY="298.0" prefHeight="33.0" prefWidth="150.0" promptText="Предмет" styleClass="combo-box-base" stylesheets="@../Moderator/comboBox.css" visible="false" />
+                                                <ComboBox fx:id="taskComboBoxTheme" layoutX="230.0" layoutY="298.0" prefHeight="33.0" prefWidth="203.0" promptText="Тема" stylesheets="@../Moderator/comboBox.css" visible="false" />
+                                             </children>
+                                          </AnchorPane>
+                                          <Pane layoutX="597.0" layoutY="57.0" prefHeight="41.0" prefWidth="313.0" styleClass="border-color" stylesheets="@../Moderator/paneLabelSetMaterial.css">
+                                             <children>
+                                                <Label fx:id="taskLabel" alignment="CENTER" layoutY="2.0" prefHeight="37.0" prefWidth="312.0" styleClass="labelPaneText" stylesheets="@../Moderator/paneLabelSetMaterial.css" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <RadioButton fx:id="radioDZ" layoutX="569.0" layoutY="149.0" mnemonicParsing="false" text="Домашнее задание" textFill="WHITE" />
+                                          <RadioButton fx:id="radioSamostoyalki" layoutX="710.0" layoutY="149.0" mnemonicParsing="false" text="Самостоятельные" textAlignment="CENTER" textFill="WHITE" />
+                                          <RadioButton fx:id="radioMetodichki" layoutX="840.0" layoutY="149.0" mnemonicParsing="false" text="Методички" textFill="WHITE" />
+                                          <Button fx:id="buttonOpenFileTask" layoutX="607.0" layoutY="226.0" mnemonicParsing="false" text="Открыть" />
+                                          <Pane layoutX="597.0" layoutY="258.0" prefHeight="41.0" prefWidth="313.0" styleClass="border-color" stylesheets="@../Moderator/paneLabelSetMaterial.css">
+                                             <children>
+                                                <Label fx:id="taskLabelFile" alignment="CENTER" layoutY="2.0" prefHeight="37.0" prefWidth="312.0" styleClass="labelPaneText" stylesheets="@../Moderator/paneLabelSetMaterial.css" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Button fx:id="buttonSubmitTask" layoutX="716.0" layoutY="335.0" mnemonicParsing="false" text="Отправить" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="anchorPaneStudentWindow" layoutX="157.0" layoutY="75.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label layoutX="418.0" layoutY="456.0" text="okno 5">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <TableView fx:id="studentTable" layoutX="129.0" layoutY="72.0" prefHeight="384.0" prefWidth="799.0">
+                                             <columns>
+                                                <TableColumn fx:id="studentTableID" prefWidth="75.0" styleClass="table-row-cell" text="ID" />
+                                                <TableColumn fx:id="studentTableName" prefWidth="105.0" styleClass="table-row-cell" text="Имя" />
+                                                <TableColumn fx:id="studentTableLastName" prefWidth="115.0" styleClass="table-row-cell" text="Фамилия" />
+                                                <TableColumn fx:id="studentTableGroup" minWidth="1.0" prefWidth="62.0" styleClass="table-row-cell" text="Группа" />
+                                                <TableColumn fx:id="studentTableAge" prefWidth="77.0" styleClass="table-row-cell" text="Возраст" />
+                                                <TableColumn fx:id="studentTableGender" prefWidth="57.0" styleClass="table-row-cell" text="Пол" />
+                                                <TableColumn fx:id="studentTableEmail" prefWidth="158.0" styleClass="table-row-cell" text="Почта" />
+                                                <TableColumn fx:id="studentTableNickname" prefWidth="141.0" styleClass="table-row-cell" text="Никнейм" />
+                                             </columns>
+                                             <stylesheets>
+                                                <URL value="@../Moderator/Moderator.css" />
+                                                <URL value="@../Moderator/StaffCards.css" />
+                                                <URL value="@../Moderator/themeTable.css" />
+                                             </stylesheets>
+                                          </TableView>
+                                          <ComboBox fx:id="studentGroup" layoutX="22.0" layoutY="72.0" prefHeight="25.0" prefWidth="84.0" promptText="Группа" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="anchorPaneSendDZ" layoutX="292.0" layoutY="143.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label layoutX="418.0" layoutY="475.0" text="okno 6">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="sendGroupComboBox" disable="true" layoutX="14.0" layoutY="112.0" prefWidth="150.0" promptText="Группа" />
+                                          <CheckBox fx:id="sendPersonalCheckBox" layoutX="23.0" layoutY="426.0" mnemonicParsing="false" text="Персонально студенту" textFill="WHITE" />
+                                          <RadioButton fx:id="sendRadioDZ" disable="true" layoutX="617.0" layoutY="51.0" mnemonicParsing="false" text="Домашнее задание" textFill="WHITE" />
+                                          <ComboBox fx:id="sendDisciplineComboBox" layoutX="172.0" layoutY="47.0" prefHeight="25.0" prefWidth="280.0" promptText="Предмет" />
+                                          <TextArea fx:id="sendCommentTextArea" layoutX="619.0" layoutY="174.0" prefHeight="124.0" prefWidth="293.0" promptText="Комментарии" />
+                                          <RadioButton fx:id="sendRadioSamostoyalki" disable="true" layoutX="755.0" layoutY="51.0" mnemonicParsing="false" text="Самостоятельная работа" textFill="WHITE" />
+                                          <ComboBox fx:id="sendMaterialComboBox" layoutX="617.0" layoutY="112.0" prefHeight="25.0" prefWidth="224.0" promptText="Материал" />
+                                          <Button fx:id="sendDZBtn" disable="true" layoutX="687.0" layoutY="357.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="172.0" text="Отправить">
+                                             <styleClass>
+                                                <String fx:value="nav-btn" />
+                                                <String fx:value="body-bg" />
+                                             </styleClass></Button>
+                                          <ListView fx:id="sendStudentListView" layoutX="111.0" layoutY="158.0" prefHeight="243.0" prefWidth="425.0">
+                                             <styleClass>
+                                                <String fx:value="newStyleMenu" />
+                                                <String fx:value="white-bg" />
+                                                <String fx:value="list-cell" />
+                                                <String fx:value="border-color" />
+                                             </styleClass>
+                                             <stylesheets>
+                                                <URL value="@../Moderator/Moderator.css" />
+                                                <URL value="@../Moderator/task.css" />
+                                             </stylesheets>
+                                          </ListView>
+                                          <Label fx:id="sendPersonalStudentLabel" alignment="CENTER" disable="true" layoutX="181.0" layoutY="416.0" prefHeight="37.0" prefWidth="262.0" textAlignment="CENTER" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font>
+                                             <stylesheets>
+                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
+                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
+                                             </stylesheets>
+                                             <styleClass>
+                                                <String fx:value="labelPaneText" />
+                                                <String fx:value="border-color" />
+                                             </styleClass>
+                                          </Label>
+                                          <CheckBox fx:id="sendOnlyCommentCheckBox" layoutX="619.0" layoutY="317.0" mnemonicParsing="false" text="Оставить только комментарий" textFill="WHITE" />
+                                          <Button fx:id="sendBtnOpenMaterial" layoutX="848.0" layoutY="112.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Открыть" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="anchorPaneHometWindow" layoutX="2.0" layoutY="1.0" prefHeight="592.0" prefWidth="944.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label layoutX="456.0" layoutY="469.0" text="main">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <Pane fx:id="paneClickTeacher" layoutX="25.0" layoutY="68.0" prefHeight="335.0" prefWidth="285.0" stylesheets="@../Moderator/buttonTransparent.css" AnchorPane.leftAnchor="31.0">
+                                             <styleClass>
+                                                <String fx:value="newStyleMenu" />
+                                                <String fx:value="border-color" />
+                                                <String fx:value="paneover" />
+                                             </styleClass>
+                                             <children>
+                                                <Label layoutX="16.0" layoutY="203.0" prefHeight="43.0" prefWidth="258.0" text="Карточки преподавателей" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="16.0" layoutY="246.0" prefHeight="81.0" prefWidth="256.0" text="Форма добавления нового преподавателя" textFill="WHITE" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <FontAwesomeIconView fill="#ff6969" glyphName="FEMALE" layoutX="101.0" layoutY="149.0" size="120" wrappingWidth="86.0" />
+                                                <Button fx:id="buttonClickTeacher" layoutX="6.0" layoutY="10.0" mnemonicParsing="false" prefHeight="335.0" prefWidth="285.0" styleClass="buttonTransparent" stylesheets="@../Moderator/buttonTransparent.css" textFill="#b21e1e6e" />
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="paneClickDiscipline" layoutX="330.0" layoutY="68.0" prefHeight="335.0" prefWidth="285.0" stylesheets="@../Moderator/buttonTransparent.css">
+                                             <styleClass>
+                                                <String fx:value="newStyleMenu" />
+                                                <String fx:value="border-color" />
+                                                <String fx:value="paneover" />
+                                             </styleClass>
+                                             <children>
+                                                <Label layoutX="15.0" layoutY="240.0" prefHeight="81.0" prefWidth="256.0" text="Дисциплины, привязанные к преподавателям" textFill="WHITE" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="16.0" layoutY="203.0" prefHeight="41.0" prefWidth="258.0" text="Список дициплин" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <FontAwesomeIconView fill="#ff6969" glyphName="TASKS" layoutX="84.0" layoutY="149.0" size="120" />
+                                                <Button fx:id="buttonClickDiscipline" mnemonicParsing="false" prefHeight="335.0" prefWidth="285.0" styleClass="buttonTransparent" stylesheets="@../Moderator/buttonTransparent.css" textFill="#b21e1e6e" />
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="paneClickTask" layoutX="629.0" layoutY="68.0" prefHeight="335.0" prefWidth="285.0" stylesheets="@../Moderator/buttonTransparent.css">
+                                             <styleClass>
+                                                <String fx:value="newStyleMenu" />
+                                                <String fx:value="border-color" />
+                                                <String fx:value="paneover" />
+                                             </styleClass>
+                                             <children>
+                                                <FontAwesomeIconView fill="#ff6969" glyphName="BOOK" layoutX="87.0" layoutY="149.0" size="120" />
+                                                <Label layoutX="22.0" layoutY="199.0" prefHeight="41.0" prefWidth="258.0" text="Добавление материала" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="15.0" layoutY="240.0" prefHeight="81.0" prefWidth="256.0" text="Форма добавление материала по категориям" textFill="WHITE" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button fx:id="buttonClickTask" layoutY="-1.0" mnemonicParsing="false" prefHeight="335.0" prefWidth="285.0" styleClass="buttonTransparent" stylesheets="@../Moderator/buttonTransparent.css" textFill="#b21e1e6e" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="anchorPaneGetDZ" layoutY="12.0" prefHeight="580.0" prefWidth="850.0" visible="false">
+                                       <children>
+                                          <Label layoutX="359.0" layoutY="512.0" text="Проверить дз">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <ComboBox fx:id="checkDiciplineCombobox" disable="true" layoutX="92.0" layoutY="97.0" prefWidth="150.0" promptText="Предмет" />
+                                          <ComboBox fx:id="checkGroupCombobox" layoutX="92.0" layoutY="39.0" prefWidth="150.0" promptText="Группа" />
+                                          <TableView fx:id="checkTable" layoutX="37.0" layoutY="158.0" prefHeight="313.0" prefWidth="876.0">
+                                            <columns>
+                                              <TableColumn fx:id="checkTableID" prefWidth="46.0" styleClass="table-row-cell" text="ID" />
+                                              <TableColumn fx:id="checkTableNAME" prefWidth="132.0" styleClass="table-row-cell" text="Имя" />
+                                                <TableColumn fx:id="checkTableLASTNAME" prefWidth="137.0" styleClass="table-row-cell" text="Фамилия" />
+                                                <TableColumn fx:id="checkTableTYPE" prefWidth="109.0" styleClass="table-row-cell" text="Тип задания" />
+                                                <TableColumn fx:id="checkTableFILE" prefWidth="103.0" styleClass="table-row-cell" text="Файл" />
+                                                <TableColumn fx:id="checkTableCOMMENT" prefWidth="138.0" styleClass="table-row-cell" text="Комментарии" />
+                                                <TableColumn fx:id="checkTableDATE" prefWidth="104.0" styleClass="table-row-cell" text="Время" />
+                                                <TableColumn fx:id="checkTableCHECK" prefWidth="106.0" styleClass="table-row-cell" text="Действие" />
+                                            </columns>
+                                             <stylesheets>
+                                                <URL value="@../Moderator/Moderator.css" />
+                                                <URL value="@../Moderator/StaffCards.css" />
+                                                <URL value="@../Moderator/themeTable.css" />
+                                             </stylesheets>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="anchorPaneCheckDZ" layoutX="14.0" layoutY="14.0" prefHeight="575.0" prefWidth="913.0">
+                                       <children>
+                                          <Label layoutX="356.0" layoutY="485.0" text="Проверить дз">
+                                             <font>
+                                                <Font size="36.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="checkCloseButton" layoutX="851.0" layoutY="29.0" mnemonicParsing="false" text="Закрыть" />
+                                          <TextField fx:id="checkNameTextField" disable="true" layoutX="68.0" layoutY="73.0" promptText="Имя" styleClass="Textbox" stylesheets="@../Moderator/TeacherCHECK.css">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField id="TextBox" fx:id="checkLastNameTextField" disable="true" layoutX="251.0" layoutY="73.0" prefHeight="32.0" prefWidth="218.0" promptText="Фамилия" styleClass="Textbox" stylesheets="@../Moderator/TeacherCHECK.css">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField id="TextBox" fx:id="checkTypeTextField" disable="true" layoutX="479.0" layoutY="73.0" prefHeight="32.0" prefWidth="252.0" promptText="Тип задания" styleClass="Textbox" stylesheets="@../Moderator/TeacherCHECK.css">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField id="TextBox" fx:id="checkFileTextField" disable="true" layoutX="68.0" layoutY="167.0" prefHeight="32.0" prefWidth="283.0" promptText="Файл" styleClass="Textbox" stylesheets="@../Moderator/TeacherCHECK.css">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button fx:id="checkOpenButton" layoutX="360.0" layoutY="171.0" mnemonicParsing="false" text="Открыть" />
+                                          <TextArea id="TextArea" fx:id="checkCommentTextField" editable="false" layoutX="437.0" layoutY="153.0" prefHeight="92.0" prefWidth="303.0" promptText="Комментарии" styleClass="TextArea" stylesheets="@../Moderator/TeacherCHECK.css">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextArea>
+                                          <TextField id="TextBox" fx:id="checkDateTextField" disable="true" layoutX="749.0" layoutY="216.0" prefHeight="32.0" prefWidth="148.0" promptText="Дата" styleClass="Textbox" stylesheets="@../Moderator/TeacherCHECK.css">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Pane id="Pane" layoutX="68.0" layoutY="265.0" prefHeight="1.0" prefWidth="815.0" styleClass="Pane" stylesheets="@../Moderator/TeacherCHECK.css" />
+                                          <Text fill="WHITE" layoutX="68.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ответ преподавателя" />
+                                          <ComboBox fx:id="checkZachetCombobox" layoutX="68.0" layoutY="363.0" prefWidth="150.0" promptText="Зачет/незачет" visibleRowCount="2" />
+                                          <TextArea id="TextArea" fx:id="checkCommentTEacherTextField" layoutX="302.0" layoutY="330.0" prefHeight="92.0" prefWidth="255.0" promptText="Комментарий" styleClass="TextArea" stylesheets="@../Moderator/TeacherCHECK.css">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextArea>
+                                          <Button fx:id="checkSendButton" layoutX="613.0" layoutY="364.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="Отправить" />
+                                          <TextField fx:id="checkIDTextField" disable="true" layoutX="68.0" layoutY="26.0" prefHeight="32.0" prefWidth="34.0" promptText="ID" styleClass="Textbox" stylesheets="@../Moderator/TeacherCHECK.css">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Text fill="WHITE" layoutX="68.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                    <String fx:value="newStyleMenu" />
+                                 </styleClass>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
