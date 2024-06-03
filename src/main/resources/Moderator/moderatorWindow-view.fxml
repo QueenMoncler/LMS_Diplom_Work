@@ -51,6 +51,7 @@
                                           <String fx:value="actiontarget" />
                                        </styleClass>
                                     </Label>
+                                    <Button fx:id="smenitButton" layoutX="3.0" layoutY="103.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="229.0" styleClass="nav-btn" stylesheets="@Moderator.css" text="Сменить" textFill="WHITE" />
                                  </children>
                                  <styleClass>
                                     <String fx:value="menu-bg" />
@@ -229,7 +230,7 @@
                                  <children>
                                     <AnchorPane fx:id="anchorPaneTeacherWindow" layoutX="306.0" layoutY="94.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <Label layoutX="259.0" layoutY="468.0" text="ОКНО 2">
+                                          <Label layoutX="259.0" layoutY="468.0" text="ОКНО 2" visible="false">
                                              <font>
                                                 <Font size="48.0" />
                                              </font>
@@ -288,7 +289,7 @@
                                                       <String fx:value="borderColorHover" />
                                                    </styleClass>
                                                 </TextField>
-                                                <TextField fx:id="teacherPaneAddTextFieldNickname" layoutX="19.0" layoutY="252.0" prefHeight="40.0" prefWidth="160.0" promptText="nickname" stylesheets="@Moderator.css">
+                                                <TextField fx:id="teacherPaneAddTextFieldNickname" layoutX="19.0" layoutY="252.0" prefHeight="40.0" prefWidth="160.0" promptText="логин" stylesheets="@Moderator.css">
                                                    <font>
                                                       <Font size="18.0" />
                                                    </font>
@@ -334,7 +335,7 @@
                                                    </styleClass>
                                                    <children>
                                                       <Circle fill="#ffffff00" layoutX="135.0" layoutY="94.0" radius="80.0" stroke="BLACK" strokeType="INSIDE" styleClass="setFill" visible="false" />
-                                                      <Label layoutX="36.0" layoutY="218.0" prefHeight="35.0" prefWidth="206.0" text="Татьяна Жилина" textFill="WHITE" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="36.0">
+                                                      <Label fx:id="cardsMainNameTeacherLabel" alignment="CENTER" layoutX="5.0" layoutY="220.0" prefHeight="35.0" prefWidth="260.0" text="Татьяна Жилина" textFill="WHITE" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                                          <font>
                                                             <Font size="24.0" />
                                                          </font>
@@ -348,7 +349,7 @@
                                                          </styleClass>
                                                       </Label>
                                                       <Circle fx:id="zhilinaCircleImageview" fill="#fcfeff" layoutX="135.0" layoutY="113.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
-                                                      <Label fx:id="labelZhilinaDisciplineCards" layoutX="5.0" layoutY="248.0" prefHeight="53.0" prefWidth="257.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Информационные системы" textFill="WHITE" wrapText="true">
+                                                      <Label fx:id="labelZhilinaDisciplineCards" layoutX="5.0" layoutY="248.0" prefHeight="53.0" prefWidth="257.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Информационные системы" textFill="WHITE" visible="false" wrapText="true">
                                                          <font>
                                                             <Font size="24.0" />
                                                          </font>
@@ -364,7 +365,7 @@
                                                             <URL value="@StaffCards.css" />
                                                          </stylesheets>
                                                          <children>
-                                                            <Label layoutX="47.0" layoutY="12.0" text="Темы" textFill="WHITE" AnchorPane.leftAnchor="46.0">
+                                                            <Label layoutX="29.0" layoutY="12.0" text="Предметы" textFill="WHITE" AnchorPane.leftAnchor="29.0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
@@ -377,7 +378,7 @@
                                                                   <String fx:value="textBold" />
                                                                </styleClass>
                                                             </Label>
-                                                            <Label layoutX="156.0" layoutY="12.0" text="Задания" textFill="WHITE" AnchorPane.rightAnchor="45.0">
+                                                            <Label layoutX="131.0" layoutY="12.0" text="Непроверено" textFill="WHITE" AnchorPane.rightAnchor="19.0">
                                                                <font>
                                                                   <Font size="18.0" />
                                                                </font>
@@ -441,7 +442,7 @@
                                                          </styleClass>
                                                       </Label>
                                                       <Circle fx:id="knyazevCircleImageview" fill="#fcfeff" layoutX="135.0" layoutY="113.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
-                                                      <Label fx:id="labelknyazevDisciplineCards" layoutX="6.0" layoutY="250.0" prefHeight="55.0" prefWidth="255.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Системы баз данных" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="9.0">
+                                                      <Label fx:id="labelknyazevDisciplineCards" layoutX="6.0" layoutY="250.0" prefHeight="55.0" prefWidth="255.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Системы баз данных" textFill="WHITE" visible="false" wrapText="true" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="9.0">
                                                          <font>
                                                             <Font size="24.0" />
                                                          </font>
@@ -523,7 +524,7 @@
                                                          </styleClass>
                                                       </Label>
                                                       <Circle fx:id="pivtoratskayaCircleImageview" fill="#fcfeff" layoutX="135.0" layoutY="113.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
-                                                      <Label fx:id="labelPivtoratskayaDisciplineCards" layoutX="13.0" layoutY="252.0" prefHeight="57.0" prefWidth="249.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Разработка десктопных приложений и модерирование сайтов" textFill="WHITE" wrapText="true" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0">
+                                                      <Label fx:id="labelPivtoratskayaDisciplineCards" layoutX="13.0" layoutY="252.0" prefHeight="57.0" prefWidth="249.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Разработка десктопных приложений и модерирование сайтов" textFill="WHITE" visible="false" wrapText="true" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0">
                                                          <font>
                                                             <Font size="24.0" />
                                                          </font>
@@ -605,7 +606,7 @@
                                                          </styleClass>
                                                       </Label>
                                                       <Circle fx:id="vornikovaCircleImageview" fill="#fcfeff" layoutX="135.0" layoutY="113.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
-                                                      <Label fx:id="labelVornikovaDisciplineCards" layoutX="9.0" layoutY="248.0" prefHeight="54.0" prefWidth="255.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Информатика и ИКТ" textFill="WHITE" wrapText="true">
+                                                      <Label fx:id="labelVornikovaDisciplineCards" layoutX="9.0" layoutY="248.0" prefHeight="54.0" prefWidth="255.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Информатика и ИКТ" textFill="WHITE" visible="false" wrapText="true">
                                                          <font>
                                                             <Font size="24.0" />
                                                          </font>
@@ -687,7 +688,7 @@
                                                          </styleClass>
                                                       </Label>
                                                       <Circle fx:id="khaustovaCircleImageview" fill="#fcfeff" layoutX="135.0" layoutY="113.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="49.0" />
-                                                      <Label fx:id="labelKhaustovaDisciplineCards" layoutX="14.0" layoutY="246.0" prefHeight="57.0" prefWidth="249.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Информатика и ИКТ" textFill="WHITE" wrapText="true">
+                                                      <Label fx:id="labelKhaustovaDisciplineCards" layoutX="14.0" layoutY="246.0" prefHeight="57.0" prefWidth="249.0" styleClass="StyleTextOpisanie" stylesheets="@StaffCards.css" text="Информатика и ИКТ" textFill="WHITE" visible="false" wrapText="true">
                                                          <font>
                                                             <Font size="24.0" />
                                                          </font>
@@ -755,7 +756,7 @@
                                           </AnchorPane>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane fx:id="anchorPaneThemeWindow" prefHeight="550.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <AnchorPane fx:id="anchorPaneThemeWindow" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
                                           <AnchorPane layoutX="96.0" layoutY="25.0" prefHeight="144.0" prefWidth="803.0" AnchorPane.leftAnchor="96.0" AnchorPane.topAnchor="25.0">
                                              <styleClass>
@@ -931,7 +932,7 @@
                                           <ComboBox fx:id="themeComboBoxTeacher" layoutX="836.0" layoutY="200.0" prefHeight="33.0" prefWidth="151.0" promptText="Преподаватель" styleClass="comb" stylesheets="@comboBox.css" visible="false" AnchorPane.rightAnchor="10.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane fx:id="anchorPaneTaskWindow" layoutX="250.0" layoutY="162.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <AnchorPane fx:id="anchorPaneTaskWindow" layoutX="250.0" layoutY="162.0" prefHeight="550.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
                                           <Label layoutX="547.0" layoutY="361.0" text="okno 4">
                                              <font>
@@ -965,7 +966,7 @@
                                              </children>
                                           </Pane>
                                           <RadioButton fx:id="radioDZ" layoutX="569.0" layoutY="149.0" mnemonicParsing="false" text="Домашнее задание" textFill="WHITE" />
-                                          <RadioButton fx:id="radioSamostoyalki" layoutX="710.0" layoutY="149.0" mnemonicParsing="false" text="Самостоятельные" textAlignment="CENTER" textFill="WHITE" />
+                                          <RadioButton fx:id="radioSamostoyalki" layoutX="704.0" layoutY="139.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="126.0" text="Самостоятельная работа" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                                           <RadioButton fx:id="radioMetodichki" layoutX="840.0" layoutY="149.0" mnemonicParsing="false" text="Методички" textFill="WHITE" />
                                           <Button fx:id="buttonOpenFileTask" layoutX="607.0" layoutY="226.0" mnemonicParsing="false" text="Открыть" />
                                           <Pane layoutX="597.0" layoutY="258.0" prefHeight="41.0" prefWidth="313.0" styleClass="border-color" stylesheets="@paneLabelSetMaterial.css">

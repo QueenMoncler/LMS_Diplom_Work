@@ -7,32 +7,37 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="sceneReg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="512.0" style="-fx-background-color: #9932CC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lms_diplom_work.HelloController">
+<AnchorPane fx:id="sceneReg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="505.0" style="-fx-background-color: #231f33;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lms_diplom_work.HelloController">
    <children>
-      <AnchorPane layoutX="54.0" layoutY="44.0" prefHeight="534.0" prefWidth="403.0" style="-fx-background-color: #FFFAF0; -fx-background-radius: 30; -fx-border-radius: 30;" AnchorPane.bottomAnchor="44.60000000000002" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="54.80000000000001" AnchorPane.topAnchor="44.0">
+      <AnchorPane layoutX="54.0" layoutY="44.0" prefHeight="534.0" prefWidth="403.0" style="-fx-background-color: #FFFAF0; -fx-background-radius: 30; -fx-border-radius: 30;" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="54.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="44.0">
          <children>
-            <PasswordField fx:id="passwordField_password" layoutX="45.0" layoutY="257.0" opacity="0.85" prefHeight="51.0" prefWidth="314.0" promptText="Password" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15; -fx-border-radius: 15;" AnchorPane.bottomAnchor="226.2" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="43.80000000000001" AnchorPane.topAnchor="257.0">
+            <PasswordField fx:id="passwordField_password" layoutX="45.0" layoutY="257.0" opacity="0.85" prefHeight="51.0" prefWidth="314.0" promptText="Пароль" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15; -fx-border-radius: 15;" AnchorPane.bottomAnchor="226.2" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="43.80000000000001" AnchorPane.topAnchor="257.0">
                <font>
                   <Font size="24.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="textField_nickname" layoutX="45.0" layoutY="178.0" opacity="0.85" prefHeight="51.0" prefWidth="314.0" promptText="Nick" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15; -fx-border-radius: 15;" AnchorPane.bottomAnchor="305.2" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="43.80000000000001" AnchorPane.topAnchor="178.0">
+            <TextField fx:id="textField_nickname" layoutX="45.0" layoutY="178.0" opacity="0.85" prefHeight="51.0" prefWidth="314.0" promptText="Логин" style="-fx-background-color: #DCDCDC; -fx-background-radius: 15; -fx-border-radius: 15;" AnchorPane.bottomAnchor="305.2" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="43.80000000000001" AnchorPane.topAnchor="178.0">
                <font>
                   <Font size="24.0" />
                </font>
             </TextField>
-            <Label layoutX="129.0" layoutY="66.0" prefHeight="58.0" prefWidth="146.0" text="Login" textAlignment="JUSTIFY" textOverrun="CLIP" AnchorPane.bottomAnchor="410.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="66.0">
+            <Label alignment="CENTER" layoutY="66.0" prefHeight="58.0" prefWidth="403.0" text="Вход" textAlignment="JUSTIFY" textOverrun="CLIP" AnchorPane.bottomAnchor="410.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
                <font>
                   <Font name="Verdana Bold" size="46.0" />
                </font>
             </Label>
-            <Button fx:id="buttonJoin" cancelButton="true" layoutX="48.0" layoutY="346.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="307.0" style="-fx-background-color: #BA55D3; -fx-background-radius: 15; -fx-border-radius: 15;" text="Login" textFill="WHITE" AnchorPane.bottomAnchor="125.99999999999997" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="346.0">
+            <Button fx:id="buttonJoin" cancelButton="true" layoutX="48.0" layoutY="346.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="307.0" style="-fx-background-color: #231f33; -fx-background-radius: 15; -fx-border-radius: 15;" text="Войти" textFill="WHITE" AnchorPane.bottomAnchor="125.99999999999997" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="346.0">
                <font>
                   <Font name="Verdana Bold" size="20.0" />
                </font>
             </Button>
-            <Label fx:id="errorTextVisible" layoutX="120.0" layoutY="421.0" prefHeight="18.0" prefWidth="163.0" text="Неверный логин или пароль" textFill="RED" />
+            <Label fx:id="errorTextVisible" layoutX="120.0" layoutY="421.0" prefHeight="18.0" prefWidth="163.0" text="Неверный логин или пароль" textFill="RED" visible="false" />
          </children>
       </AnchorPane>
+      <Button fx:id="BtnClose" layoutX="458.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="47.0" style="-fx-background-color: #231f33;" text="X" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -218,6 +218,72 @@ public class CommandSQL_Student extends ConnectDB {
         }
 
     }
+    public String getAnswerAssessment(String id)throws SQLException {
+        String query = "select assessment from student.task_testing_for_teacher where task_from_student_id = "+id+"";
+
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                return result.getString("assessment");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getListDiscipline");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+    public String getAnswerCommentAssessment(String id)throws SQLException {
+        String query = "select comment_assessment from student.task_testing_for_teacher where task_from_student_id = "+id+"";
+
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                return result.getString("comment_assessment");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getListDiscipline");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+    public String getAnswerMaterial(String id)throws SQLException {
+        String query = "select material from student.task_testing_for_teacher where task_from_student_id = "+id+"";
+
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                return result.getString("material");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getAnswerMaterial");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+    public String getAnswerComment(String id)throws SQLException {
+        String query = "select comment from student.task_testing_for_teacher where task_from_student_id = "+id+"";
+
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                return result.getString("comment");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getAnswerComment");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+
 
     public String updateStatusStudentFromTeacher(String id)throws SQLException{
         String query = "update student.task_from_student set status = 'Просмотрено' where id = "+id+";";

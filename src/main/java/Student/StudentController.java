@@ -18,10 +18,14 @@ import Student.HomeTable.TableHome;
 import Teacher.Check.CheckDateTable;
 import Teacher.OpenDesktop;
 import User.User;
+import com.example.lms_diplom_work.HelloApplication;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -65,6 +69,18 @@ public class StudentController {
 
     @FXML
     private Button homeBtn;
+
+    @FXML
+    private Label answerGoodComment;
+
+    @FXML
+    private Label answerGoodLabel;
+
+    @FXML
+    private Label answerGoodtextboxAssessment;
+
+    @FXML
+    private TextArea answerGoodtextboxComment;
 
 
     @FXML
@@ -136,9 +152,11 @@ public class StudentController {
     @FXML
     private ComboBox<String> taskTypeCombobox;
 
-
     @FXML
     private Button answerBack;
+
+    @FXML
+    private Button smenitButton;
 
     @FXML
     private TextArea answerCommentStudent;
@@ -254,27 +272,68 @@ public class StudentController {
 
 
         TableView.TableViewSelectionModel<TableHome> selectionModel = homeTable.getSelectionModel();
+
         selectionModel.selectedItemProperty().addListener(new ChangeListener<TableHome>(){
 
             @Override
             public void changed(ObservableValue<? extends TableHome> observableValue, TableHome checkDateTable, TableHome t1) {
-                if(t1.getStatus().equals("Не отвечено"))
-                try {
-                    CommandSQL_Student commandSQLStudent = new CommandSQL_Student();
-                    commandSQLStudent.updateStatusStudentFromTeacher(t1.getId());
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
+                if (t1.getStatus().equals("Не отвечено")){
+                    try {
+                        CommandSQL_Student commandSQLStudent = new CommandSQL_Student();
+                        commandSQLStudent.updateStatusStudentFromTeacher(t1.getId());
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                    setAnswerPaneSelectTable(t1);
                 }
-                answerIDTeacher.setText(t1.getId());
-                answerCommentTeacher.setText(t1.getComment());
-                answerDateTeacher.setText(t1.getDate());
-                answerDisciplineTeacher.setText(t1.getDiscipline());
-                answerDTypeTaskTeacher.setText(t1.getTypeTask());
-                homeBtn.setDisable(true);
-                taskBtn.setDisable(true);
-                anchorPaneHomeForm.setVisible(false);
-                anchorPaneHomeForm2.setVisible(true);
+                else if(t1.getStatus().equals("На оценке")){
+                    setAnswerPaneSelectTable(t1);
+                }
+                else if(t1.getStatus().equals("Просмотрено")){
+                    setAnswerPaneSelectTable(t1);
+                }
+                else if(t1.getStatus().equals("Зачет")){
+                    try {
+                        CommandSQL_Student commandSQLStudent = new CommandSQL_Student();
+                        setAnswerPaneSelectTable(t1);
+                        answerGoodLabel.setVisible(true);
+                        answerGoodComment.setVisible(true);
+                        answerGoodtextboxAssessment.setVisible(true);
+                        answerGoodtextboxComment.setVisible(true);
+                        answerGoodtextboxAssessment.setText(commandSQLStudent.getAnswerAssessment(answerIDTeacher.getText()));
+                        answerGoodtextboxComment.setText(commandSQLStudent.getAnswerCommentAssessment(answerIDTeacher.getText()));
+                        answerFileStudent.setText(commandSQLStudent.getAnswerMaterial(answerIDTeacher.getText()));
+                        answerCommentStudent.setText(commandSQLStudent.getAnswerComment(answerIDTeacher.getText()));
+                        answerSubmit.setVisible(false);
+                        answerCommentStudent.setEditable(false);
+                        answerOpenFile.setOnAction(ActionEvent ->{
+                            OpenDesktop openDesktop = new OpenDesktop();
+                            openDesktop.openFileDZ(answerDisciplineTeacher.getText(), answerFileStudent.getText());
+                        });
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                else if(t1.getStatus().equals("Незачет")){
+                    try {
+                        CommandSQL_Student commandSQLStudent = new CommandSQL_Student();
+                        setAnswerPaneSelectTable(t1);
+                        answerGoodLabel.setVisible(true);
+                        answerGoodComment.setVisible(true);
+                        answerGoodtextboxAssessment.setVisible(true);
+                        answerGoodtextboxComment.setVisible(true);
+                        answerGoodtextboxAssessment.setText(commandSQLStudent.getAnswerAssessment(answerIDTeacher.getText()));
+                        answerGoodtextboxComment.setText(commandSQLStudent.getAnswerCommentAssessment(answerIDTeacher.getText()));
+                        answerFileStudent.setText(commandSQLStudent.getAnswerMaterial(answerIDTeacher.getText()));
+                        answerCommentStudent.setText(commandSQLStudent.getAnswerComment(answerIDTeacher.getText()));
+
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
             }
+
         });
         answerBack.setOnAction(ActionEvent->{
             homeBtn.setDisable(false);
@@ -339,8 +398,8 @@ public class StudentController {
                 commandSQLStudent.setAnswerStudentFromTeacher(answerIDTeacher.getText(), answerFileStudent.getText(),answerCommentStudent.getText());
                 commandSQLStudent.updateStatusAnswerStudentFromTeacher(answerIDTeacher.getText());
                 goodAlert();
-                answerFileStudent.setText("");
-                answerCommentStudent.setText("");
+//                answerFileStudent.setText("");
+//                answerCommentStudent.setText("");
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -354,8 +413,36 @@ public class StudentController {
                 throw new RuntimeException(e);
             }
         });
+        smenitButton.setOnAction(ActionEvent->{
+            openSceneLogin();
+            Stage stage = (Stage) smenitButton.getScene().getWindow();
+            stage.hide();
+        });
+    }
+    public void openSceneLogin(){
+        Parent root2;
+        try {
+            root2 = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage stg2 = new Stage();
+        Scene scene = new Scene(root2);
 
+        stg2.setScene(scene);
+        stg2.show();
 
+    }
+    public void setAnswerPaneSelectTable(TableHome t1){
+        answerIDTeacher.setText(t1.getId());
+        answerCommentTeacher.setText(t1.getComment());
+        answerDateTeacher.setText(t1.getDate());
+        answerDisciplineTeacher.setText(t1.getDiscipline());
+        answerDTypeTaskTeacher.setText(t1.getTypeTask());
+        homeBtn.setDisable(true);
+        taskBtn.setDisable(true);
+        anchorPaneHomeForm.setVisible(false);
+        anchorPaneHomeForm2.setVisible(true);
     }
 
 

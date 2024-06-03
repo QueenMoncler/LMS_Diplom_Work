@@ -13,6 +13,70 @@ public class CommandsSQL_Teachers extends ConnectDB {
 
     }
 
+    public String getCountNeprochitano(String discipline) throws SQLException {
+        String query = "select count(*) from student.task_testing_for_teacher\n" +
+                "    join student.task_from_student on student.task_testing_for_teacher.task_from_student_id = student.task_from_student.id\n" +
+                "    where student.task_testing_for_teacher.status = 'На проверке' AND student.task_from_student.discipline = '"+discipline+"';";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                return result.getString("count");
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getCountNeprochitano");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+    public String getCountDisciplineTeacher(String surname) throws SQLException {
+        String query = " select count(*) from public.discipline_ticher where ticher_surname = '"+surname+"'";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+            while (result.next()) {
+                return result.getString("count");
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getCountDisciplineTeacher");
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+    public static List<String> getDisciplineNameSurname(String surname) throws SQLException {
+        List<String> nameStaff = new ArrayList<>();
+        String query = "select discipline_name from public.discipline_ticher where ticher_surname = '"+surname+"'";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+
+            while (result.next()) {
+                nameStaff.add(result.getString("discipline_name"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getDisciplineNameSurname");
+            throw new RuntimeException(e);
+        }
+        return nameStaff;
+    }
+    public static List<String> getAllTeach() throws SQLException {
+        List<String> nameStaff = new ArrayList<>();
+        String query = "Select CONCAT(first_name, ' ',last_name) AS name from public.ticher";
+        try (Statement statement = connection.createStatement();) {
+            ResultSet result;
+            result = statement.executeQuery(query);
+
+            while (result.next()) {
+                nameStaff.add(result.getString("name"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка в getAllTeach");
+            throw new RuntimeException(e);
+        }
+        return nameStaff;
+    }
+
+
     public static List<String> getAllNameTeachers(String nickname) throws SQLException {
         List<String> nameStaff = new ArrayList<>();
         String query = "SELECT first_name, last_name from ticher where nickname = '" + nickname + "';";

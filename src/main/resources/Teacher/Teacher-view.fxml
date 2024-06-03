@@ -51,6 +51,11 @@
                                        </styleClass>
                                     </Label>
                                     <FontAwesomeIconView fill="#ff6969" glyphName="BOOK" layoutX="183.0" layoutY="44.0" size="35" />
+                                    <Button fx:id="smenitButton" layoutX="8.0" layoutY="103.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="229.0" styleClass="nav-btn" stylesheets="@../Moderator/Moderator.css" text="Сменить" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Button>
                                  </children>
                                  <styleClass>
                                     <String fx:value="menu-bg" />
@@ -136,7 +141,7 @@
                                                 <FontAwesomeIconView fill="#ff6969" glyphName="ARCHIVE" layoutX="14.0" layoutY="38.0" size="25" text="" wrappingWidth="23.428571701049805" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0" />
                                              </children>
                                           </AnchorPane>
-                                          <FontAwesomeIconView fill="#ff6969" glyphName="BOOK" layoutX="71.0" layoutY="57.0" size="35" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="10.0" />
+                                          <FontAwesomeIconView fill="#ff6969" glyphName="BOOK" layoutX="70.0" layoutY="30.0" size="35" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.5" AnchorPane.topAnchor="0.0" />
                                        </children>
                                        <styleClass>
                                           <String fx:value="menu-bg" />
@@ -161,7 +166,7 @@
                                                 <FontAwesomeIconView fill="#ff6969" glyphName="ARCHIVE" layoutX="14.0" layoutY="35.0" size="25" wrappingWidth="23.428571701049805" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0" />
                                              </children>
                                           </AnchorPane>
-                                          <FontAwesomeIconView fill="#ff6969" glyphName="FEMALE" layoutX="80.0" layoutY="44.0" size="35" wrappingWidth="25.428571701049805" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="10.0" />
+                                          <FontAwesomeIconView fill="#ff6969" glyphName="FEMALE" layoutX="72.0" layoutY="30.0" size="35" wrappingWidth="25.428571701049805" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="72.5714282989502" AnchorPane.topAnchor="0.0" />
                                        </children>
                                        <styleClass>
                                           <String fx:value="menu-bg" />
@@ -190,7 +195,7 @@
                                                 <String fx:value="newStyleMenu" />
                                              </styleClass>
                                           </AnchorPane>
-                                          <FontAwesomeIconView fill="#ff6969" glyphName="TASKS" layoutX="64.0" layoutY="42.0" size="35" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="10.0" />
+                                          <FontAwesomeIconView fill="#ff6969" glyphName="TASKS" layoutX="69.0" layoutY="30.0" size="35" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                        <styleClass>
                                           <String fx:value="menu-bg" />
@@ -215,7 +220,7 @@
                                                 <FontAwesomeIconView fill="#ff6969" glyphName="ARCHIVE" layoutX="14.0" layoutY="37.0" size="25" wrappingWidth="23.428571701049805" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0" />
                                              </children>
                                           </AnchorPane>
-                                          <FontAwesomeIconView fill="#ff6969" glyphName="USERS" layoutX="65.0" layoutY="41.0" size="35" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="10.0" />
+                                          <FontAwesomeIconView fill="#ff6969" glyphName="USERS" layoutX="69.0" layoutY="30.0" size="35" AnchorPane.leftAnchor="69.0" AnchorPane.rightAnchor="69.5" AnchorPane.topAnchor="0.0" />
                                        </children>
                                        <styleClass>
                                           <String fx:value="menu-bg" />
@@ -227,7 +232,7 @@
                               </AnchorPane>
                               <AnchorPane fx:id="anchorPaneSwitch" layoutX="14.0" layoutY="192.0" prefHeight="605.0" prefWidth="945.0" stylesheets="@../Moderator/Moderator.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="192.0">
                                  <children>
-                                    <AnchorPane fx:id="anchorPaneTaskWindow" layoutX="1.0" layoutY="22.0" prefHeight="605.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <AnchorPane fx:id="anchorPaneTaskWindow" layoutX="1.0" layoutY="22.0" prefHeight="605.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
                                           <Label layoutX="547.0" layoutY="361.0" text="okno 4">
                                              <font>
@@ -261,7 +266,7 @@
                                              </children>
                                           </Pane>
                                           <RadioButton fx:id="radioDZ" layoutX="569.0" layoutY="149.0" mnemonicParsing="false" text="Домашнее задание" textFill="WHITE" />
-                                          <RadioButton fx:id="radioSamostoyalki" layoutX="710.0" layoutY="149.0" mnemonicParsing="false" text="Самостоятельные" textAlignment="CENTER" textFill="WHITE" />
+                                          <RadioButton fx:id="radioSamostoyalki" layoutX="705.0" layoutY="139.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="128.0" text="Самостоятельная работа" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
                                           <RadioButton fx:id="radioMetodichki" layoutX="840.0" layoutY="149.0" mnemonicParsing="false" text="Методички" textFill="WHITE" />
                                           <Button fx:id="buttonOpenFileTask" layoutX="607.0" layoutY="226.0" mnemonicParsing="false" text="Открыть" />
                                           <Pane layoutX="597.0" layoutY="258.0" prefHeight="41.0" prefWidth="313.0" styleClass="border-color" stylesheets="@../Moderator/paneLabelSetMaterial.css">
@@ -451,7 +456,7 @@
                                           </TableView>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane fx:id="anchorPaneCheckDZ" layoutX="14.0" layoutY="14.0" prefHeight="575.0" prefWidth="913.0">
+                                    <AnchorPane fx:id="anchorPaneCheckDZ" layoutX="14.0" layoutY="14.0" prefHeight="575.0" prefWidth="913.0" visible="false">
                                        <children>
                                           <Label layoutX="356.0" layoutY="485.0" text="Проверить дз">
                                              <font>

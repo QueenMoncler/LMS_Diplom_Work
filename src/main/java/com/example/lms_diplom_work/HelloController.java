@@ -19,6 +19,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,6 +39,9 @@ public class HelloController implements Initializable {
 
     @FXML
     private Button buttonJoin;
+    @FXML
+    private Button BtnClose;
+
     @FXML
     private PasswordField passwordField_password;
 
@@ -214,6 +218,11 @@ public class HelloController implements Initializable {
                     errorTextVisible.setVisible(true);
                 }
             }
+        });
+
+        BtnClose.setOnAction(ActionEvent ->{
+            Stage stg = (Stage) BtnClose.getScene().getWindow();
+            stg.close();
         });
     }
 

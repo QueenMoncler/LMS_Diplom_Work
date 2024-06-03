@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.*;
 
@@ -21,6 +22,8 @@ public class HelloApplication extends Application {
 
         Parent root = fxmlLoader.getRoot();
         Stage stg = new Stage();
+        stg.initStyle(StageStyle.UNDECORATED);
+        ;
         stg.setScene(new Scene(root));
 
         

@@ -13,11 +13,15 @@ import Teacher.Check.CheckDateTable;
 import Teacher.CheckDZAnchorPane.SetComboboxZach;
 import Teacher.Send.FileLib;
 import User.User;
+import com.example.lms_diplom_work.HelloApplication;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -188,6 +192,8 @@ public class TeacherController implements Initializable {
     @FXML
     private Button checkSendButton;
 
+    @FXML
+    private Button smenitButton;
 
     @FXML
     private TableView<StudentTable> studentTable;
@@ -685,6 +691,24 @@ public class TeacherController implements Initializable {
 
         toggleRadioButton.toggleRadioDiscipline(radioDZ, radioSamostoyalki, radioMetodichki);
         toggleRadioButton.toggleRadioSend(sendRadioDZ, sendRadioSamostoyalki);
+        smenitButton.setOnAction(ActionEvent->{
+            openSceneLogin();
+            Stage stage = (Stage) smenitButton.getScene().getWindow();
+            stage.hide();
+        });
+    }
+    public void openSceneLogin(){
+        Parent root2;
+        try {
+            root2 = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage stg2 = new Stage();
+        Scene scene = new Scene(root2);
+
+        stg2.setScene(scene);
+        stg2.show();
 
     }
 }

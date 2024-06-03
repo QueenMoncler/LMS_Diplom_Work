@@ -40,7 +40,7 @@
                                        </styleClass>
                                     </Label>
                                     <FontAwesomeIconView fill="#ff6969" glyphName="BOOK" layoutX="183.0" layoutY="44.0" size="35" />
-                                    <Label alignment="CENTER" layoutX="20.0" layoutY="84.0" prefHeight="41.0" prefWidth="196.0" stylesheets="@../Moderator/Moderator.css" text="МП4120" textFill="WHITE" wrapText="true">
+                                    <Label alignment="CENTER" layoutX="22.0" layoutY="26.0" prefHeight="41.0" prefWidth="196.0" stylesheets="@../Moderator/Moderator.css" text="МП4120" textFill="WHITE" wrapText="true">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
@@ -49,6 +49,11 @@
                                           <String fx:value="actiontarget" />
                                        </styleClass>
                                     </Label>
+                                    <Button fx:id="smenitButton" layoutX="5.0" layoutY="103.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="229.0" styleClass="nav-btn" stylesheets="@../Moderator/Moderator.css" text="Сменить" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Button>
                                  </children>
                                  <styleClass>
                                     <String fx:value="menu-bg" />
@@ -228,7 +233,7 @@
                               </AnchorPane>
                               <AnchorPane fx:id="anchorPaneSwitch" layoutX="14.0" layoutY="191.0" prefHeight="550.0" prefWidth="850.0" stylesheets="@../Moderator/Moderator.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="180.0">
                                  <children>
-                                    <AnchorPane fx:id="anchorPaneTaskForm" layoutX="250.0" layoutY="162.0" prefHeight="550.0" prefWidth="848.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <AnchorPane fx:id="anchorPaneTaskForm" layoutX="250.0" layoutY="162.0" prefHeight="550.0" prefWidth="848.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
                                           <Label layoutX="418.0" layoutY="483.0" text="okno 4">
                                              <font>
@@ -288,7 +293,7 @@
                                           </Label>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane fx:id="anchorPaneHomeForm" layoutX="-1.0" layoutY="1.0" prefHeight="541.0" prefWidth="947.0" visible="false">
+                                    <AnchorPane fx:id="anchorPaneHomeForm" layoutX="-1.0" layoutY="1.0" prefHeight="541.0" prefWidth="947.0">
                                        <children>
                                           <Label layoutX="418.0" layoutY="483.0" text="okno ">
                                              <font>
@@ -353,57 +358,57 @@
                                     </AnchorPane>
                                     <AnchorPane fx:id="anchorPaneHomeForm2" layoutX="9.0" layoutY="11.0" prefHeight="541.0" prefWidth="947.0" visible="false">
                                        <children>
-                                          <Label layoutX="418.0" layoutY="483.0" text="okno ">
-                                             <font>
-                                                <Font size="36.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="labelT" layoutX="14.0" layoutY="464.0" prefHeight="63.0" prefWidth="336.0" text="Label" textFill="WHITE" visible="false" />
-                                          <Label fx:id="answerDisciplineTeacher" alignment="CENTER" disable="true" layoutX="90.0" layoutY="43.0" prefHeight="31.0" prefWidth="267.0" textAlignment="CENTER" textFill="WHITE">
-                                             <font>
-                                                <Font name="System Bold Italic" size="12.0" />
-                                             </font>
-                                             <stylesheets>
-                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
-                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
-                                             </stylesheets>
-                                             <styleClass>
-                                                <String fx:value="labelPaneText" />
-                                                <String fx:value="border-color" />
-                                             </styleClass>
-                                          </Label>
-                                          <Label fx:id="answerDTypeTaskTeacher" alignment="CENTER" disable="true" layoutX="369.0" layoutY="41.0" prefHeight="31.0" prefWidth="249.0" textAlignment="CENTER" textFill="WHITE">
-                                             <font>
-                                                <Font name="System Bold Italic" size="12.0" />
-                                             </font>
-                                             <stylesheets>
-                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
-                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
-                                             </stylesheets>
-                                             <styleClass>
-                                                <String fx:value="labelPaneText" />
-                                                <String fx:value="border-color" />
-                                             </styleClass>
-                                          </Label>
-                                          <Label fx:id="answerDateTeacher" alignment="CENTER" disable="true" layoutX="630.0" layoutY="41.0" prefHeight="31.0" prefWidth="181.0" textAlignment="CENTER" textFill="WHITE">
-                                             <font>
-                                                <Font name="System Bold Italic" size="12.0" />
-                                             </font>
-                                             <stylesheets>
-                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
-                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
-                                             </stylesheets>
-                                             <styleClass>
-                                                <String fx:value="labelPaneText" />
-                                                <String fx:value="border-color" />
-                                             </styleClass>
-                                          </Label>
-                                          <Label layoutX="630.0" layoutY="14.0" text="Дата" textFill="WHITE">
+                                          <Label fx:id="answerGoodLabel" layoutX="87.0" layoutY="260.0" text="Оценка" textFill="WHITE" visible="false">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="369.0" layoutY="16.0" text="Тип задания" textFill="WHITE">
+                                          <Label fx:id="labelT" layoutX="14.0" layoutY="464.0" prefHeight="63.0" prefWidth="336.0" text="Label" textFill="WHITE" visible="false" />
+                                          <Label fx:id="answerDisciplineTeacher" alignment="CENTER" layoutX="90.0" layoutY="43.0" prefHeight="31.0" prefWidth="421.0" textAlignment="CENTER" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font>
+                                             <stylesheets>
+                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
+                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
+                                             </stylesheets>
+                                             <styleClass>
+                                                <String fx:value="labelPaneText" />
+                                                <String fx:value="border-color" />
+                                             </styleClass>
+                                          </Label>
+                                          <Label fx:id="answerDTypeTaskTeacher" alignment="CENTER" layoutX="535.0" layoutY="40.0" prefHeight="31.0" prefWidth="286.0" textAlignment="CENTER" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font>
+                                             <stylesheets>
+                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
+                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
+                                             </stylesheets>
+                                             <styleClass>
+                                                <String fx:value="labelPaneText" />
+                                                <String fx:value="border-color" />
+                                             </styleClass>
+                                          </Label>
+                                          <Label fx:id="answerDateTeacher" alignment="CENTER" layoutX="538.0" layoutY="121.0" prefHeight="31.0" prefWidth="177.0" textAlignment="CENTER" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font>
+                                             <stylesheets>
+                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
+                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
+                                             </stylesheets>
+                                             <styleClass>
+                                                <String fx:value="labelPaneText" />
+                                                <String fx:value="border-color" />
+                                             </styleClass>
+                                          </Label>
+                                          <Label layoutX="538.0" layoutY="92.0" text="Дата" textFill="WHITE">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="535.0" layoutY="15.0" text="Тип задания" textFill="WHITE">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -413,14 +418,14 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <Pane layoutX="42.0" layoutY="227.0" prefHeight="3.0" prefWidth="864.0" styleClass="Pane" stylesheets="@../Moderator/TeacherCHECK.css" />
-                                          <Label layoutX="42.0" layoutY="230.0" text="Ваш ответ на задание" textFill="WHITE" />
-                                          <TextArea fx:id="answerCommentStudent" layoutX="481.0" layoutY="247.0" prefHeight="145.0" prefWidth="328.0" promptText="Комментарий" styleClass="TextArea" stylesheets="@../Moderator/TeacherCHECK.css">
+                                          <Pane layoutX="42.0" layoutY="207.0" prefHeight="3.0" prefWidth="864.0" styleClass="Pane" stylesheets="@../Moderator/TeacherCHECK.css" />
+                                          <Label layoutX="42.0" layoutY="328.0" text="Ваш ответ на задание" textFill="WHITE" />
+                                          <TextArea fx:id="answerCommentStudent" layoutX="541.0" layoutY="358.0" prefHeight="97.0" prefWidth="270.0" styleClass="TextArea" stylesheets="@../Moderator/TeacherCHECK.css">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </TextArea>
-                                          <Label fx:id="answerFileStudent" alignment="CENTER" disable="true" layoutX="191.0" layoutY="304.0" prefHeight="31.0" prefWidth="267.0" textAlignment="CENTER" textFill="WHITE">
+                                          <Label fx:id="answerFileStudent" alignment="CENTER" layoutX="188.0" layoutY="397.0" prefHeight="31.0" prefWidth="267.0" textAlignment="CENTER" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold Italic" size="12.0" />
                                              </font>
@@ -433,19 +438,19 @@
                                                 <String fx:value="border-color" />
                                              </styleClass>
                                           </Label>
-                                          <Button fx:id="answerOpenFile" layoutX="90.0" layoutY="307.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Открыть" />
-                                          <Label layoutX="191.0" layoutY="275.0" text="Файл" textFill="WHITE">
+                                          <Button fx:id="answerOpenFile" layoutX="87.0" layoutY="400.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Открыть" />
+                                          <Label layoutX="188.0" layoutY="368.0" text="Файл" textFill="WHITE">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <Button fx:id="answerSubmit" layoutX="481.0" layoutY="411.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="Сохранить ответ">
+                                          <Button fx:id="answerSubmit" layoutX="787.0" layoutY="476.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="146.0" text="Сохранить ответ">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Button>
                                           <Button fx:id="answerBack" layoutX="838.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Назад" />
-                                          <TextArea fx:id="answerCommentTeacher" disable="true" layoutX="91.0" layoutY="119.0" prefHeight="98.0" prefWidth="522.0" promptText="Комментарии" styleClass="TextArea" stylesheets="@../Moderator/TeacherCHECK.css">
+                                          <TextArea fx:id="answerCommentTeacher" editable="false" layoutX="87.0" layoutY="121.0" prefHeight="73.0" prefWidth="424.0" styleClass="TextArea" stylesheets="@../Moderator/TeacherCHECK.css">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -455,7 +460,7 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="answerIDTeacher" alignment="CENTER" disable="true" layoutX="27.0" layoutY="41.0" prefHeight="31.0" prefWidth="37.0" textAlignment="CENTER" textFill="WHITE">
+                                          <Label fx:id="answerIDTeacher" alignment="CENTER" layoutX="27.0" layoutY="41.0" prefHeight="31.0" prefWidth="37.0" textAlignment="CENTER" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold Italic" size="12.0" />
                                              </font>
@@ -473,6 +478,36 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
+                                          <Label fx:id="answerGoodtextboxAssessment" alignment="CENTER" disable="true" layoutX="147.0" layoutY="255.0" prefHeight="31.0" prefWidth="120.0" text="Незачет" textAlignment="CENTER" textFill="WHITE" visible="false">
+                                             <font>
+                                                <Font name="System Bold Italic" size="12.0" />
+                                             </font>
+                                             <stylesheets>
+                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
+                                                <URL value="@../Moderator/paneLabelSetMaterial.css" />
+                                             </stylesheets>
+                                             <styleClass>
+                                                <String fx:value="labelPaneText" />
+                                                <String fx:value="border-color" />
+                                             </styleClass>
+                                          </Label>
+                                          <TextArea fx:id="answerGoodtextboxComment" editable="false" layoutX="543.0" layoutY="236.0" prefHeight="69.0" prefWidth="267.0" styleClass="TextArea" stylesheets="@../Moderator/TeacherCHECK.css" visible="false">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextArea>
+                                          <Label fx:id="answerGoodComment" layoutX="543.0" layoutY="216.0" text="Комментарии к ответу" textFill="WHITE" visible="false">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Pane layoutX="42.0" layoutY="323.0" prefHeight="3.0" prefWidth="864.0" styleClass="Pane" stylesheets="@../Moderator/TeacherCHECK.css" />
+                                          <Label fx:id="answerGoodComment1" layoutX="542.0" layoutY="335.0" text="Комментарии" textFill="WHITE">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="42.0" layoutY="208.0" text="Ответ преподавателя" textFill="WHITE" />
                                        </children>
                                     </AnchorPane>
                                  </children>

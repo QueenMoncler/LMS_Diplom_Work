@@ -16,12 +16,16 @@ import Moderator.Theme.AddNewTheme;
 import Moderator.Theme.GetObservableList;
 import Moderator.Theme.GetThemeTable;
 import Moderator.discipline.AddNewDisciplineTicher;
+import com.example.lms_diplom_work.HelloApplication;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -254,6 +258,9 @@ public class ModeratorController implements Initializable {
     @FXML
     private CheckBox themeCheckZhilina;
 
+    @FXML
+    private Label cardsMainNameTeacherLabel;
+
 
 
     @FXML
@@ -277,6 +284,9 @@ public class ModeratorController implements Initializable {
 
     @FXML
     private Button studentsBtn;
+
+    @FXML
+    private Button smenitButton;
 
     @FXML
     private Button taskBtn;
@@ -460,28 +470,58 @@ public class ModeratorController implements Initializable {
         });
 
     }
+private static int teacherCardSwitchId = 0;
 
-    public void teacherCardSwitch() {
+    public String getCountNeprochitano(String surname) throws SQLException {
+        int x = 0;
+        CommandsSQL_Teachers commandsSQL_teachers = new CommandsSQL_Teachers();
+        for(int i = 0; i < Integer.parseInt(commandsSQL_teachers.getCountDisciplineTeacher(surname)); i++){
+            x += Integer.parseInt(commandsSQL_teachers.getCountNeprochitano(commandsSQL_teachers.getDisciplineNameSurname(surname).get(i)));
+            //System.out.println(commandsSQL_teachers.getCountNeprochitano(commandsSQL_teachers.getDisciplineNameSurname(surname).get(i)));
+            //System.out.println(commandsSQL_teachers.getDisciplineNameSurname(surname).get(i));
+        }
+        return String.valueOf(x);
+    }
+    public void teacherCardSwitch() throws SQLException {
+        CommandsSQL_Teachers commandsSQL_teachers = new CommandsSQL_Teachers();
+        cardsMainNameTeacherLabel.setText(commandsSQL_teachers.getAllTeach().get(teacherCardSwitchId));
+        if((teacherCardSwitchId + 1) < Integer.parseInt(commandsSQL_teachers.getAmountAllTeachers())){
+            teacherCardSwitchId++;
+        }
+        else {
+            teacherCardSwitchId = 0;
+        }
+
         arrowSwitchBtn.setOnAction(ActionEvent -> {
-            if (zhilinaCards.isVisible()) {
-                zhilinaCards.setVisible(false);
-                knyazevCards.setVisible(true);
+            try {
+                //System.out.println(teacherCardSwitchId);
 
-            } else if (knyazevCards.isVisible()) {
-                knyazevCards.setVisible(false);
-                pivtoratskayaCards.setVisible(true);
-
-            } else if (pivtoratskayaCards.isVisible()) {
-                pivtoratskayaCards.setVisible(false);
-                vornikovaCards.setVisible(true);
-            } else if (vornikovaCards.isVisible()) {
-                khaustovaCards.setVisible(true);
-                vornikovaCards.setVisible(false);
+                teacherCardSwitch();
+                String name[] = cardsMainNameTeacherLabel.getText().split(" ");
+                amountThemeZhilinaCards.setText(commandsSQL_teachers.getCountDisciplineTeacher(name[1]));
+                amountTaskZhilinaCards.setText(getCountNeprochitano(name[1]));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-            else if (khaustovaCards.isVisible()){
-                khaustovaCards.setVisible(false);
-                zhilinaCards.setVisible(true);
-            }
+//            if (zhilinaCards.isVisible()) {
+//                zhilinaCards.setVisible(false);
+//                knyazevCards.setVisible(true);
+//
+//            } else if (knyazevCards.isVisible()) {
+//                knyazevCards.setVisible(false);
+//                pivtoratskayaCards.setVisible(true);
+//
+//            } else if (pivtoratskayaCards.isVisible()) {
+//                pivtoratskayaCards.setVisible(false);
+//                vornikovaCards.setVisible(true);
+//            } else if (vornikovaCards.isVisible()) {
+//                khaustovaCards.setVisible(true);
+//                vornikovaCards.setVisible(false);
+//            }
+//            else if (khaustovaCards.isVisible()){
+//                khaustovaCards.setVisible(false);
+//                zhilinaCards.setVisible(true);
+//            }
         });
 
     }
@@ -585,7 +625,7 @@ public class ModeratorController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Диалоговое окно");
         alert.setHeaderText(null);
-        alert.setContentText("Информация усЫпешно добавлена");
+        alert.setContentText("Информация успешно добавлена");
         alert.showAndWait();
     }
 
@@ -596,8 +636,9 @@ public class ModeratorController implements Initializable {
 
         new SelectList(taskListView, taskLabel);
         setImageCircleTeacher();
-        teacherCardSwitch();
+
         try {
+            teacherCardSwitch();
             setStudentComboBox();
             actionTaskList();
             initialDisciplineCombobox();
@@ -740,10 +781,31 @@ public class ModeratorController implements Initializable {
             stage.close();
         });
 
+
         //new ToggleRadioButton(radioBtnMen, radioBtnWomen);
         ToggleRadioButton toggleRadioButton = new ToggleRadioButton();
         toggleRadioButton.toggleRadioGender(radioBtnMen, radioBtnWomen);
         toggleRadioButton.toggleRadioDiscipline(radioDZ, radioSamostoyalki, radioMetodichki);
+
+        smenitButton.setOnAction(ActionEvent->{
+            openSceneLogin();
+            Stage stage = (Stage) smenitButton.getScene().getWindow();
+            stage.hide();
+        });
+    }
+    public void openSceneLogin(){
+        Parent root2;
+        try {
+            root2 = FXMLLoader.load(HelloApplication.class.getResource("hello-view.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage stg2 = new Stage();
+        Scene scene = new Scene(root2);
+
+        stg2.setScene(scene);
+        stg2.show();
+
     }
 
 }

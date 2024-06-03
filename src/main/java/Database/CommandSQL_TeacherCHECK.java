@@ -5,7 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CommandSQL_TeacherCHECK extends ConnectDB{
     public CommandSQL_TeacherCHECK() throws SQLException {
@@ -154,6 +156,7 @@ public class CommandSQL_TeacherCHECK extends ConnectDB{
         String query = "update student.task_testing_for_teacher " +
                 "set assessment = '"+assessment+"', " +
                 "comment_assessment = '"+comment+"', " +
+                "status = '"+assessment+"', " +
                 "date_assessment = NOW() " +
                 "where id = "+id+"; ";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -177,10 +180,12 @@ public class CommandSQL_TeacherCHECK extends ConnectDB{
         return null;
     }
     public String updateTaskFromStudent(String id, String assessment)throws SQLException{
-        String query = "update student.task_from_student set status = '"+assessment+"' where id = "+id+"'";
+        String query = "update student.task_from_student set status = '"+assessment+"' where id = "+id+"";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.executeUpdate();
             return "Успешно";
         }
     }
+
+
 }

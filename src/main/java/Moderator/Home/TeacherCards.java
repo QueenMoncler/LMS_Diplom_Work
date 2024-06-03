@@ -18,11 +18,11 @@ public class TeacherCards {
     }
 
 
-    private URL urlTeacherZhilina = getClass().getResource("/Images/zhilina.png");
-    private URL urlTeacherKnyazev = getClass().getResource("/Images/knyazev.png");
-    private URL urlPivtoratskaya = getClass().getResource("/Images/vornikova.png");
-    private URL urlVornikova = getClass().getResource("/Images/vornikova.png");
-    private URL urlKhaustova = getClass().getResource("/Images/khaustova.png");
+    private URL urlTeacherZhilina = getClass().getResource("/Images/unknown.png");
+    private URL urlTeacherKnyazev = getClass().getResource("/Images/unknown.png");
+    private URL urlPivtoratskaya = getClass().getResource("/Images/unknown.png");
+    private URL urlVornikova = getClass().getResource("/Images/unknown.png");
+    private URL urlKhaustova = getClass().getResource("/Images/unknown.png");
     Map<Integer, Image> teacherStaff = new HashMap<>();
 
     public void setStaff() {
